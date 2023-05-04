@@ -7,7 +7,7 @@ public class Athlete {
 	
 	public String name;
 	public String nickName = name;
-	public HashMap<String, String> stats;
+	public HashMap<String, Integer> stats;
 	public int wage;
 	public int sellPrice;
 	public int buyPrice;
@@ -16,18 +16,18 @@ public class Athlete {
 	public String position;
 	public int rarity;
 	
-	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, String[] value) {
+	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, int[] value) {
 		this.name = name;
 		this.wage = wage;
 		this.sellPrice = sellPrice;
 		this.buyPrice = buyPrice;
 		this.position = position;
 		this.rarity = rarity;
-		this.stats = new HashMap<String, String>();
+		this.stats = new HashMap<String, Integer>();
 		
-		String[] holder = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
+		String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
 		for (int i = 0; i < 6; i++) {
-			this.stats.put(holder[i], value[i]);
+			this.stats.put(attributes[i], value[i]);
 		}
 	}
 	
@@ -53,26 +53,26 @@ public class Athlete {
 	
 	public void reduceStamina() {
 		
-		String holder = this.stats.get("Fitness");
-		if (this.stamina - (100 - Integer.parseInt(holder)) <= 0) {
+		int holder = this.stats.get("Fitness");
+		if (this.stamina - (100 - holder) <= 0) {
 			this.injury();
 			this.stamina = 0;
 			System.out.printf(this.name + " Is now injured due to lack of stamina");
 			System.out.println();
 		}
 		else{
-			this.stamina -= 100 - Integer.parseInt(holder);  
+			this.stamina -= 100 - holder;  
 		}
 	}
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] tester = new String[]{"1", "2", "345", "54", "65", "1"};
+		int[] tester = new int[]{1, 2, 3, 4, 6, 90};
 		
 		Athlete liam = new Athlete("liam", 10, 10, 10, false, "rb", 90, tester);
 		liam.changeNickName("test");
-		System.out.println(liam.stamina);
+		System.out.println(liam.stats);
 		liam.reduceStamina();
 		System.out.println(liam.stamina);
 		
