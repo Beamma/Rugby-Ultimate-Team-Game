@@ -19,11 +19,12 @@ public class Item {
 		}
 	}
 	
-	public void useItem(Athlete athlete) {
+	public void useItem(Athlete athlete) { /* make this method return a string saying " used <item name> boosting his <stat> stat by <value> */
 		String[] holder = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"}; 
 		for (int i = 0; i < 6; i++) {
 			athlete.stats.put(athlete.stats.get(holder[i]), athlete.stats.get(holder[i]) + (this.stats.get(holder[i])));
 		}
+	
 	}
 	public static void main(String[] args) {
 		
