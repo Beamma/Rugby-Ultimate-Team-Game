@@ -9,10 +9,17 @@ public class Team {
 	
 	public void addPlayer(Athlete athlete){
 		this.players.add(athlete);
+		if (this.players.size() == 20) {
+			System.out.println("Your team is already full, try swapping a player");
+		}
 	}
 	
 	public void removePlayer(Athlete athlete) {
-		this.players.remove(athlete);
+		if (this.players.contains(athlete)) {
+			this.players.remove(athlete);
+		} else {
+			System.out.println("The athlete you've chosen is not currently in the team.");
+		}
 	}
 	
 	public void swapPlayer(Athlete athlete1, Athlete athlete2) {
@@ -26,7 +33,7 @@ public class Team {
 	
 	public void reduceStamina() {
 		for (Athlete athlete: this.players) {
-			athlete.reduceStamina(20);
+			athlete.reduceStamina();
 		}
 	}
 	
@@ -34,6 +41,7 @@ public class Team {
 		for (Athlete athlete: this.players) {
 			athlete.rest();
 		}
+		System.out.println("Your athletes all now fully rested and have max stamina");
 	}
 	
 	public boolean checkReady() {
@@ -48,7 +56,6 @@ public class Team {
 	public void printTeamInfo(){
 		for (Athlete athlete: this.players) {
 			System.out.println(athlete.nickName);
-			System.out.println(athlete.stamina);
 		}
 	}
 	
