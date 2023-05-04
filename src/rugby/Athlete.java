@@ -51,26 +51,27 @@ public class Athlete {
 		this.injured = true;
 	}
 	
-	public void reduceStamina(double value) {
-		if (this.stamina - value < 0) {
+	public void reduceStamina() {
+		
+		String holder = this.stats.get("Fitness");
+		if (this.stamina - (100 - Integer.parseInt(holder)) <= 0) {
 			this.injury();
 			this.stamina = 0;
 		}
 		else{
-			String holder = this.stats.get("Fitness");
-			this.stamina -= value / (Double.parseDouble(holder)/100);  
+			this.stamina -= 100 - Integer.parseInt(holder);  
 		}
 	}
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] tester = new String[]{"1", "2", "345", "54", "65", "70"};
+		String[] tester = new String[]{"1", "2", "345", "54", "65", "1"};
 		
 		Athlete liam = new Athlete("liam", 10, 10, 10, false, "rb", 90, tester);
 		liam.changeNickName("test");
 		System.out.println(liam.stamina);
-		liam.reduceStamina(20);
+		liam.reduceStamina();
 		System.out.println(liam.stamina);
 		
 	}
