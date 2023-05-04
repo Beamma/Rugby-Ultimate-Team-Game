@@ -70,9 +70,10 @@ public class Team {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Athlete joel = new Athlete();
+		String[] tester = new String[]{"1", "2", "345", "54", "65", "70"};
+		Athlete joel = new Athlete("Joel", 10, 10, 10, false, "rb", 90, tester);
 		joel.changeNickName("Joel");
-		Athlete liam = new Athlete();
+		Athlete liam = new Athlete("Liam", 10, 10, 10, false, "rb", 90, tester);
 		liam.changeNickName("Liam");
 		Team hrfc =  new Team();
 		hrfc.addPlayer(joel);
@@ -80,7 +81,7 @@ public class Team {
 		
 		hrfc.printTeamInfo();
 		
-		Athlete ed = new Athlete();
+		Athlete ed = new Athlete("Ed", 10, 10, 10, false, "rb", 90, tester);
 		ed.changeNickName("ed");
 		hrfc.swapPlayer(ed, liam);
 		
