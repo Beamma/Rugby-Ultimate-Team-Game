@@ -1,5 +1,6 @@
 package rugby;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Team {
 	private ArrayList<Athlete> players = new ArrayList<Athlete>();
@@ -19,14 +20,75 @@ public class Team {
 		this.addPlayer(athlete1);
 	}
 	
+	public ArrayList<Athlete> getAthletes(){
+		return this.players;
+	}
 	
+	public void reduceStamina() {
+		for (Athlete athlete: this.players) {
+			athlete.reduceStamina(20);
+		}
+	}
+	
+	public void maxStamina() {
+		for (Athlete athlete: this.players) {
+			athlete.rest();
+		}
+	}
+	
+	public boolean checkReady() {
+		for (Athlete athlete: this.players) {
+			if (athlete.injured == true) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void printTeamInfo(){
+		for (Athlete athlete: this.players) {
+			System.out.println(athlete.nickName);
+			System.out.println(athlete.stamina);
+		}
+	}
+	
+	public Athlete selectAthlete() {
+		
+		int count = 0;
+		for (Athlete athlete: this.players) {
+			count += 1;
+			System.out.printf(String.valueOf(count) + ": " + athlete.nickName);
+			System.out.println();
+		}
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please Select One Of The Above Players:");
+		int athlete = input.nextInt();
+		return this.players.get(athlete-1);
+		
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Athlete joel = new Athlete();
+		joel.changeNickName("Joel");
+		Athlete liam = new Athlete();
+		liam.changeNickName("Liam");
 		Team hrfc =  new Team();
 		hrfc.addPlayer(joel);
-		System.out.println(hrfc.players);
+		hrfc.addPlayer(liam);
+		
+		hrfc.printTeamInfo();
+		
+		Athlete ed = new Athlete();
+		ed.changeNickName("ed");
+		hrfc.swapPlayer(ed, liam);
+		
+		hrfc.printTeamInfo();
+		
+		Athlete a = hrfc.selectAthlete();
+		System.out.println(a.nickName);
+		
 	}
 
 }
