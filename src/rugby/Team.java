@@ -77,7 +77,7 @@ public class Team {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] tester = new String[]{"1", "2", "345", "54", "65", "20"};
+		int[] tester = new int[]{1, 2, 345, 54, 65, 20};
 		Athlete joel = new Athlete("Joel", 10, 10, 10, false, "rb", 90, tester);
 		joel.changeNickName("Joel");
 		Athlete liam = new Athlete("Liam", 10, 10, 10, false, "rb", 90, tester);
