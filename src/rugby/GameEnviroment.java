@@ -31,6 +31,13 @@ public class GameEnviroment {
 		}
 	}
 	
+	public static Athlete generatePlayer() {
+		
+		/* Code Here */
+		
+		return athlete;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
