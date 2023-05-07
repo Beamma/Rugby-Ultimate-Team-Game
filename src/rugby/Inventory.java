@@ -7,6 +7,7 @@ public class Inventory {
 	
 	private ArrayList<Athlete> players = new ArrayList<Athlete>();
 	private ArrayList<Item> items = new ArrayList<Item>();
+	public Team team = new Team();
 	
 	public void addPlayer(Athlete athlete) {
 		players.add(athlete);
@@ -84,6 +85,14 @@ public class Inventory {
 		int athlete = input.nextInt();
 		return this.players.get(athlete-1);
 		
+	}
+	
+	public int getPlayerWages(){
+		int weeklyWage = 0;
+		for (Athlete player : players) {
+			weeklyWage += player.wage;
+		}
+		return weeklyWage;
 	}
 	
 	public static void main(String[] args) {

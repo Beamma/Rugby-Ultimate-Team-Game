@@ -6,30 +6,30 @@ public class RandomEvent {
 	
 	public int event = 0;
 	
-	public void randomEvents() {
+	public static void randomEvents(int randnomness) {
 		
 		Random rand = new Random();  
-		int event = rand.nextInt(3);
+		int event = rand.nextInt(randnomness);
 		
-		if (event == 0) {
+		if (event == 1) {
 			newPlayer();
-		}else if (event == 1){
+		}else if (event == 2){
 			playerLeaves();
-		}else {
+		}else if (event == 3){
 			playerInjured();
 		}
 	}
 	
 	public void newPlayer(){
-		System.out.printf(" Is now injured due to lack of stamina");
+		System.out.printf("A new player has joined your club");
 	}
 	
 	public void playerLeaves(){
-		System.out.printf(" Is now in");
+		System.out.printf("A player has left your club");
 	}
 	
 	public void playerInjured(){
-		System.out.printf(" Is now injured due ");
+		System.out.printf(" A player is now injured");
 	}
 	
 	
