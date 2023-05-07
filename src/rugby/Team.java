@@ -47,6 +47,7 @@ public class Team {
 	public boolean checkReady() {
 		for (Athlete athlete: this.players) {
 			if (athlete.injured == true) {
+				System.out.println("You cannot participate in a match as one or more of your players are injured please swap them out of your squad");
 				return false;
 			}
 		}
@@ -55,7 +56,7 @@ public class Team {
 	
 	public void printTeamInfo(){
 		for (Athlete athlete: this.players) {
-			System.out.println(athlete.nickName);
+			System.out.println(athlete.stamina);
 		}
 	}
 	

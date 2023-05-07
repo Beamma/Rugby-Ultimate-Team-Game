@@ -61,7 +61,7 @@ public class Athlete {
 			System.out.println();
 		}
 		else{
-			this.stamina -= 100 - holder;  
+			this.stamina -= (100 - holder);  
 		}
 	}
 	
