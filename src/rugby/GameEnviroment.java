@@ -2,6 +2,7 @@ package rugby;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;  
 
 public class GameEnviroment {
 	private int money = 0;
@@ -19,7 +20,7 @@ public class GameEnviroment {
 			this.money += amount;
 			return true;
 		}
-	}
+	} 
 	
 	private void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
@@ -33,14 +34,35 @@ public class GameEnviroment {
 	
 	public static Athlete generatePlayer() {
 		
-		/* Code Here */
+		int[] tester = new int[]{0, 0, 0, 0, 0, 0};
+		Random r = new Random();
+		int low = 50;
+		int high = 100;
+		int result = r.nextInt(high-low) + low;
+		int rarity = 0;
 		
-		return athlete;
+		for (int i = 0; i < 6; i++) {
+			int holder = r.nextInt((result+10)-(result-10)) + (result-10);
+			if (holder > 99) {
+				tester[i] = 99;
+				rarity += 99;
+			}else {
+			tester[i] = holder;
+			rarity += holder;
+			}
+		}
+		
+		String name = "liam";
+		String position = "cb";
+		int buyPrice = (rarity/6)*20;
+		int sellPrice = (rarity/6)*15;
+		int wage = (rarity/6)*8;
+		
+		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity/6, tester));
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
 
 }
