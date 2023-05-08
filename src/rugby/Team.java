@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Team {
-	private ArrayList<Athlete> players = new ArrayList<Athlete>();
+	public ArrayList<Athlete> players = new ArrayList<Athlete>();
 	private String teamName;
 	private String seasonInfo;
 	
