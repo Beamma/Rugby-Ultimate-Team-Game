@@ -88,11 +88,23 @@ public class GameEnviroment {
 		return(new Item(item, price, tester));
 	}
 	
+	public static Team generateTeam(int diffuculty){
+	    Team opisiton = new Team();
+	    for (int i = 0; i < 15; i++){
+	        Athlete random = GameEnviroment.generatePlayer();
+	        opisiton.addPlayer(random);
+	    }
+	    return opisiton;
+	}
+
+	    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Athlete ed = generatePlayer();
 		Item wads = generateItem();
 		System.out.println(wads.stats);
+		Team a = generateTeam(1);
+		a.printTeamInfo();
 	}
 
 }
