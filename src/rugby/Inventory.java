@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Inventory {
 	
-	private ArrayList<Athlete> players = new ArrayList<Athlete>();
+	public ArrayList<Athlete> players = new ArrayList<Athlete>();
 	private ArrayList<Item> items = new ArrayList<Item>();
 	public Team team = new Team();
 	
