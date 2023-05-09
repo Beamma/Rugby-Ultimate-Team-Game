@@ -51,8 +51,9 @@ public class GameEnviroment {
 			rarity += holder;
 			}
 		}
-		
-		String name = "liam";
+	   
+		String[] nameGenerator = new String[] {"bob", "tim", "joel", "liam"};
+		String name = nameGenerator[r.nextInt(3)];
 		String position = "cb";
 		int buyPrice = (rarity/6)*20;
 		int sellPrice = (rarity/6)*15;
@@ -61,9 +62,37 @@ public class GameEnviroment {
 		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity/6, tester));
 	}
 	
+	public static Item generateItem() {
+		
+		int[] tester = new int[]{0, 0, 0, 0, 0, 0};
+		Random r = new Random();
+		int low = 1;
+		int high = 10;
+		int result = r.nextInt(high-low) + low;
+		
+		for (int i = 0; i < 6; i++) {
+			int holder = r.nextInt((result+2)-(result-2)) + (result-2);
+			if (holder > 10) {
+				tester[i] = 10;
+			}else if (holder < 0) {
+				tester[i] = 0;
+			}else{
+				tester[i] = holder;
+			}
+		}
+	   
+		String[] itemGenerator = new String[] {"water", "poweraid", "joel", "liam"};
+		String item = itemGenerator[r.nextInt(4)];
+		int price = 100;
+		
+		return(new Item(item, price, tester));
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Athlete ed = generatePlayer();
+		Item wads = generateItem();
+		System.out.println(wads.stats);
 	}
 
 }

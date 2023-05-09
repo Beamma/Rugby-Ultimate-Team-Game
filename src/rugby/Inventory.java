@@ -87,6 +87,12 @@ public class Inventory {
 		
 	}
 	
+	public void displayAthletes() {
+		for (Athlete player : players) {
+			System.out.println(player.name);
+		}
+	}
+	
 	public int getPlayerWages(){
 		int weeklyWage = 0;
 		for (Athlete player : players) {
