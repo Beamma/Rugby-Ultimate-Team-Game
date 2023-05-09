@@ -12,7 +12,6 @@ public class GameEnviroment {
 	private ArrayList<Team> bracket;
 	private HashMap<String, Integer> standings;
 	public Inventory club = new Inventory();
-//	public MarketPlace marketPlace = new MarketPlace();
 	
 	
 	public boolean moneyTransfer(int amount) {
