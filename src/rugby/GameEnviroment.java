@@ -5,13 +5,15 @@ import java.util.HashMap;
 import java.util.Random;  
 
 public class GameEnviroment {
-	private int money = 0;
+	protected int money = 1000;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 0;
 	private ArrayList<Team> bracket;
 	private HashMap<String, Integer> standings;
 	public Inventory club = new Inventory();
+//	public MarketPlace marketPlace = new MarketPlace();
+	
 	
 	public boolean moneyTransfer(int amount) {
 		if ((this.money += amount) < 0) {
@@ -101,10 +103,9 @@ public class GameEnviroment {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Athlete ed = generatePlayer();
-		Item wads = generateItem();
-		System.out.println(wads.stats);
-		Team a = generateTeam(1);
-		a.printTeamInfo();
+		MarketPlace market = new MarketPlace();
+		market.buyObject(ed);
+		
 	}
 
 }
