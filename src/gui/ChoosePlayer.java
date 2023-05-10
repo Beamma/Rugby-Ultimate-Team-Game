@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class ChoosePlayer {
@@ -35,10 +36,16 @@ public class ChoosePlayer {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 850, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		for(int i = 0; i < 3; ++i) {
+            frame.add(new JButton("" + i).setSize(50, 50););
+        }
 	}
 
 }

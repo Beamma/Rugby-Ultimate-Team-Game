@@ -6,8 +6,13 @@ import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import seng201.assignment.gui.PlayerChoosingWindow;
+
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -15,8 +20,8 @@ import javax.swing.BoxLayout;
 import java.awt.Font;
 import javax.swing.JSlider;
 
-public class GameStartWindow {
-
+public class GameStartWindow{
+	
 	private JFrame frame;
 
 	/**
@@ -57,8 +62,16 @@ public class GameStartWindow {
 		title.setBounds(377, 164, 61, 41);
 		frame.getContentPane().add(title);
 		
+		
 		JButton startButton = new JButton("play");
-		startButton.setBounds(281, 404, 270, 51);
-		frame.getContentPane().add(startButton);
+		startButton.setSize(50,50);
+		startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+            	dispose();
+                SetupScreen newWindow = new SetupScreen();
+                newWindow.setVisible(true);
+            }
+        });
 	}
 }
