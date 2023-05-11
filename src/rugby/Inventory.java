@@ -7,7 +7,12 @@ public class Inventory {
 	
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
 	private ArrayList<Item> items = new ArrayList<Item>();
-	public Team team = new Team();
+	public Team team;
+	private GameEnviroment game;
+	
+	public Inventory(GameEnviroment game) {
+		this.game = game;
+	}
 	
 	public void addPlayer(Athlete athlete) {
 		players.add(athlete);
