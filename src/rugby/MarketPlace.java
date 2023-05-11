@@ -5,8 +5,12 @@ import java.util.ArrayList;
 public class MarketPlace extends GameEnviroment{
 	private ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
 	private ArrayList<Item> itemsForSale = new ArrayList<Item>();
+	private GameEnviroment game;
+	private Inventory club;
 	
-	public MarketPlace() {
+	public MarketPlace(GameEnviroment game, Inventory club) {
+		this.game = game;
+		this.club = club;
 		updateMarket();
 	}
 	
@@ -17,27 +21,25 @@ public class MarketPlace extends GameEnviroment{
 		}
 	}
 	
-	public void buyObject(Object thing) {
-		if (moneyTransfer(-100)) {
+	public void buyObject(Athlete athlete) {
+		if (game.moneyTransfer(-100)) {
 			System.out.println("Success");
+			club.addPlayer(athlete);
 		} else {
 			System.out.println("Fail");
 		}
-		
 	}
 	
-	public void test() {
-		money += 100;
+	public void sellObject(Athlete athlete) {
+		game.moneyTransfer(athlete.sellPrice);
+		club.removePlayer(athlete);
+		System.out.printf("Sold %s for %s", athlete.name, athlete.sellPrice);
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		MarketPlace market = new MarketPlace();
-		market.updateMarket();
-		Athlete ed = GameEnviroment.generatePlayer();
-		market.buyObject(ed);
+		// TODO Auto-generated method stup
 		
 		
 	}

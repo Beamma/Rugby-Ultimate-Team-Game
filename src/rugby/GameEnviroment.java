@@ -5,33 +5,34 @@ import java.util.HashMap;
 import java.util.Random;  
 
 public class GameEnviroment {
-	protected int money = 1000;
+	public int money = 1000;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 0;
 	private ArrayList<Team> bracket;
 	private HashMap<String, Integer> standings;
-	public Inventory club = new Inventory();
+	private Inventory club;
 	
-	
-	public boolean moneyTransfer(int amount) {
-		if ((this.money += amount) < 0) {
-			return false;
-		} else {
-			this.money += amount;
-			return true;
-		}
-	} 
 	
 	private void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;
 			int randomness = (20 - (3*this.difficulty));
-			RandomEvent.randomEvents(randomness);
+			System.out.println(this.week);
+//			RandomEvent.randomEvents(randomness);
 		} else {
 			System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
 		}
 	}
+	
+	public boolean moneyTransfer(int amount){
+		if ((this.money += amount) < 0) {
+			this.money -= amount;
+			return false;
+		} else {
+			return true;
+		}
+	} 
 	
 	public static Athlete generatePlayer() {
 		
@@ -101,9 +102,21 @@ public class GameEnviroment {
 	    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		GameEnviroment game = new GameEnviroment();
+		Inventory club = new Inventory(game);
+		game.club = club;
+		MarketPlace market = new MarketPlace(game, club);
+		Team team = new Team();
+		club.team = team;
+		
 		Athlete ed = generatePlayer();
-		MarketPlace market = new MarketPlace();
 		market.buyObject(ed);
+		System.out.println(game.money);
+		game.updateWeek();
+		System.out.println(game.money);
+		market.sellObject(ed);
+		System.out.println(game.money);
 		
 	}
 
