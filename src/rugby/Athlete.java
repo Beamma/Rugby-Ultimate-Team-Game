@@ -65,6 +65,10 @@ public class Athlete {
 		}
 	}
 	
+	public void athleteOptions() {
+		System.out.println("Options");
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

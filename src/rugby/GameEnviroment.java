@@ -142,8 +142,9 @@ public class GameEnviroment {
 		System.out.println(game.money);
 		game.updateWeek();
 		System.out.println(game.money);
-		market.sellObject(ed);
-		System.out.println(game.money);
+		club.returnInventory();
+		
+		
 	}
 
 }

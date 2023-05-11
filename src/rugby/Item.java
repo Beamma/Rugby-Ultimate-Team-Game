@@ -35,6 +35,10 @@ public class Item {
 			}
 		}
 	}
+	
+	public void itemOptions() {
+		System.out.println("Options");
+	}
 	public static void main(String[] args) {
 		
 		int[] tester = new int[]{1, 0, 3, 4, 6, 5};

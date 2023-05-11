@@ -81,7 +81,7 @@ public class Inventory {
 		int count = 0;
 		for (Athlete athlete: this.players) {
 			count += 1;
-			System.out.printf(String.valueOf(count) + ": " + athlete.nickName);
+			System.out.printf(String.valueOf(count) + ": " + athlete.name);
 			System.out.println();
 		}
 		
@@ -106,9 +106,31 @@ public class Inventory {
 		return weeklyWage;
 	}
 	
+	public void returnInventory() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Would you like to view 1:Players or 2:Items or 3:Team Roster: ");
+		int option = input.nextInt();
+		if (option == 1) {
+			Athlete player = selectAthlete();
+			player.athleteOptions();
+		}
+		
+		else if (option == 2){
+			Item item = selectItem();
+			item.itemOptions();
+		}
+		
+		else if (option == 3){
+			Athlete player = team.selectAthlete();
+			player.athleteOptions();
+		} else {
+			System.out.println("Invalid option selected please try again");
+			this.returnInventory();
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
 
 }
