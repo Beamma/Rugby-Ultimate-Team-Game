@@ -2,7 +2,11 @@ package rugby;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;  
+import java.util.Random;
+
+import gui.HomeScreen;
+import gui.MainScreen;
+import gui.SetupScreen;  
 
 public class GameEnviroment {
 	public int money = 1000;
@@ -98,11 +102,34 @@ public class GameEnviroment {
 	    }
 	    return opisiton;
 	}
-
+	
+	public void launchMainScreen() {
+		HomeScreen mainWindow = new HomeScreen(this);
+	}
+	
+	public void closeMainScreen(MainScreen mainWindow) {
+		mainWindow.closeWindow();
+	}
+	
+	public void launchSetupScreen() {
+		SetupScreen setupWindow = new SetupScreen(this);
+	}
+	
+	public void closeSetupScreen(SetupScreen setupWindow) {
+		setupWindow.closeWindow();
+	}
+	
+	
 	    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		HomeScreen manager = new HomeScreen();
+		manager.launchSetupScreen();
+		/*
+		 * 
+		 * 
+		 */
 		GameEnviroment game = new GameEnviroment();
 		Inventory club = new Inventory(game);
 		game.club = club;
