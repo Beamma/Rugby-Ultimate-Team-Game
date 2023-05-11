@@ -27,10 +27,12 @@ public class SetupScreen {
 		window.dispose();
 	}
 	
+	public void finishedWindow() {
+		envior.closeSetupScreen(this);
+	}
 
 	private void initialize() {
-		envior.closeSetupScreen();
-
+		window = new JFrame();
 		
 	}
 }

@@ -103,11 +103,11 @@ public class GameEnviroment {
 	    return opisiton;
 	}
 	
-	public void launchMainScreen() {
+	public void launchHomeScreen() {
 		HomeScreen mainWindow = new HomeScreen(this);
 	}
 	
-	public void closeMainScreen(MainScreen mainWindow) {
+	public void closeMainScreen(HomeScreen mainWindow) {
 		mainWindow.closeWindow();
 	}
 	
@@ -124,8 +124,8 @@ public class GameEnviroment {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		HomeScreen manager = new HomeScreen();
-		manager.launchSetupScreen();
+		GameEnviroment manager = new GameEnviroment();
+		manager.launchHomeScreen();
 		/*
 		 * 
 		 * 
