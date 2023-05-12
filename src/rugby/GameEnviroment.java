@@ -18,8 +18,12 @@ public class GameEnviroment {
 	private Inventory club;
 	
 	
-	public GameEnviroment() {
-		
+	public void setdifficulty(int value) {
+		this.difficulty = value;
+	}
+	
+	public void setName(String name){
+		this.teamName = name;
 	}
 	
 	private void updateWeek() {
@@ -111,8 +115,9 @@ public class GameEnviroment {
 		HomeScreen mainWindow = new HomeScreen(this);
 	}
 	
-	public void closeMainScreen(HomeScreen mainWindow) {
-		mainWindow.closeWindow();
+	public void closeHomeScreen(HomeScreen homeWindow) {
+		homeWindow.closeWindow();
+		launchSetupScreen();
 	}
 	
 	public void launchSetupScreen() {
@@ -121,6 +126,7 @@ public class GameEnviroment {
 	
 	public void closeSetupScreen(SetupScreen setupWindow) {
 		setupWindow.closeWindow();
+		launchHomeScreen();
 	}
 	
 	
@@ -128,8 +134,8 @@ public class GameEnviroment {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		GameEnviroment manager = new GameEnviroment();
-//		manager.launchSetupScreen();
+		GameEnviroment manager = new GameEnviroment();
+		manager.launchSetupScreen();
 		/* 
 		 * 
 		 * 
