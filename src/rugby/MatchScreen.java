@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SetupScreen {
+public class MatchScreen {
 	
 
 	private JFrame frame;
@@ -26,7 +26,7 @@ public class SetupScreen {
 	private JLabel lblNewLabel;
 
 	
-	public SetupScreen(GameEnviroment enviroment){
+	public MatchScreen(GameEnviroment enviroment){
 		this.enviroment = enviroment;
 		initialize();
 		frame.setVisible(true);
@@ -37,7 +37,7 @@ public class SetupScreen {
 	}
 	
 	public void finishedWindow() {
-		enviroment.closeSetupScreen(this);
+		enviroment.closeMatchScreen(this);
 	}
 	
 
@@ -47,22 +47,17 @@ public class SetupScreen {
 		frame.getContentPane().setLayout(null);
 		
 		
-		JButton btnNewButton = new JButton("Next");
+		JButton btnNewButton = new JButton("home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.setName(random.getText());
 				finishedWindow();
 			}
 		});
 		btnNewButton.setBounds(168, 161, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		random = new JTextField();
-		random.setBounds(125, 42, 168, 55);
-		frame.getContentPane().add(random);
-		random.setColumns(10);
 		
-		lblNewLabel = new JLabel("setup");
+		lblNewLabel = new JLabel("Match");
 		lblNewLabel.setBounds(107, 390, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		

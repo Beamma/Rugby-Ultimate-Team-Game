@@ -115,22 +115,83 @@ public class GameEnviroment {
 		HomeScreen mainWindow = new HomeScreen(this);
 	}
 	
-	public void closeHomeScreen(HomeScreen homeWindow) {
+	public void closeHomeScreen(HomeScreen homeWindow, int tester) {
 		homeWindow.closeWindow();
-		launchSetupScreen();
+		if (tester == 1) {
+			launchSetupScreen();
+		}
+		else if (tester == 2) {
+			launchInventoryScreen();
+		}
+		
+		else if (tester == 3){
+			launchMarketPlaceScreen();
+		}
+		
+		else if (tester == 4){
+			launchMarketPlaceScreen();
+		}
+		
+		else if (tester == 5){
+			launchMatchScreen();
+		}
 	}
 	
 	public void launchSetupScreen() {
 		SetupScreen setupWindow = new SetupScreen(this);
 	}
 	
+	
+	
 	public void closeSetupScreen(SetupScreen setupWindow) {
 		setupWindow.closeWindow();
 		launchHomeScreen();
 	}
 	
+	public void launchInventoryScreen() {
+		InventoryScreen inventoryWindow = new InventoryScreen(this);
+	}
 	
-	    
+	public void closeInventoryScreen(InventoryScreen inventoryWindow, int holder) {
+		inventoryWindow.closeWindow();
+		if (holder == 1) {
+			launchHomeScreen();
+		}
+		else{
+			launchTeamScreen();
+		}
+
+	}
+	
+	public void launchMarketPlaceScreen() {
+		MarketPlaceScreen marketWindow = new MarketPlaceScreen(this);
+	}
+	
+	public void closeMarketPlaceScreen(MarketPlaceScreen marketWindow) {
+		marketWindow.closeWindow();
+		launchHomeScreen();
+	}
+	
+	public void launchTeamScreen() {
+		TeamScreen teamWindow = new TeamScreen(this);
+	}
+	
+	public void closeTeamScreen(TeamScreen teamWindow) {
+		teamWindow.closeWindow();
+		launchHomeScreen();
+	}
+	
+	public void launchMatchScreen() {
+		MatchScreen matchWindow = new MatchScreen(this);
+	}
+	
+	public void closeMatchScreen(MatchScreen matchWindow) {
+		matchWindow.closeWindow();
+		launchHomeScreen();
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

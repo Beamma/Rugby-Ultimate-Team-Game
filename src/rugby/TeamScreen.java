@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SetupScreen {
+public class TeamScreen {
 	
 
 	private JFrame frame;
@@ -26,7 +26,7 @@ public class SetupScreen {
 	private JLabel lblNewLabel;
 
 	
-	public SetupScreen(GameEnviroment enviroment){
+	public TeamScreen(GameEnviroment enviroment){
 		this.enviroment = enviroment;
 		initialize();
 		frame.setVisible(true);
@@ -36,10 +36,9 @@ public class SetupScreen {
 		frame.dispose();
 	}
 	
-	public void finishedWindow() {
-		enviroment.closeSetupScreen(this);
+	public void goHome() {
+		enviroment.closeTeamScreen(this);
 	}
-	
 
 	private void initialize() {
 		frame = new JFrame();
@@ -47,11 +46,10 @@ public class SetupScreen {
 		frame.getContentPane().setLayout(null);
 		
 		
-		JButton btnNewButton = new JButton("Next");
+		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.setName(random.getText());
-				finishedWindow();
+				goHome();
 			}
 		});
 		btnNewButton.setBounds(168, 161, 89, 23);
@@ -62,7 +60,7 @@ public class SetupScreen {
 		frame.getContentPane().add(random);
 		random.setColumns(10);
 		
-		lblNewLabel = new JLabel("setup");
+		lblNewLabel = new JLabel("team");
 		lblNewLabel.setBounds(107, 390, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
