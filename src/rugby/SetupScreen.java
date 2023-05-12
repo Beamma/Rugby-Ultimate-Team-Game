@@ -22,6 +22,7 @@ public class SetupScreen {
 	private JFrame frame;
 	private GameEnviroment enviroment;
 	private JTextField random;
+	private JTextField textField;
 
 	
 	public SetupScreen(GameEnviroment enviroment){
@@ -48,16 +49,17 @@ public class SetupScreen {
 		JButton btnNewButton = new JButton("Next");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				enviroment.setName(random.getText());
+				enviroment.setName(random.getText());
 				finishedWindow();
 			}
 		});
 		btnNewButton.setBounds(168, 161, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(72, 92, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		random = new JTextField();
+		random.setBounds(125, 42, 168, 55);
+		frame.getContentPane().add(random);
+		random.setColumns(10);
 		
 //		random = new JTextField();
 //		random.setBounds(147, 279, 86, 20);
