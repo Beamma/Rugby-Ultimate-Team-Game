@@ -16,14 +16,21 @@ public class GameEnviroment {
 	private ArrayList<Team> bracket;
 	private HashMap<String, Integer> standings;
 	private Inventory club;
+	private int seasonLength;
 	
+	public void setSeasonLength(int value) {
+		this.seasonLength = value;
+	}
 	
-	public void setdifficulty(int value) {
-		this.difficulty = value;
+	public void setdifficulty(String value) {
+		Integer.valueOf(value);
+		this.difficulty = Integer.valueOf(value);
+		System.out.println(this.difficulty);
 	}
 	
 	public void setName(String name){
 		this.teamName = name;
+		System.out.println(this.teamName);
 	}
 	
 	private void updateWeek() {
@@ -145,7 +152,7 @@ public class GameEnviroment {
 	
 	public void closeSetupScreen(SetupScreen setupWindow) {
 		setupWindow.closeWindow();
-		launchHomeScreen();
+		launchMarketPlaceScreen();
 	}
 	
 	public void launchInventoryScreen() {
@@ -197,24 +204,20 @@ public class GameEnviroment {
 		
 		GameEnviroment manager = new GameEnviroment();
 		manager.launchSetupScreen();
-		/* 
-		 * 
-		 * 
-		 */
-		GameEnviroment game = new GameEnviroment();
-		Inventory club = new Inventory(game);
-		game.club = club;
-		MarketPlace market = new MarketPlace(game, club);
-		Team team = new Team();
-		club.team = team;
-		
-		Athlete ed = generatePlayer();
-		market.buyObject(ed);
-		System.out.println(game.money);
-		game.updateWeek();
-		System.out.println(game.money);
-//		club.returnInventory();
-		market.listBuyables();
+
+//		GameEnviroment game = new GameEnviroment();
+//		Inventory club = new Inventory(game);
+//		game.club = club;
+//		MarketPlace market = new MarketPlace(game, club);
+//		Team team = new Team();
+//		club.team = team;
+//		
+//		Athlete ed = generatePlayer();
+//		market.buyObject(ed);
+//		System.out.println(game.money);
+//		game.updateWeek();
+//		System.out.println(game.money);
+//		market.listBuyables();
 		
 		
 		

@@ -15,25 +15,31 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JInternalFrame;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JProgressBar;
+import javax.swing.JSlider;
 
 public class SetupScreen {
 	
 
-	private JFrame frame;
+	private JFrame frmSetup;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JTextField teamName;
+	private final ButtonGroup difficulty = new ButtonGroup();
+	private JSlider seasonLength;
 
 	
 	public SetupScreen(GameEnviroment enviroment){
 		this.enviroment = enviroment;
 		initialize();
-		frame.setVisible(true);
+		frmSetup.setVisible(true);
 	}
 	
 	public void closeWindow() {
-		frame.dispose();
+		frmSetup.dispose();
 	}
 	
 	public void finishedWindow() {
@@ -42,29 +48,60 @@ public class SetupScreen {
 	
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(50, 500, 500, 500);
-		frame.getContentPane().setLayout(null);
+		frmSetup = new JFrame();
+		frmSetup.setTitle("Setup");
+		frmSetup.setBounds(50, 500, 500, 500);
+		frmSetup.getContentPane().setLayout(null);
 		
 		
-		JButton btnNewButton = new JButton("Next");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton setupSubmit = new JButton("Submit");
+		setupSubmit.setBackground(new Color(144, 238, 144));
+		setupSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.setName(random.getText());
+				enviroment.setName(teamName.getText());
+				enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
+				enviroment.setSeasonLength(seasonLength.getValue());
 				finishedWindow();
 			}
 		});
-		btnNewButton.setBounds(168, 161, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		setupSubmit.setBounds(347, 374, 127, 46);
+		frmSetup.getContentPane().add(setupSubmit);
 		
-		random = new JTextField();
-		random.setBounds(125, 42, 168, 55);
-		frame.getContentPane().add(random);
-		random.setColumns(10);
+		teamName = new JTextField();
+		teamName.setToolTipText("Team Name");
+		teamName.setBounds(155, 44, 147, 54);
+		frmSetup.getContentPane().add(teamName);
+		teamName.setColumns(10);
 		
-		lblNewLabel = new JLabel("setup");
-		lblNewLabel.setBounds(107, 390, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		JRadioButton difficultyEasy = new JRadioButton("Easy");
+		difficulty.add(difficultyEasy);
+		difficultyEasy.setBounds(168, 132, 109, 23);
+		frmSetup.getContentPane().add(difficultyEasy);
+		difficultyEasy.setActionCommand("1");
+		
+		JRadioButton difficultyMedium = new JRadioButton("Medium");
+		difficulty.add(difficultyMedium);
+		difficultyMedium.setBounds(168, 158, 109, 23);
+		frmSetup.getContentPane().add(difficultyMedium);
+		difficultyMedium.setActionCommand("2");
+		
+		JRadioButton difficultyHard = new JRadioButton("Hard");
+		difficulty.add(difficultyHard);
+		difficultyHard.setBounds(168, 186, 109, 23);
+		frmSetup.getContentPane().add(difficultyHard);
+		difficultyHard.setActionCommand("3");
+		
+		seasonLength = new JSlider();
+		seasonLength.setMajorTickSpacing(2);
+		seasonLength.setForeground(new Color(0, 0, 0));
+		seasonLength.setMinorTickSpacing(1);
+		seasonLength.setValue(5);
+		seasonLength.setPaintLabels(true);
+		seasonLength.setSnapToTicks(true);
+		seasonLength.setMinimum(5);
+		seasonLength.setMaximum(15);
+		seasonLength.setBounds(155, 216, 147, 40);
+		frmSetup.getContentPane().add(seasonLength);
 		
 //		random = new JTextField();
 //		random.setBounds(147, 279, 86, 20);
