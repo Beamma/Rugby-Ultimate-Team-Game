@@ -48,6 +48,7 @@ public class HomeScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(50, 500, 500, 500);
 		frame.getContentPane().setLayout(null);
 		
