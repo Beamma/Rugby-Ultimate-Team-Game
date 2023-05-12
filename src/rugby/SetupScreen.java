@@ -25,7 +25,7 @@ public class SetupScreen {
 
 	
 	public SetupScreen(GameEnviroment enviroment){
-		enviroment = enviroment;
+		this.enviroment = enviroment;
 		initialize();
 		frame.setVisible(true);
 	}
@@ -48,7 +48,7 @@ public class SetupScreen {
 		JButton btnNewButton = new JButton("Next");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.setName(random.getText());
+//				enviroment.setName(random.getText());
 				finishedWindow();
 			}
 		});
@@ -59,10 +59,10 @@ public class SetupScreen {
 		lblNewLabel.setBounds(72, 92, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		random = new JTextField();
-		random.setBounds(147, 279, 86, 20);
-		frame.getContentPane().add(random);
-		random.setColumns(10);
-		
+//		random = new JTextField();
+//		random.setBounds(147, 279, 86, 20);
+//		frame.getContentPane().add(random);
+//		random.setColumns(10);
+//		
 	}
 }

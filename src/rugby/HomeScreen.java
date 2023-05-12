@@ -20,7 +20,7 @@ public class HomeScreen {
 	 */
 	
 	public HomeScreen(GameEnviroment enviroment) {
-		enviroment = enviroment;
+		this.enviroment = enviroment;
 		initialize();
 		frame.setVisible(true);
 	}

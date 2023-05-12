@@ -1,6 +1,7 @@
 package rugby;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MarketPlace extends GameEnviroment{
 	private ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
@@ -12,6 +13,9 @@ public class MarketPlace extends GameEnviroment{
 		this.game = game;
 		this.club = club;
 		updateMarket();
+		for (int i = 0 ; i <= 10 ; i++) {
+			playersForSale.add(generatePlayer());
+		}
 	}
 	
 	public void updateMarket() {
@@ -55,8 +59,31 @@ public class MarketPlace extends GameEnviroment{
 			i += 1;
 		}
 		
+		selectBuyables();
 	}
-	
+		
+		
+	public void selectBuyables() {
+		try {
+			Scanner input = new Scanner(System.in);
+			System.out.println("Select An Object To Purchase, or press -1 to return: ");
+			int athlete = input.nextInt();
+			if (athlete == -1) {
+				return;
+			} else {
+				buyObject(playersForSale.get(athlete));
+			}
+			
+		}
+		
+		catch(Exception  e) {
+			System.out.println("Please Select A Valid Input");
+			selectBuyables();
+			
+		}
+	}
+
+		
 	
 	
 	public static void main(String[] args) {
