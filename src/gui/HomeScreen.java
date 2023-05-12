@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import rugby.GameEnviroment;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HomeScreen {
 	
@@ -17,8 +20,8 @@ public class HomeScreen {
 	 * Launch the application.
 	 * @return 
 	 */
-	public HomeScreen(GameEnviroment envior) {
-		envior = envior;
+	public HomeScreen(GameEnviroment enviroment) {
+		enviroment = enviroment;
 		initialize();
 		window.setVisible(true);
 	}
@@ -36,5 +39,16 @@ public class HomeScreen {
 	private void initialize() {
 		window = new JFrame();
 		window.setBounds(50, 500, 500, 500);
+		window.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeWindow();
+				finishedWindow();
+			}
+		});
+		btnNewButton.setBounds(177, 290, 89, 23);
+		window.getContentPane().add(btnNewButton);
 	}
 }

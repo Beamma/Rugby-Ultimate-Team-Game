@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import rugby.GameEnviroment;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SetupScreen {
 	
@@ -33,6 +36,18 @@ public class SetupScreen {
 
 	private void initialize() {
 		window = new JFrame();
+		window.setBounds(50, 500, 500, 500);
+		window.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeWindow();
+				finishedWindow();
+			}
+		});
+		btnNewButton.setBounds(168, 161, 89, 23);
+		window.getContentPane().add(btnNewButton);
 		
 	}
 }

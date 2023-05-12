@@ -18,6 +18,10 @@ public class GameEnviroment {
 	private Inventory club;
 	
 	
+	public GameEnviroment() {
+		
+	}
+	
 	private void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;
@@ -125,7 +129,7 @@ public class GameEnviroment {
 		// TODO Auto-generated method stub
 		
 		GameEnviroment manager = new GameEnviroment();
-		manager.launchHomeScreen();
+		manager.launchSetupScreen();
 		/*
 		 * 
 		 * 
