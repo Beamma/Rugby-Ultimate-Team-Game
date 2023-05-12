@@ -128,9 +128,9 @@ public class GameEnviroment {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		GameEnviroment manager = new GameEnviroment();
-		manager.launchSetupScreen();
-		/*
+//		GameEnviroment manager = new GameEnviroment();
+//		manager.launchSetupScreen();
+		/* 
 		 * 
 		 * 
 		 */
@@ -146,7 +146,9 @@ public class GameEnviroment {
 		System.out.println(game.money);
 		game.updateWeek();
 		System.out.println(game.money);
-		club.returnInventory();
+//		club.returnInventory();
+		market.listBuyables();
+		
 		
 		
 	}
