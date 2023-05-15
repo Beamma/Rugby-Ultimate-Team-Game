@@ -43,7 +43,7 @@ public class MatchScreen {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(50, 500, 500, 500);
+		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
 		

@@ -29,10 +29,7 @@ public class HomeScreen {
 	public void closeWindow() {
 		frame.dispose();
 	}
-	
-	public void goSetup() {
-		enviroment.closeHomeScreen(this, 1);
-	}
+
 	
 	public void goInventory() {
 		enviroment.closeHomeScreen(this, 2);
@@ -49,18 +46,9 @@ public class HomeScreen {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(50, 500, 500, 500);
+		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("go to setup");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				goSetup();
-			}
-		});
-		
-		btnNewButton.setBounds(200, 414, 89, 23);
-		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("got to inventory");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -68,7 +56,7 @@ public class HomeScreen {
 				goInventory();
 			}
 		});
-		btnNewButton_1.setBounds(335, 60, 122, 43);
+		btnNewButton_1.setBounds(397, 72, 122, 43);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("home");
@@ -81,16 +69,16 @@ public class HomeScreen {
 				goMarket();
 			}
 		});
-		btnNewButton_2.setBounds(30, 60, 112, 43);
+		btnNewButton_2.setBounds(30, 72, 112, 43);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("match");
+		JButton btnNewButton_3 = new JButton(enviroment.teamName);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMatch();
 			}
 		});
-		btnNewButton_3.setBounds(30, 238, 89, 23);
+		btnNewButton_3.setBounds(53, 369, 89, 23);
 		frame.getContentPane().add(btnNewButton_3);
 	}
 }

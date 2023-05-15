@@ -39,7 +39,7 @@ public class MarketPlaceScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(50, 500, 500, 500);
+		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("got home");

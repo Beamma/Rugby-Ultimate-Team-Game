@@ -50,7 +50,7 @@ public class SetupScreen {
 	private void initialize() {
 		frmSetup = new JFrame();
 		frmSetup.setTitle("Setup");
-		frmSetup.setBounds(50, 500, 500, 500);
+		frmSetup.setBounds(500, 300, 600, 500);
 		frmSetup.getContentPane().setLayout(null);
 		
 		
@@ -69,7 +69,7 @@ public class SetupScreen {
 		
 		teamName = new JTextField();
 		teamName.setToolTipText("Team Name");
-		teamName.setBounds(155, 44, 147, 54);
+		teamName.setBounds(217, 43, 147, 54);
 		frmSetup.getContentPane().add(teamName);
 		teamName.setColumns(10);
 		

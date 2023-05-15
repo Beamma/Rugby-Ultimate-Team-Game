@@ -53,7 +53,7 @@ public class InventoryScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(50, 500, 500, 500);
+		frame.setBounds(500, 300, 600, 500);
 		
 		JButton btnNewButton_1 = new JButton("got home");
 		btnNewButton_1.addActionListener(new ActionListener() {

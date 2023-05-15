@@ -44,6 +44,12 @@ public class GameEnviroment {
 		}
 	}
 	
+	public ArrayList<Athlete> getTeam(){
+		
+		return(this.club.team.getAthletes());
+	}
+	
+	
 	public boolean moneyTransfer(int amount){
 		if ((this.money += amount) < 0) {
 			this.money -= amount;
@@ -203,6 +209,12 @@ public class GameEnviroment {
 		// TODO Auto-generated method stub
 		
 		GameEnviroment manager = new GameEnviroment();
+		Inventory club = new Inventory(manager);
+		manager.club = club;
+		Team team = new Team();
+		club.team = team;
+		Athlete ed = generatePlayer();
+		manager.club.team.addPlayer(ed);
 		manager.launchSetupScreen();
 
 //		GameEnviroment game = new GameEnviroment();
@@ -211,8 +223,11 @@ public class GameEnviroment {
 //		MarketPlace market = new MarketPlace(game, club);
 //		Team team = new Team();
 //		club.team = team;
-//		
 //		Athlete ed = generatePlayer();
+//		game.club.addPlayer(ed);
+//		game.club.team.addPlayer(ed);
+//		game.club.team.printTeamInfo();
+		
 //		market.buyObject(ed);
 //		System.out.println(game.money);
 //		game.updateWeek();
