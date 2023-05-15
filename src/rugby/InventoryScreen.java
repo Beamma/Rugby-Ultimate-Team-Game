@@ -82,6 +82,7 @@ public class InventoryScreen {
 		JList<Athlete> athletes = new JList<Athlete>(athleteListModel);
 		panel.add(athletes);
 		
+		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		athletes.setBackground(new Color(153, 50, 204));
 	}

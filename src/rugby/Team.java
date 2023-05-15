@@ -8,9 +8,10 @@ public class Team {
 	private String seasonInfo;
 	
 	public void addPlayer(Athlete athlete){
-		this.players.add(athlete);
-		if (this.players.size() == 20) {
+		if (this.players.size() >= 20) {
 			System.out.println("Your team is already full, try swapping a player");
+		}else {
+		this.players.add(athlete);
 		}
 	}
 	

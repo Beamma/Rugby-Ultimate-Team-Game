@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import java.awt.Font;
 
 public class HomeScreen {
 	
@@ -59,8 +62,9 @@ public class HomeScreen {
 		btnNewButton_1.setBounds(397, 72, 122, 43);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("home");
-		lblNewLabel.setBounds(215, 228, 46, 14);
+		JLabel lblNewLabel = new JLabel("home", SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(193, 11, 150, 43);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton_2 = new JButton("go to market");
@@ -80,5 +84,9 @@ public class HomeScreen {
 		});
 		btnNewButton_3.setBounds(53, 369, 89, 23);
 		frame.getContentPane().add(btnNewButton_3);
+		
+		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
+		lblNewLabel_1.setBounds(506, 27, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 }

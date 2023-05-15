@@ -55,7 +55,7 @@ public class TeamScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(274, 387, 59, 23);
+		btnNewButton.setBounds(262, 413, 59, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -65,11 +65,11 @@ public class TeamScreen {
 		frame.getContentPane().add(btnNewButton);
 
 		lblNewLabel = new JLabel("team");
-		lblNewLabel.setBounds(102, 3, 42, 46);
+		lblNewLabel.setBounds(244, -11, 42, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
 		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
-		athleteListModel.addAll(enviroment.getTeam());
+		athleteListModel.addAll(this.enviroment.getTeam());
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "wow", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -78,12 +78,11 @@ public class TeamScreen {
 		frame.getContentPane().add(panel);
 
 		
-		JList<Athlete> athletes = new JList<Athlete>(athleteListModel);
-		athletes.setBackground(SystemColor.activeCaption);
-		panel.add(athletes);
-		
-		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
-		athletes.setBackground(new Color(153, 50, 204));
+		JList<Athlete> tester = new JList<Athlete>();
+		tester.setBounds(46, 28, 493, 369);
+		frame.getContentPane().add(tester);
+		tester.setModel(athleteListModel);
+
 
 	}
 }

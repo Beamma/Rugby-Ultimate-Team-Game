@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,11 +48,27 @@ public class MarketPlaceScreen {
 				finishedWindow();
 			}
 		});
-		btnNewButton_1.setBounds(157, 186, 139, 63);
+		Athlete ed = GameEnviroment.generatePlayer();
+		JButton holder = new JButton(String.valueOf(ed.buyPrice));
+		holder.setBounds(177, 130, 197, 119);
+		frame.getContentPane().add(holder);
+		holder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (enviroment.money >= ed.buyPrice) {
+					enviroment.minusMoney(ed.buyPrice);
+					enviroment.addPlayerTeam(ed);
+				}
+				else{
+					JOptionPane.showMessageDialog(frame, "no money");
+				}
+			}
+		});
+		btnNewButton_1.setBounds(235, 305, 139, 63);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("market");
 		lblNewLabel.setBounds(203, 62, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
+
 	}
 }

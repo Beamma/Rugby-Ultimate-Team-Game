@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 1000;
+	public int money = 10000;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 0;
@@ -45,9 +45,12 @@ public class GameEnviroment {
 	}
 	
 	public ArrayList<Athlete> getTeam(){
-		
 		return(this.club.team.getAthletes());
 	}
+	
+	public void addPlayerTeam(Athlete athlete){
+		this.club.team.addPlayer(athlete);
+		}
 	
 	
 	public boolean moneyTransfer(int amount){
@@ -57,6 +60,10 @@ public class GameEnviroment {
 		} else {
 			return true;
 		}
+	}
+	
+	public void minusMoney(int amount){
+		this.money -= amount;
 	} 
 	
 	public static Athlete generatePlayer() {

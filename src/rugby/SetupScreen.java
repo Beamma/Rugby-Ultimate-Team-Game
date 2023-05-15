@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import rugby.GameEnviroment;
 
@@ -21,6 +22,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JProgressBar;
 import javax.swing.JSlider;
+import javax.swing.ImageIcon;
 
 public class SetupScreen {
 	
@@ -58,36 +60,41 @@ public class SetupScreen {
 		setupSubmit.setBackground(new Color(144, 238, 144));
 		setupSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.setName(teamName.getText());
-				enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
-				enviroment.setSeasonLength(seasonLength.getValue());
-				finishedWindow();
+				if (teamName.getText().length() == 0) {
+	                JOptionPane.showMessageDialog(frmSetup, "Please enter a team name");
+				}else {
+					enviroment.setName(teamName.getText());
+					enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
+					enviroment.setSeasonLength(seasonLength.getValue());
+					finishedWindow();
+				}
 			}
 		});
-		setupSubmit.setBounds(347, 374, 127, 46);
+		setupSubmit.setBounds(232, 367, 127, 46);
 		frmSetup.getContentPane().add(setupSubmit);
 		
 		teamName = new JTextField();
 		teamName.setToolTipText("Team Name");
-		teamName.setBounds(217, 43, 147, 54);
+		teamName.setBounds(217, 77, 147, 54);
 		frmSetup.getContentPane().add(teamName);
 		teamName.setColumns(10);
 		
 		JRadioButton difficultyEasy = new JRadioButton("Easy");
+		difficultyEasy.setSelected(true);
 		difficulty.add(difficultyEasy);
-		difficultyEasy.setBounds(168, 132, 109, 23);
+		difficultyEasy.setBounds(232, 149, 109, 23);
 		frmSetup.getContentPane().add(difficultyEasy);
 		difficultyEasy.setActionCommand("1");
 		
 		JRadioButton difficultyMedium = new JRadioButton("Medium");
 		difficulty.add(difficultyMedium);
-		difficultyMedium.setBounds(168, 158, 109, 23);
+		difficultyMedium.setBounds(232, 175, 109, 23);
 		frmSetup.getContentPane().add(difficultyMedium);
 		difficultyMedium.setActionCommand("2");
 		
 		JRadioButton difficultyHard = new JRadioButton("Hard");
 		difficulty.add(difficultyHard);
-		difficultyHard.setBounds(168, 186, 109, 23);
+		difficultyHard.setBounds(232, 201, 109, 23);
 		frmSetup.getContentPane().add(difficultyHard);
 		difficultyHard.setActionCommand("3");
 		
@@ -95,13 +102,19 @@ public class SetupScreen {
 		seasonLength.setMajorTickSpacing(2);
 		seasonLength.setForeground(new Color(0, 0, 0));
 		seasonLength.setMinorTickSpacing(1);
+		//seasonLength.setOpaque(false); 
 		seasonLength.setValue(5);
 		seasonLength.setPaintLabels(true);
 		seasonLength.setSnapToTicks(true);
 		seasonLength.setMinimum(5);
 		seasonLength.setMaximum(15);
-		seasonLength.setBounds(155, 216, 147, 40);
+		seasonLength.setBounds(217, 231, 147, 40);
 		frmSetup.getContentPane().add(seasonLength);
+
+		
+		JLabel lblNewLabel_1 = new JLabel("Team name");
+		lblNewLabel_1.setBounds(258, 52, 69, 14);
+		frmSetup.getContentPane().add(lblNewLabel_1);
 		
 //		random = new JTextField();
 //		random.setBounds(147, 279, 86, 20);
