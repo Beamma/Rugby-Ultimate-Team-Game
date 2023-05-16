@@ -60,7 +60,6 @@ public class Athlete {
 		
 		int holder = this.stats.get("Fitness");
 		if (this.stamina - (100 - holder) <= 0) {
-			this.injury();
 			this.stamina = 0;
 			System.out.printf(this.name + " Is now injured due to lack of stamina");
 			System.out.println();

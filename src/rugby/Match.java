@@ -37,7 +37,7 @@ public class Match {
 
 	}
 	
-	public int matchResult(Team team1, Team team2) {
+	public static int matchResult(Team team1, Team team2) {
 		
 		if (team1.checkReady()) {
 			ArrayList<Athlete> roster1 = team1.getAthletes();
@@ -56,13 +56,13 @@ public class Match {
 			}
 			else if (totalScore < 0) {
 				System.out.printf("Your team lost by %s\n", totalScore * -1);
-				return -1;
+				return totalScore;
 			} else{
 				System.out.printf("You drew\n");
 				return 0;
 			}
 		} else {
-			return 0;
+			return -2;
 		}
 	}
 	

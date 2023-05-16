@@ -36,8 +36,12 @@ public class MatchScreen {
 		frame.dispose();
 	}
 	
-	public void finishedWindow() {
+	public void goHome() {
 		enviroment.closeMatchScreen(this);
+	}
+	
+	public void goGame(Team team) {
+		enviroment.closeMatchScreen(this, team);
 	}
 	
 
@@ -50,7 +54,7 @@ public class MatchScreen {
 		JButton btnNewButton = new JButton("home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				finishedWindow();
+				goHome();
 			}
 		});
 		
@@ -65,16 +69,29 @@ public class MatchScreen {
 		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(0)));
 		team1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				goGame(enviroment.oposition.get(0));
 			}
 		});
+		
 		team1.setBounds(238, 107, 89, 23);
 		frame.getContentPane().add(team1);
 		
 		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(1)));
+		team2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goGame(enviroment.oposition.get(1));
+			}
+		});
+		
 		team2.setBounds(238, 174, 89, 23);
 		frame.getContentPane().add(team2);
 		
 		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(2)));
+		team3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goGame(enviroment.oposition.get(2));
+			}
+		});
 		team3.setBounds(238, 253, 89, 23);
 		frame.getContentPane().add(team3);
 		

@@ -12,11 +12,12 @@ public class GameEnviroment {
 	public int money = 10000;
 	public String teamName;
 	public int difficulty = 2;
-	public int week = 0;
+	public int week = 1;
 	public ArrayList<Team> oposition;
 	private HashMap<String, Integer> standings;
-	private Inventory club;
+	public Inventory club;
 	private int seasonLength;
+	public int[] winloss = new int[]{0,0,0};
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -78,6 +79,11 @@ public class GameEnviroment {
 	public void minusMoney(int amount){
 		this.money -= amount;
 	} 
+	
+	public int getMatchResult(Team team1, Team team2) {
+		int hodler = Match.matchResult(team1, team2);
+		return hodler;
+	}
 	
 	public static Athlete generatePlayer() {
 		
@@ -150,7 +156,12 @@ public class GameEnviroment {
 	}
 	
 	public void launchHomeScreen() {
-		HomeScreen mainWindow = new HomeScreen(this);
+		if (this.week > this.seasonLength) {
+			EndGameScreen endWindow = new EndGameScreen(this);
+		}else {
+			HomeScreen mainWindow = new HomeScreen(this);
+		}
+		
 	}
 	
 	public void closeHomeScreen(HomeScreen homeWindow, int tester) {
@@ -183,7 +194,7 @@ public class GameEnviroment {
 	
 	public void closeSetupScreen(SetupScreen setupWindow) {
 		setupWindow.closeWindow();
-		launchMarketPlaceScreen();
+		launchHomeScreen();
 	}
 	
 	public void launchInventoryScreen() {
@@ -228,6 +239,19 @@ public class GameEnviroment {
 		launchHomeScreen();
 	}
 	
+	public void closeMatchScreen(MatchScreen matchWindow, Team team) {
+		matchWindow.closeWindow();
+		launchGameScreen(team);
+	}
+	
+	public void launchGameScreen(Team team) {
+		GameScreen matchWindow = new GameScreen(this, team);
+	}
+	
+	public void closeGameScreen(GameScreen gameWindow) {
+		gameWindow.closeWindow();
+		launchHomeScreen();
+	}
 	
 	
 	public static void main(String[] args) {
