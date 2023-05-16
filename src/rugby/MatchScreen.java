@@ -53,13 +53,30 @@ public class MatchScreen {
 				finishedWindow();
 			}
 		});
-		btnNewButton.setBounds(168, 161, 89, 23);
+		
+		btnNewButton.setBounds(238, 386, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		
-		lblNewLabel = new JLabel("Match");
-		lblNewLabel.setBounds(107, 390, 46, 14);
+		lblNewLabel = new JLabel("next three matches");
+		lblNewLabel.setBounds(198, 30, 123, 30);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(0)));
+		team1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		team1.setBounds(238, 107, 89, 23);
+		frame.getContentPane().add(team1);
+		
+		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(1)));
+		team2.setBounds(238, 174, 89, 23);
+		frame.getContentPane().add(team2);
+		
+		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(2)));
+		team3.setBounds(238, 253, 89, 23);
+		frame.getContentPane().add(team3);
 		
 //		random = new JTextField();
 //		random.setBounds(147, 279, 86, 20);

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Team {
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
-	private String teamName;
+	public String teamName;
 	private String seasonInfo;
 	
 	public void addPlayer(Athlete athlete){
@@ -75,6 +75,15 @@ public class Team {
 		int athlete = input.nextInt();
 		return this.players.get(athlete-1);
 		
+	}
+	
+	public int teamRating(Team team) {
+		int overallRating = 0;
+		for (int i = 0; i < 15; i++) {
+			int a = team.players.get(i).rarity;
+			overallRating += a;
+		}
+		return overallRating/15;
 	}
 	
 	public static void main(String[] args) {

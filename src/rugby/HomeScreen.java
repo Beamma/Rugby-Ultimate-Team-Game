@@ -76,17 +76,33 @@ public class HomeScreen {
 		btnNewButton_2.setBounds(30, 72, 112, 43);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton(enviroment.teamName);
+		JButton btnNewButton_3 = new JButton("mtch");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMatch();
 			}
 		});
+		
 		btnNewButton_3.setBounds(53, 369, 89, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
 		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
 		lblNewLabel_1.setBounds(506, 27, 46, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("next week");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				enviroment.updateWeek();
+				goMatch();
+			}
+		});
+		
+		btnNewButton.setBounds(430, 369, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel(String.valueOf(enviroment.week));
+		lblNewLabel_2.setBounds(68, 27, 46, 14);
+		frame.getContentPane().add(lblNewLabel_2);
 	}
 }

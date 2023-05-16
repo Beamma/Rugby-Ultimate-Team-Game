@@ -13,7 +13,7 @@ public class GameEnviroment {
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 0;
-	private ArrayList<Team> bracket;
+	public ArrayList<Team> oposition;
 	private HashMap<String, Integer> standings;
 	private Inventory club;
 	private int seasonLength;
@@ -33,11 +33,19 @@ public class GameEnviroment {
 		System.out.println(this.teamName);
 	}
 	
-	private void updateWeek() {
+	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;
 			int randomness = (20 - (3*this.difficulty));
+			this.oposition.clear();
+			Team team1 = generateTeam(this.difficulty);
+			Team team2 = generateTeam(this.difficulty);
+			Team team3 = generateTeam(this.difficulty);
+			this.oposition.add(team1);
+			this.oposition.add(team2);
+			this.oposition.add(team3);
 			System.out.println(this.week);
+			
 //			RandomEvent.randomEvents(randomness);
 		} else {
 			System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
@@ -47,6 +55,11 @@ public class GameEnviroment {
 	public ArrayList<Athlete> getTeam(){
 		return(this.club.team.getAthletes());
 	}
+	
+	public int getTeamRating(Team team){
+		return(this.club.team.teamRating(team));
+	}
+	
 	
 	public void addPlayerTeam(Athlete athlete){
 		this.club.team.addPlayer(athlete);
@@ -123,11 +136,16 @@ public class GameEnviroment {
 	}
 	
 	public static Team generateTeam(int diffuculty){
+		Random r = new Random();
 	    Team opisiton = new Team();
 	    for (int i = 0; i < 15; i++){
 	        Athlete random = GameEnviroment.generatePlayer();
 	        opisiton.addPlayer(random);
 	    }
+	    
+	    String[] nameGenerator = new String[] {"rfc", "ufc", "nfl", "abc"};
+		
+	    opisiton.teamName = nameGenerator[r.nextInt(4)];
 	    return opisiton;
 	}
 	
@@ -222,6 +240,14 @@ public class GameEnviroment {
 		club.team = team;
 		Athlete ed = generatePlayer();
 		manager.club.team.addPlayer(ed);
+		Team liam = generateTeam(1);
+		Team liams = generateTeam(1);
+		Team liame = generateTeam(1);
+		ArrayList<Team> holder = new ArrayList<Team>();
+		holder.add(liam);
+		holder.add(liame);
+		holder.add(liams);
+		manager.oposition = holder;
 		manager.launchSetupScreen();
 
 //		GameEnviroment game = new GameEnviroment();

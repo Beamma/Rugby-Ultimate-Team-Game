@@ -57,6 +57,7 @@ public class MarketPlaceScreen {
 				if (enviroment.money >= ed.buyPrice) {
 					enviroment.minusMoney(ed.buyPrice);
 					enviroment.addPlayerTeam(ed);
+					JOptionPane.showMessageDialog(frame, "brought");
 				}
 				else{
 					JOptionPane.showMessageDialog(frame, "no money");
