@@ -79,6 +79,17 @@ public class GameScreen {
 			public void actionPerformed(ActionEvent e) {
 				if (enviroment.club.team.checkReady() == true) {
 				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition);
+				int randomDecider = RandomEvent.randomEvents(enviroment.randomness, enviroment.club);
+				if (randomDecider < 2) {
+					if (randomDecider == 2) {
+						JOptionPane.showMessageDialog(frame, "player gone");
+					}else if (randomDecider == 1) {
+						JOptionPane.showMessageDialog(frame, "new player");
+					}else {
+						JOptionPane.showMessageDialog(frame, "player got injured");
+					}
+				}
+				enviroment.club.team.reduceStamina();
 				if (gameResult > 0) {
 					enviroment.updateWeek();
 					enviroment.addMoney(20000);

@@ -48,7 +48,7 @@ public class Match {
 				totalScore += game.compareStats(roster1.get(i), roster2.get(i));
 			}
 			
-			team1.reduceStamina();
+
 			
 			if (totalScore > 0) {
 				System.out.printf("Your team won by %s\n", totalScore);

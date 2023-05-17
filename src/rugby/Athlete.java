@@ -57,16 +57,15 @@ public class Athlete {
 	}
 	
 	public void reduceStamina() {
-		
-		int athleteFitness = this.stats.get("Fitness");
-		if (this.stamina - (100 - athleteFitness) <= 0) {
-			this.stamina = 0;
-			System.out.printf(this.name + " Is now injured due to lack of stamina");
-			System.out.println();
-		}
-		else{
-			this.stamina -= (100 - athleteFitness);  
-		}
+		this.stamina -= 10;
+//		int athleteFitness = this.stats.get("Fitness");
+//		if (this.stamina - (100 - athleteFitness) <= 0) {
+//			this.stamina = 0;
+//			System.out.printf(this.name + " Is now injured due to lack of stamina");
+//		}
+//		else{
+//			this.stamina -= (100 - athleteFitness);  
+//		}
 	}
 	
 	public void athleteOptions() {

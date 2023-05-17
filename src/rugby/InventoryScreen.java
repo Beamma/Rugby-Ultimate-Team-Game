@@ -73,6 +73,7 @@ public class InventoryScreen {
 				goTeam();
 			}
 		});
+		
 		frame.getContentPane().add(btnNewButton);
 		
 		JPanel panel = new JPanel();

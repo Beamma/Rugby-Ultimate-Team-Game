@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 20000;
+	public int money = 220000;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
@@ -18,6 +18,7 @@ public class GameEnviroment {
 	public Inventory club;
 	private int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
+	int randomness = (20 - (3*this.difficulty));
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -34,7 +35,6 @@ public class GameEnviroment {
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;
-			int randomness = (20 - (3*this.difficulty));
 			this.oposition.clear();
 			Team team1 = generateTeam(this.difficulty);
 			Team team2 = generateTeam(this.difficulty);
@@ -109,7 +109,7 @@ public class GameEnviroment {
 		
 		rarity = rarity/6; 
 		
-		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim"};
+		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
 		String name = nameGenerator[r.nextInt(nameGenerator.length)];
 		String position = "cb";
 		int buyPrice = rarity*20;
