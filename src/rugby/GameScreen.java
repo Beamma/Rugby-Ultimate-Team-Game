@@ -58,15 +58,15 @@ public class GameScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(262, 413, 59, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(262, 413, 59, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(homeButton);
 
 		lblNewLabel = new JLabel("Game");
 		lblNewLabel.setBounds(244, -11, 42, 46);
@@ -74,24 +74,24 @@ public class GameScreen {
 		
 		
 		
-		JButton btnNewButton_1 = new JButton("vs");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton playMatchButton = new JButton("vs");
+		playMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (enviroment.club.team.checkReady() == true) {
-				int holder = enviroment.getMatchResult(enviroment.club.team, opposition);
-				if (holder > 0) {
+				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition);
+				if (gameResult > 0) {
 					enviroment.updateWeek();
 					enviroment.addMoney(20000);
 					enviroment.winloss[0] += 1;
 					JOptionPane.showMessageDialog(frame, "Won by " + enviroment.getMatchResult(enviroment.club.team, opposition));
 					goHome();
-				}else if (holder < 0) {
+				}else if (gameResult < 0) {
 					enviroment.updateWeek();
 					enviroment.addMoney(10000);
 					enviroment.winloss[2] += 1;
 					JOptionPane.showMessageDialog(frame, "Lost by " + enviroment.getMatchResult(enviroment.club.team, opposition));
 					goHome();
-				}else if (holder == 0){
+				}else if (gameResult == 0){
 					enviroment.updateWeek();
 					enviroment.addMoney(5000);
 					enviroment.winloss[1] += 1;
@@ -109,8 +109,8 @@ public class GameScreen {
 		});
 		
 
-		btnNewButton_1.setBounds(233, 202, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		playMatchButton.setBounds(233, 202, 89, 23);
+		frame.getContentPane().add(playMatchButton);
 		
 		DefaultListModel<Athlete> MyTeam = new DefaultListModel<Athlete>();
 		MyTeam.addAll(enviroment.club.team.getAthletes());
@@ -128,13 +128,13 @@ public class GameScreen {
 		list2.setModel(opposition);
 		frame.getContentPane().add(list2);
 		
-		JLabel lblNewLabel_1 = new JLabel(enviroment.teamName);
-		lblNewLabel_1.setBounds(90, 52, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel teamLabel = new JLabel(enviroment.teamName);
+		teamLabel.setBounds(90, 52, 46, 14);
+		frame.getContentPane().add(teamLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel(this.opposition.teamName);
-		lblNewLabel_2.setBounds(443, 52, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel oppositionLabel = new JLabel(this.opposition.teamName);
+		oppositionLabel.setBounds(443, 52, 46, 14);
+		frame.getContentPane().add(oppositionLabel);
 
 	}
 }

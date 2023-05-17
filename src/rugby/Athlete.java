@@ -58,14 +58,14 @@ public class Athlete {
 	
 	public void reduceStamina() {
 		
-		int holder = this.stats.get("Fitness");
-		if (this.stamina - (100 - holder) <= 0) {
+		int athleteFitness = this.stats.get("Fitness");
+		if (this.stamina - (100 - athleteFitness) <= 0) {
 			this.stamina = 0;
 			System.out.printf(this.name + " Is now injured due to lack of stamina");
 			System.out.println();
 		}
 		else{
-			this.stamina -= (100 - holder);  
+			this.stamina -= (100 - athleteFitness);  
 		}
 	}
 	

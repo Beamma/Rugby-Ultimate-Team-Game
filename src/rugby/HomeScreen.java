@@ -53,45 +53,45 @@ public class HomeScreen {
 		frame.getContentPane().setLayout(null);
 		
 		
-		JButton btnNewButton_1 = new JButton("got to inventory");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton goInventoryButton = new JButton("got to inventory");
+		goInventoryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goInventory();
 			}
 		});
-		btnNewButton_1.setBounds(312, 265, 122, 147);
-		frame.getContentPane().add(btnNewButton_1);
+		goInventoryButton.setBounds(312, 265, 122, 147);
+		frame.getContentPane().add(goInventoryButton);
 		
-		JLabel lblNewLabel = new JLabel(enviroment.teamName + "'s home", SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(211, 36, 150, 43);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel homeLabel = new JLabel(enviroment.teamName + "'s home", SwingConstants.CENTER);
+		homeLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		homeLabel.setBounds(211, 36, 150, 43);
+		frame.getContentPane().add(homeLabel);
 		
-		JButton btnNewButton_2 = new JButton("Market");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton goMarketButton = new JButton("Market");
+		goMarketButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMarket();
 			}
 		});
-		btnNewButton_2.setBounds(10, 265, 122, 147);
-		frame.getContentPane().add(btnNewButton_2);
+		goMarketButton.setBounds(10, 265, 122, 147);
+		frame.getContentPane().add(goMarketButton);
 		
-		JButton btnNewButton_3 = new JButton("Match");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton goMatchButton = new JButton("Match");
+		goMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMatch();
 			}
 		});
 		
-		btnNewButton_3.setBounds(164, 265, 122, 147);
-		frame.getContentPane().add(btnNewButton_3);
+		goMatchButton.setBounds(164, 265, 122, 147);
+		frame.getContentPane().add(goMatchButton);
 		
-		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
-		lblNewLabel_1.setBounds(506, 27, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel moneyCountLabel = new JLabel(String.valueOf(enviroment.money));
+		moneyCountLabel.setBounds(506, 27, 46, 14);
+		frame.getContentPane().add(moneyCountLabel);
 		
-		JButton btnNewButton = new JButton("Take a Bye");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton byeLabel = new JButton("Take a Bye");
+		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				enviroment.updateWeek();
 				enviroment.club.team.maxStamina();
@@ -99,35 +99,35 @@ public class HomeScreen {
 			}
 		});
 		
-		btnNewButton.setBounds(452, 265, 122, 147);
-		frame.getContentPane().add(btnNewButton);
+		byeLabel.setBounds(452, 265, 122, 147);
+		frame.getContentPane().add(byeLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel(String.valueOf(enviroment.week));
-		lblNewLabel_2.setBounds(68, 27, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.week));
+		weekCountLabel.setBounds(68, 27, 46, 14);
+		frame.getContentPane().add(weekCountLabel);
 		
-		JLabel lblNewLabel_3 = new JLabel(String.valueOf(enviroment.winloss[0]));
-		lblNewLabel_3.setBounds(315, 27, 46, 14);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel winsCountLabel = new JLabel(String.valueOf(enviroment.winloss[0]));
+		winsCountLabel.setBounds(315, 27, 46, 14);
+		frame.getContentPane().add(winsCountLabel);
 		
-		JLabel lblNewLabel_5 = new JLabel(String.valueOf(enviroment.winloss[2]));
-		lblNewLabel_5.setBounds(388, 27, 46, 14);
-		frame.getContentPane().add(lblNewLabel_5);
+		JLabel lossesCountLabel = new JLabel(String.valueOf(enviroment.winloss[2]));
+		lossesCountLabel.setBounds(388, 27, 46, 14);
+		frame.getContentPane().add(lossesCountLabel);
 		
-		JLabel lblNewLabel_6 = new JLabel("win");
-		lblNewLabel_6.setBounds(315, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel_6);
+		JLabel winsLabel = new JLabel("win");
+		winsLabel.setBounds(315, 11, 46, 14);
+		frame.getContentPane().add(winsLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel("loss");
-		lblNewLabel_4.setBounds(388, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel lossesLabel = new JLabel("loss");
+		lossesLabel.setBounds(388, 11, 46, 14);
+		frame.getContentPane().add(lossesLabel);
 		
-		JLabel lblNewLabel_7 = new JLabel("week");
-		lblNewLabel_7.setBounds(68, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel_7);
+		JLabel weekLabel = new JLabel("week");
+		weekLabel.setBounds(68, 11, 46, 14);
+		frame.getContentPane().add(weekLabel);
 		
-		JLabel lblNewLabel_8 = new JLabel("money");
-		lblNewLabel_8.setBounds(506, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel_8);
+		JLabel moneyLabel = new JLabel("money");
+		moneyLabel.setBounds(506, 11, 46, 14);
+		frame.getContentPane().add(moneyLabel);
 	}
 }

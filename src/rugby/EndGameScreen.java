@@ -31,21 +31,21 @@ public class EndGameScreen {
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("season over");
-		lblNewLabel.setBounds(239, 99, 104, 51);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel seasonOverLabel = new JLabel("season over");
+		seasonOverLabel.setBounds(239, 99, 104, 51);
+		frame.getContentPane().add(seasonOverLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Your team finished with:");
-		lblNewLabel_1.setBounds(212, 171, 155, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel statsLabel = new JLabel("Your team finished with:");
+		statsLabel.setBounds(212, 171, 155, 14);
+		frame.getContentPane().add(statsLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel(String.valueOf(enviroment.winloss[0]));
-		lblNewLabel_2.setBounds(158, 236, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel winsLabel = new JLabel(String.valueOf(enviroment.winloss[0]));
+		winsLabel.setBounds(158, 236, 46, 14);
+		frame.getContentPane().add(winsLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel(String.valueOf(enviroment.winloss[2]));
-		lblNewLabel_4.setBounds(320, 236, 46, 14);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel lossesLabel = new JLabel(String.valueOf(enviroment.winloss[2]));
+		lossesLabel.setBounds(320, 236, 46, 14);
+		frame.getContentPane().add(lossesLabel);
 
 	}
 }

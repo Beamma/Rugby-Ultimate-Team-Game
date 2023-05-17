@@ -21,8 +21,6 @@ public class MatchScreen {
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
 	private JLabel lblNewLabel;
 
 	
@@ -51,54 +49,61 @@ public class MatchScreen {
 		frame.getContentPane().setLayout(null);
 		
 		
-		JButton btnNewButton = new JButton("home");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton goHomeButton = new JButton("home");
+		goHomeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		
-		btnNewButton.setBounds(238, 386, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		goHomeButton.setBounds(238, 386, 89, 23);
+		frame.getContentPane().add(goHomeButton);
 		
 		
 		lblNewLabel = new JLabel("next three matches");
-		lblNewLabel.setBounds(198, 30, 123, 30);
+		lblNewLabel.setBounds(238, 31, 123, 30);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(0)));
+		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " rated: " + enviroment.getTeamRating(enviroment.oposition.get(0)) + " overall.");
 		team1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goGame(enviroment.oposition.get(0));
 			}
 		});
 		
-		team1.setBounds(238, 107, 89, 23);
+		team1.setBounds(194, 142, 186, 23);
 		frame.getContentPane().add(team1);
 		
-		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(1)));
+		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " rated: " + enviroment.getTeamRating(enviroment.oposition.get(1)));
 		team2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goGame(enviroment.oposition.get(1));
 			}
 		});
 		
-		team2.setBounds(238, 174, 89, 23);
+		team2.setBounds(194, 214, 186, 23);
 		frame.getContentPane().add(team2);
 		
-		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " " + enviroment.getTeamRating(enviroment.oposition.get(2)));
+		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " rated: " + enviroment.getTeamRating(enviroment.oposition.get(2)));
 		team3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goGame(enviroment.oposition.get(2));
 			}
 		});
-		team3.setBounds(238, 253, 89, 23);
+		team3.setBounds(194, 285, 186, 23);
 		frame.getContentPane().add(team3);
 		
-//		random = new JTextField();
-//		random.setBounds(147, 279, 86, 20);
-//		frame.getContentPane().add(random);
-//		random.setColumns(10);
-//		
+		JLabel teamOneLabel = new JLabel("Team one:");
+		teamOneLabel.setBounds(256, 95, 71, 14);
+		frame.getContentPane().add(teamOneLabel);
+		
+		JLabel teamTwoLabel = new JLabel("Team two:");
+		teamTwoLabel.setBounds(256, 189, 65, 14);
+		frame.getContentPane().add(teamTwoLabel);
+		
+		JLabel teamThreeLabel = new JLabel("Team three:");
+		teamThreeLabel.setBounds(256, 260, 71, 14);
+		frame.getContentPane().add(teamThreeLabel);
+
 	}
 }
