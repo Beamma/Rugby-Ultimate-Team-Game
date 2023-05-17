@@ -12,6 +12,7 @@ import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
@@ -71,6 +72,8 @@ public class GameScreen {
 		lblNewLabel.setBounds(244, -11, 42, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
+		
+		
 		JButton btnNewButton_1 = new JButton("vs");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,31 +81,60 @@ public class GameScreen {
 				int holder = enviroment.getMatchResult(enviroment.club.team, opposition);
 				if (holder > 0) {
 					enviroment.updateWeek();
+					enviroment.addMoney(20000);
 					enviroment.winloss[0] += 1;
 					JOptionPane.showMessageDialog(frame, "Won by " + enviroment.getMatchResult(enviroment.club.team, opposition));
 					goHome();
 				}else if (holder < 0) {
 					enviroment.updateWeek();
+					enviroment.addMoney(10000);
 					enviroment.winloss[2] += 1;
 					JOptionPane.showMessageDialog(frame, "Lost by " + enviroment.getMatchResult(enviroment.club.team, opposition));
 					goHome();
 				}else if (holder == 0){
 					enviroment.updateWeek();
+					enviroment.addMoney(5000);
 					enviroment.winloss[1] += 1;
 					JOptionPane.showMessageDialog(frame, "Drew");
 					goHome();
 					
 				}else {
-					JOptionPane.showMessageDialog(frame, "cannot play because of lack of stamina");
+					JOptionPane.showMessageDialog(frame, "cannot play because of lack of player stamina");
 				}
 				}else {
-					JOptionPane.showMessageDialog(frame, "cannot play because of injury in team");
+					JOptionPane.showMessageDialog(frame, "cannot play because of lack of eligible players");
 				}
 				//enviroment.getMatchResult(enviroment.club.team, opposition);
 			}
 		});
+		
+
 		btnNewButton_1.setBounds(233, 202, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		DefaultListModel<Athlete> MyTeam = new DefaultListModel<Athlete>();
+		MyTeam.addAll(enviroment.club.team.getAthletes());
+		
+		JList<Athlete> list = new JList<Athlete>();
+		list.setBounds(30, 77, 175, 339);
+		list.setModel(MyTeam);
+		frame.getContentPane().add(list);
+		
+		DefaultListModel<Athlete> opposition = new DefaultListModel<Athlete>();
+		opposition.addAll(this.opposition.getAthletes());
+		
+		JList<Athlete> list2 = new JList<Athlete>();
+		list2.setBounds(368, 77, 175, 339);
+		list2.setModel(opposition);
+		frame.getContentPane().add(list2);
+		
+		JLabel lblNewLabel_1 = new JLabel(enviroment.teamName);
+		lblNewLabel_1.setBounds(90, 52, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel(this.opposition.teamName);
+		lblNewLabel_2.setBounds(443, 52, 46, 14);
+		frame.getContentPane().add(lblNewLabel_2);
 
 	}
 }

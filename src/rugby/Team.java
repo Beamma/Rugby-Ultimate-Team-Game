@@ -8,7 +8,7 @@ public class Team {
 	private String seasonInfo;
 	
 	public void addPlayer(Athlete athlete){
-		if (this.players.size() >= 20) {
+		if (this.players.size() >= 15) {
 			System.out.println("Your team is already full, try swapping a player");
 		}else {
 		this.players.add(athlete);
@@ -51,6 +51,9 @@ public class Team {
 				System.out.println("You cannot participate in a match as one or more of your players are injured please swap them out of your squad");
 				return false;
 			}
+		}
+		if (this.getAthletes().size() < 15){
+			return false;
 		}
 		return true;
 	}

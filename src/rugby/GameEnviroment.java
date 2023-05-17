@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 10000;
+	public int money = 20000;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
@@ -79,6 +79,11 @@ public class GameEnviroment {
 	public void minusMoney(int amount){
 		this.money -= amount;
 	} 
+	
+	public void addMoney(int amount){
+		this.money += amount;
+	} 
+	
 	
 	public int getMatchResult(Team team1, Team team2) {
 		int hodler = Match.matchResult(team1, team2);
