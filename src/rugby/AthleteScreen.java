@@ -25,7 +25,7 @@ import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
-public class TeamScreen {
+public class AthleteScreen {
 	
 
 	private JFrame frame;
@@ -33,10 +33,13 @@ public class TeamScreen {
 	private JTextField random;
 	private JTextField textField;
 	private JLabel lblNewLabel;
+	private Athlete athlete;
+	private JLabel lblNewLabel_1;
 
 	
-	public TeamScreen(GameEnviroment enviroment){
+	public AthleteScreen(GameEnviroment enviroment, Athlete athlete){
 		this.enviroment = enviroment;
+		this.athlete = athlete;
 		initialize();
 		frame.setVisible(true);
 	}
@@ -46,11 +49,7 @@ public class TeamScreen {
 	}
 	
 	public void goHome() {
-		enviroment.closeTeamScreen(this);
-	}
-	
-	public void goAthlete(Athlete athlete) {
-		enviroment.closeTeamScreen(this, athlete);
+		enviroment.closeAthleteScreen(this);
 	}
 
 	private void initialize() {
@@ -68,35 +67,13 @@ public class TeamScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton);
 
-		lblNewLabel = new JLabel("team");
+		lblNewLabel = new JLabel("athlete");
 		lblNewLabel.setBounds(244, -11, 42, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
-		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
-		athleteListModel.addAll(this.enviroment.getTeam());
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "wow", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(338, 185, 131, -168);
-
-		frame.getContentPane().add(panel);
-
-		
-		JList<Athlete> tester = new JList<Athlete>();
-		tester.setBounds(46, 28, 493, 318);
-		frame.getContentPane().add(tester);
-		tester.setModel(athleteListModel);
-		Athlete ed = GameEnviroment.generatePlayer();
-		
-		JButton btnNewButton_1 = new JButton("select athlete");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				goAthlete(tester.getSelectedValue());
-			}
-		});
-		btnNewButton_1.setBounds(232, 357, 120, 23);
-		frame.getContentPane().add(btnNewButton_1);
-
+		lblNewLabel_1 = new JLabel(athlete.name);
+		lblNewLabel_1.setBounds(240, 117, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 
 	}
 }

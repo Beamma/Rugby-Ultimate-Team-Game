@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MarketPlace extends GameEnviroment{
-	private ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
+	public ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
 	private ArrayList<Item> itemsForSale = new ArrayList<Item>();
 	private GameEnviroment game;
 	private Inventory club;
@@ -12,8 +12,7 @@ public class MarketPlace extends GameEnviroment{
 	public MarketPlace(GameEnviroment game, Inventory club) {
 		this.game = game;
 		this.club = club;
-		updateMarket();
-		for (int i = 0 ; i <= 10 ; i++) {
+		for (int i = 0 ; i <= 5 ; i++) {
 			playersForSale.add(generatePlayer());
 		}
 	}

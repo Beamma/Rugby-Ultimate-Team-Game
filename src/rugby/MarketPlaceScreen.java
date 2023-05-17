@@ -5,10 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
+import javax.swing.JList;
 
 public class MarketPlaceScreen {
 	
@@ -33,9 +36,7 @@ public class MarketPlaceScreen {
 	public void finishedWindow() {
 		enviroment.closeMarketPlaceScreen(this);
 	}
-	public void goTeam() {
-		enviroment.closeHomeScreen(this, 4);
-	}
+
 	
 	private void initialize() {
 		frame = new JFrame();
@@ -49,27 +50,20 @@ public class MarketPlaceScreen {
 			}
 		});
 		Athlete ed = GameEnviroment.generatePlayer();
-		JButton holder = new JButton(String.valueOf(ed.buyPrice));
-		holder.setBounds(177, 130, 197, 119);
-		frame.getContentPane().add(holder);
-		holder.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (enviroment.money >= ed.buyPrice) {
-					enviroment.minusMoney(ed.buyPrice);
-					enviroment.addPlayerTeam(ed);
-					JOptionPane.showMessageDialog(frame, "brought");
-				}
-				else{
-					JOptionPane.showMessageDialog(frame, "no money");
-				}
-			}
-		});
-		btnNewButton_1.setBounds(235, 305, 139, 63);
+		btnNewButton_1.setBounds(231, 350, 139, 63);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("market");
 		lblNewLabel.setBounds(203, 62, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
+		
+		DefaultListModel<Athlete> athleteMarketModel = new DefaultListModel<Athlete>();
+		athleteMarketModel.addAll(enviroment.market.playersForSale);
+		
+		JList<Athlete> listAthleteMarket = new JList<Athlete>();
+		listAthleteMarket.setBounds(48, 105, 126, 252);
+		frame.getContentPane().add(listAthleteMarket);
+		listAthleteMarket.setModel(athleteMarketModel);
 
 	}
 }

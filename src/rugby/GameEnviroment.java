@@ -19,6 +19,7 @@ public class GameEnviroment {
 	private int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
 	int randomness = (20 - (3*this.difficulty));
+	public MarketPlace market;
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -234,6 +235,11 @@ public class GameEnviroment {
 		launchHomeScreen();
 	}
 	
+	public void closeTeamScreen(TeamScreen teamWindow, Athlete athlete) {
+		teamWindow.closeWindow();
+		launchAthleteScreen(athlete);
+	}
+	
 	public void launchMatchScreen() {
 		MatchScreen matchWindow = new MatchScreen(this);
 	}
@@ -257,6 +263,15 @@ public class GameEnviroment {
 		launchHomeScreen();
 	}
 	
+	public void launchAthleteScreen(Athlete athlete) {
+		AthleteScreen matchWindow = new AthleteScreen(this, athlete);
+	}
+	
+	public void closeAthleteScreen(AthleteScreen athleteWindow) {
+		athleteWindow.closeWindow();
+		launchHomeScreen();
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -266,6 +281,8 @@ public class GameEnviroment {
 		manager.club = club;
 		Team team = new Team();
 		club.team = team;
+		MarketPlace market = new MarketPlace(manager, manager.club);
+		manager.market = market;
 		Athlete ed = generatePlayer();
 		manager.club.team.addPlayer(ed);
 		Team liam = generateTeam(1);
