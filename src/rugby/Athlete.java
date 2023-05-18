@@ -15,6 +15,7 @@ public class Athlete {
 	public boolean injured = false;
 	public String position;
 	public int rarity;
+	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
 	
 	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, int[] value) {
 		this.name = name;
@@ -25,7 +26,6 @@ public class Athlete {
 		this.rarity = rarity;
 		this.stats = new HashMap<String, Integer>();
 		
-		String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
 		for (int i = 0; i < 6; i++) {
 			this.stats.put(attributes[i], value[i]);
 		}

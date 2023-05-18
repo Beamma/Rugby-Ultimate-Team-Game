@@ -20,6 +20,7 @@ public class GameEnviroment {
 	public int[] winloss = new int[]{0,0,0};
 	int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
+	public boolean trained = false;
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -293,6 +294,9 @@ public class GameEnviroment {
 		holder.add(liame);
 		holder.add(liams);
 		manager.oposition = holder;
+		Item i = generateItem();
+		club.items.add(i);
+
 		manager.launchSetupScreen();
 
 //		GameEnviroment game = new GameEnviroment();

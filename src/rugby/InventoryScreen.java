@@ -16,13 +16,12 @@ import javax.swing.DefaultListModel;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.border.TitledBorder;
+import javax.swing.JScrollBar;
 
 public class InventoryScreen {
 	
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private ArrayList<Athlete> ownedAthletes = new ArrayList<>();
-
 	/**
 	 * Launch the application.
 	 * @return 
@@ -30,9 +29,6 @@ public class InventoryScreen {
 	
 	public InventoryScreen(GameEnviroment enviroment) {
 		this.enviroment = enviroment;
-		ownedAthletes.add(GameEnviroment.generatePlayer());
-		ownedAthletes.add(GameEnviroment.generatePlayer());
-		ownedAthletes.add(GameEnviroment.generatePlayer());
 		initialize();
 		frame.setVisible(true);
 	}
@@ -55,33 +51,56 @@ public class InventoryScreen {
 		frame = new JFrame();
 		frame.setBounds(500, 300, 600, 500);
 		
-		JButton btnNewButton_1 = new JButton("got home");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				goHome();
-			}
-		});
-		
-		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
-		athleteListModel.addAll(ownedAthletes);
-		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
-		frame.getContentPane().add(btnNewButton_1);
-		
 		JButton btnNewButton = new JButton("go to Team");
+		btnNewButton.setBounds(362, 403, 87, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goTeam();
 			}
 		});
+		frame.getContentPane().setLayout(null);
 		
 		frame.getContentPane().add(btnNewButton);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "JPanel title", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		frame.getContentPane().add(panel);
+		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
+		athleteListModel.addAll(enviroment.club.players);
+		
+		JButton btnNewButton_1 = new JButton("got home");
+		btnNewButton_1.setBounds(164, 403, 77, 23);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goHome();
+			}
+		});
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("reserve athletes");
+		lblNewLabel.setBounds(99, 44, 120, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JList<Athlete> athleteStats = new JList<Athlete>();
+		athleteStats.setBounds(87, 69, 120, 292);
+		frame.getContentPane().add(athleteStats);
+		athleteStats.setModel(athleteListModel);
+		
 		
 		JList<Athlete> athletes = new JList<Athlete>(athleteListModel);
-		panel.add(athletes);
+		frame.getContentPane().add(athleteStats);
+		
+		
+		
+		DefaultListModel<Item> itemListModel = new DefaultListModel<Item>();
+		itemListModel.addAll(enviroment.club.items);
+		
+		JList<Item> list = new JList<Item>(itemListModel);
+		list.setBounds(372, 69, 120, 293);
+		frame.getContentPane().add(list);
+		
+		
+		
+		JLabel lblNewLabel_1 = new JLabel("owened itemns");
+		lblNewLabel_1.setBounds(410, 44, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 		
 		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));

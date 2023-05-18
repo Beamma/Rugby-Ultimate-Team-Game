@@ -64,6 +64,16 @@ public class MarketPlaceScreen {
 		listAthleteMarket.setBounds(48, 105, 126, 252);
 		frame.getContentPane().add(listAthleteMarket);
 		listAthleteMarket.setModel(athleteMarketModel);
+		
+		JButton btnNewButton = new JButton("buy");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
+				enviroment.club.addPlayer(athleteBuy);
+			}
+		});
+		btnNewButton.setBounds(70, 370, 89, 23);
+		frame.getContentPane().add(btnNewButton);
 
 	}
 }

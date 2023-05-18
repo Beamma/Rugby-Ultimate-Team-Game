@@ -6,12 +6,16 @@ import java.util.Scanner;
 public class Inventory {
 	
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
-	private ArrayList<Item> items = new ArrayList<Item>();
+	public ArrayList<Item> items = new ArrayList<Item>();
 	public Team team;
 	private GameEnviroment game;
 	
 	public Inventory(GameEnviroment game) {
 		this.game = game;
+	}
+	
+	public ArrayList<Athlete> getAllAthletes(){
+		return this.players;
 	}
 	
 	public void addPlayer(Athlete athlete) {
@@ -49,6 +53,7 @@ public class Inventory {
 			team.printTeamInfo();
 		}
 	}
+	
 	
 	public void useItem(){
 		Item item = selectItem();

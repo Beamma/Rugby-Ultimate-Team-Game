@@ -6,11 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
@@ -70,10 +72,38 @@ public class AthleteScreen {
 		lblNewLabel = new JLabel("athlete");
 		lblNewLabel.setBounds(244, -11, 42, 46);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		lblNewLabel_1 = new JLabel(athlete.name);
 		lblNewLabel_1.setBounds(240, 117, 46, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		DefaultListModel<Integer> athleteListModel = new DefaultListModel<Integer>();
+		athleteListModel.add(0, athlete.stats.get("Pace"));
+		athleteListModel.add(1, athlete.stats.get("Passing"));
+		athleteListModel.add(2, athlete.stats.get("Defence"));
+		athleteListModel.add(3, athlete.stats.get("Tacking"));
+		athleteListModel.add(4, athlete.stats.get("Ofense"));
+		athleteListModel.add(5, athlete.stats.get("Fitness"));
+		
+		JList<Integer> athleteStats = new JList<Integer>();
+		athleteStats.setBounds(170, 142, 227, 184);
+		frame.getContentPane().add(athleteStats);
+		athleteStats.setModel(athleteListModel);
+		
+		JButton btnNewButton_1 = new JButton("train attribute");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int previousStat = athleteStats.getSelectedValue();
+				int increaseStat = athleteStats.getSelectedIndex();
+				athlete.train(athlete.attributes[increaseStat]);
+				JOptionPane.showMessageDialog(frame, athlete.attributes[increaseStat] + " increased from " + previousStat + " to " + athlete.stats.get(athlete.attributes[increaseStat]));
+				goHome();
+			}
+		});
+		btnNewButton_1.setBounds(242, 350, 89, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		
 
 	}
 }
