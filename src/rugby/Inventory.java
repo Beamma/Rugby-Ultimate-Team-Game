@@ -42,16 +42,11 @@ public class Inventory {
 		}
 	}
 	
-	public void swapPlayer(Team team) {
-		Athlete athlete1 = selectAthlete();
-		Athlete athlete2 = selectAthlete();
-		if (athlete1 == athlete2) {
-			System.out.println("You have chosen the same player twice, please select two different players");
-		} else {
-			team.swapPlayer(athlete1, athlete2);
-			System.out.println("Swap completed your new team is:");
-			team.printTeamInfo();
-		}
+	public void swapPlayer(Athlete athlete1, Athlete athlete2) {
+		this.addPlayer(athlete1);
+		this.team.removePlayer(athlete1);
+		this.removePlayer(athlete2);
+		this.team.addPlayer(athlete2);
 	}
 	
 	
@@ -105,6 +100,9 @@ public class Inventory {
 	
 	public int getPlayerWages(){
 		int weeklyWage = 0;
+		if (players.size() <= 0) {
+			return 0;
+		}
 		for (Athlete player : players) {
 			weeklyWage += player.wage;
 		}

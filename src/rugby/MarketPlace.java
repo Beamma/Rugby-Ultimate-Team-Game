@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MarketPlace extends GameEnviroment{
 	public ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
-	private ArrayList<Item> itemsForSale = new ArrayList<Item>();
+	public ArrayList<Item> itemsForSale = new ArrayList<Item>();
 	private GameEnviroment game;
 	private Inventory club;
 	
@@ -14,11 +14,13 @@ public class MarketPlace extends GameEnviroment{
 		this.club = club;
 		for (int i = 0 ; i <= 5 ; i++) {
 			playersForSale.add(generatePlayer());
+			itemsForSale.add(generateItem());
 		}
 	}
 	
 	public void updateMarket() {
 		playersForSale.clear();
+		itemsForSale.clear();
 		for (int i = 0; i < 5; i++) {
 			playersForSale.add(generatePlayer());
 			itemsForSale.add(generateItem());
@@ -32,6 +34,14 @@ public class MarketPlace extends GameEnviroment{
 		} else {
 			System.out.println("Fail");
 		}
+	}
+	
+	public ArrayList<String> getAllItemsNames(){
+		ArrayList<String> itemNames = new ArrayList<String>();
+		for (Item item : this.itemsForSale) {
+			itemNames.add(item.item);
+		}
+		return itemNames;
 	}
 	
 	public void sellObject(Athlete athlete) {

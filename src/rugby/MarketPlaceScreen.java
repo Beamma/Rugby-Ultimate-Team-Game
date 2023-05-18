@@ -65,15 +65,38 @@ public class MarketPlaceScreen {
 		frame.getContentPane().add(listAthleteMarket);
 		listAthleteMarket.setModel(athleteMarketModel);
 		
-		JButton btnNewButton = new JButton("buy");
+		JButton btnNewButton = new JButton("buy athlete");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
-				enviroment.club.addPlayer(athleteBuy);
+				if (athleteBuy.buyPrice > enviroment.money) {
+					JOptionPane.showMessageDialog(frame, " no money");
+				}else if (enviroment.club.team.addPlayer(athleteBuy) == false){
+					enviroment.club.addPlayer(athleteBuy);
+				}
 			}
 		});
+		
 		btnNewButton.setBounds(70, 370, 89, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		DefaultListModel<Item> itemMarketModel = new DefaultListModel<Item>();
+		itemMarketModel.addAll(enviroment.market.itemsForSale);
+		
+		JList<Item> list = new JList<Item>();
+		list.setBounds(395, 105, 126, 252);
+		frame.getContentPane().add(list);
+		list.setModel(itemMarketModel);
+		
+		JButton btnNewButton_2 = new JButton("buy item");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Item itemBuy = list.getSelectedValue();
+				enviroment.club.addItem(itemBuy);
+			}
+		});
+		btnNewButton_2.setBounds(419, 370, 89, 23);
+		frame.getContentPane().add(btnNewButton_2);
 
 	}
 }

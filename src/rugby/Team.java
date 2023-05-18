@@ -7,11 +7,12 @@ public class Team {
 	public String teamName;
 	private String seasonInfo;
 	
-	public void addPlayer(Athlete athlete){
+	public boolean addPlayer(Athlete athlete){
 		if (this.players.size() >= 15) {
-			System.out.println("Your team is already full, try swapping a player");
+			return false;
 		}else {
 		this.players.add(athlete);
+		return true;
 		}
 	}
 	

@@ -94,6 +94,7 @@ public class HomeScreen {
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				enviroment.updateWeek();
+				enviroment.money += 5000;
 				enviroment.club.team.maxStamina();
 				goInventory();
 			}

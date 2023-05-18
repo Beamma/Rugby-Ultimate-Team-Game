@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 220000;
+	public int money = 20230;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
@@ -18,7 +18,7 @@ public class GameEnviroment {
 	public Inventory club;
 	private int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
-	int randomness = (20 - (3*this.difficulty));
+	int randomness = (10 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
 	
@@ -218,6 +218,20 @@ public class GameEnviroment {
 
 	}
 	
+	public void closeInventoryScreen(InventoryScreen inventoryWindow, Item item) {
+		inventoryWindow.closeWindow();
+		launchItemScreen(item);
+	}
+	
+	public void launchItemScreen(Item item) {
+		ItemScreen itemWindow = new ItemScreen(this, item);
+	}
+	
+	public void closeItemScreen(ItemScreen itemScreen) {
+		itemScreen.closeWindow();
+		launchHomeScreen();
+	}
+	
 	public void launchMarketPlaceScreen() {
 		MarketPlaceScreen marketWindow = new MarketPlaceScreen(this);
 	}
@@ -287,6 +301,7 @@ public class GameEnviroment {
 		Athlete ed = generatePlayer();
 		manager.club.team.addPlayer(ed);
 		Team liam = generateTeam(1);
+		
 		Team liams = generateTeam(1);
 		Team liame = generateTeam(1);
 		ArrayList<Team> holder = new ArrayList<Team>();
@@ -300,7 +315,7 @@ public class GameEnviroment {
 		manager.launchSetupScreen();
 
 //		GameEnviroment game = new GameEnviroment();
-//		Inventory club = new Inventory(game);
+//		Inventory club = new Inventory(game);sdadsa
 //		game.club = club;
 //		MarketPlace market = new MarketPlace(game, club);
 //		Team team = new Team();

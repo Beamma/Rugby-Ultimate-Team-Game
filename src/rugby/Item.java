@@ -19,10 +19,10 @@ public class Item {
 		}
 	}
 	
-	public void useItem(Athlete athlete) {
+	public void useItem(Athlete athlete, Item item) {
 		
 		for (int i = 0; i < 6; i++) {
-			athlete.stats.put(attributes[i], athlete.stats.get(attributes[i]) + (this.stats.get(attributes[i])));
+			athlete.stats.put(attributes[i], athlete.stats.get(attributes[i]) + (item.stats.get(attributes[i])));
 		}
 		System.out.println("You have used item " + this.item + ", it has boosted your athletes stats by:");
 		printEffect();

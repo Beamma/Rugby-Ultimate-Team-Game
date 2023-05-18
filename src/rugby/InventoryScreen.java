@@ -45,6 +45,9 @@ public class InventoryScreen {
 		enviroment.closeInventoryScreen(this, 2);
 	}
 	
+	public void goItem(Item item) {
+		enviroment.closeInventoryScreen(this, item);
+	}
 	
 	
 	private void initialize() {
@@ -52,7 +55,7 @@ public class InventoryScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		JButton btnNewButton = new JButton("go to Team");
-		btnNewButton.setBounds(362, 403, 87, 23);
+		btnNewButton.setBounds(240, 403, 87, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goTeam();
@@ -66,7 +69,7 @@ public class InventoryScreen {
 		athleteListModel.addAll(enviroment.club.players);
 		
 		JButton btnNewButton_1 = new JButton("got home");
-		btnNewButton_1.setBounds(164, 403, 77, 23);
+		btnNewButton_1.setBounds(87, 403, 77, 23);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -101,6 +104,16 @@ public class InventoryScreen {
 		JLabel lblNewLabel_1 = new JLabel("owened itemns");
 		lblNewLabel_1.setBounds(410, 44, 46, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton_2 = new JButton("use item");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Item useItem = list.getSelectedValue();
+				goItem(useItem);
+			}
+		});
+		btnNewButton_2.setBounds(384, 403, 89, 23);
+		frame.getContentPane().add(btnNewButton_2);
 		
 		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
