@@ -60,7 +60,7 @@ public class GameScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton homeButton = new JButton("<--");
+		JButton homeButton = new JButton("Home");
 		homeButton.setBackground(new Color(192, 192, 192));
 		homeButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		homeButton.setBounds(30, 12, 65, 29);
