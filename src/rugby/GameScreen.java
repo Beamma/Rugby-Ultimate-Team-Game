@@ -26,6 +26,8 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import javax.swing.border.MatteBorder;
 
 public class GameScreen {
 	
@@ -58,8 +60,10 @@ public class GameScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton homeButton = new JButton("Home");
-		homeButton.setBounds(262, 413, 59, 23);
+		JButton homeButton = new JButton("<--");
+		homeButton.setBackground(new Color(192, 192, 192));
+		homeButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		homeButton.setBounds(30, 12, 65, 29);
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -68,13 +72,17 @@ public class GameScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel("Game");
-		lblNewLabel.setBounds(244, -11, 42, 46);
+		lblNewLabel = new JLabel("Versus");
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(204, 64, 175, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
 		
 		
-		JButton playMatchButton = new JButton("vs");
+		JButton playMatchButton = new JButton("Play!");
+		playMatchButton.setBackground(new Color(192, 192, 192));
+		playMatchButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		playMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (enviroment.club.team.checkReady() == true) {
@@ -120,14 +128,15 @@ public class GameScreen {
 		});
 		
 
-		playMatchButton.setBounds(233, 202, 89, 23);
+		playMatchButton.setBounds(250, 240, 89, 23);
 		frame.getContentPane().add(playMatchButton);
 		
 		DefaultListModel<Athlete> MyTeam = new DefaultListModel<Athlete>();
 		MyTeam.addAll(enviroment.club.team.getAthletes());
 		
 		JList<Athlete> list = new JList<Athlete>();
-		list.setBounds(30, 77, 175, 339);
+		list.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		list.setBounds(30, 104, 175, 312);
 		list.setModel(MyTeam);
 		frame.getContentPane().add(list);
 		
@@ -135,17 +144,28 @@ public class GameScreen {
 		opposition.addAll(this.opposition.getAthletes());
 		
 		JList<Athlete> list2 = new JList<Athlete>();
-		list2.setBounds(368, 77, 175, 339);
+		list2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		list2.setBounds(378, 104, 175, 312);
 		list2.setModel(opposition);
 		frame.getContentPane().add(list2);
 		
 		JLabel teamLabel = new JLabel(enviroment.teamName);
-		teamLabel.setBounds(90, 52, 46, 14);
+		teamLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		teamLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		teamLabel.setBounds(30, 71, 175, 29);
 		frame.getContentPane().add(teamLabel);
 		
 		JLabel oppositionLabel = new JLabel(this.opposition.teamName);
-		oppositionLabel.setBounds(443, 52, 46, 14);
+		oppositionLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		oppositionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		oppositionLabel.setBounds(378, 71, 175, 29);
 		frame.getContentPane().add(oppositionLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Game Day");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(204, 6, 175, 37);
+		frame.getContentPane().add(lblNewLabel_1);
 
 	}
 }

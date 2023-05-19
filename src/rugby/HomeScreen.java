@@ -121,7 +121,7 @@ public class HomeScreen {
 		frame.getContentPane().add(weekCountLabel);
 		
 		JLabel winsCountLabel = new JLabel(String.valueOf(enviroment.winloss[0]));
-		winsCountLabel.setBounds(416, 27, 46, 14);
+		winsCountLabel.setBounds(360, 27, 46, 14);
 		frame.getContentPane().add(winsCountLabel);
 		
 		JLabel lossesCountLabel = new JLabel(String.valueOf(enviroment.winloss[2]));
@@ -130,7 +130,7 @@ public class HomeScreen {
 		
 		JLabel winsLabel = new JLabel("Win");
 		winsLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		winsLabel.setBounds(416, 11, 46, 14);
+		winsLabel.setBounds(360, 11, 46, 14);
 		frame.getContentPane().add(winsLabel);
 		
 		JLabel lossesLabel = new JLabel("Loss");
@@ -154,5 +154,14 @@ public class HomeScreen {
 		stadiumBackground.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/field (2).jpg")));
 		stadiumBackground.setBounds(0, 49, 584, 412);
 		frame.getContentPane().add(stadiumBackground);
+		
+		JLabel drawLabel = new JLabel("Draw");
+		drawLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		drawLabel.setBounds(416, 12, 46, 14);
+		frame.getContentPane().add(drawLabel);
+		
+		JLabel drawsCountLabel = new JLabel(String.valueOf(enviroment.winloss[1]));
+		drawsCountLabel.setBounds(416, 27, 46, 14);
+		frame.getContentPane().add(drawsCountLabel);
 	}
 }
