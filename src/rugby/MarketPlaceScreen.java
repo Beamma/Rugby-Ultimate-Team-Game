@@ -70,12 +70,11 @@ public class MarketPlaceScreen {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
 				if (athleteBuy.buyPrice > enviroment.money) {
-					JOptionPane.showMessageDialog(frame, "You Do Not Have Enough Money To Preform This Action");
-				}else if (enviroment.club.team.addPlayer(athleteBuy) == false){
-					System.out.println("buy");
-					enviroment.club.addPlayer(athleteBuy);
+					JOptionPane.showMessageDialog(frame, " no money");
+				}else if (enviroment.club.team.addPlayer(athleteBuy) == true | enviroment.club.team.addPlayer(athleteBuy) == false ){
+					JOptionPane.showMessageDialog(frame, "brought");
 					enviroment.minusMoney(athleteBuy.buyPrice);
-					JOptionPane.showMessageDialog(frame, "Purchase Succesfull");
+					enviroment.club.addPlayer(athleteBuy);
 				}
 			}
 		});
