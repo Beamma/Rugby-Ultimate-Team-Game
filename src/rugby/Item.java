@@ -36,6 +36,11 @@ public class Item {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("%s, %d",this.item, this.price);
+	}
+	
 	public void itemOptions() {
 		System.out.println("Options");
 	}

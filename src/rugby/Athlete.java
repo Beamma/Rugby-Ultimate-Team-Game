@@ -33,7 +33,7 @@ public class Athlete {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %d, %d, %s, %d",this.name, this.wage, this.stamina, this.position, this.rarity);
+		return String.format("%s, %d, %s, %d",this.name, this.stamina, this.position, this.rarity);
 	}
 	
 	public void changeNickName(String changeName){

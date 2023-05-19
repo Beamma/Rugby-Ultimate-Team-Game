@@ -12,6 +12,7 @@ import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
@@ -64,7 +65,7 @@ public class AthleteScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(262, 413, 59, 23);
+		btnNewButton.setBounds(262, 427, 59, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -73,8 +74,8 @@ public class AthleteScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton);
 
-		lblNewLabel = new JLabel(athlete.name);
-		lblNewLabel.setBounds(250, 24, 169, 46);
+		lblNewLabel = new JLabel(athlete.name, SwingConstants.CENTER);
+		lblNewLabel.setBounds(237, 24, 109, 46);
 		frame.getContentPane().add(lblNewLabel);
 
 		DefaultListModel<Integer> athleteListModel = new DefaultListModel<Integer>();
@@ -99,44 +100,76 @@ public class AthleteScreen {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(229, 345, 117, 23);
+		btnNewButton_1.setBounds(229, 334, 117, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JRadioButton passingButton = new JRadioButton(athlete.attributes[2] +  ": " + athlete.stats.get(athlete.attributes[2]));
-		passingButton.setBounds(237, 121, 109, 23);
+		JRadioButton passingButton = new JRadioButton(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
+		passingButton.setBounds(312, 173, 117, 23);
 		frame.getContentPane().add(passingButton);
 		passingButton.setActionCommand("2");
 		statsTrain.add(passingButton);
 		
-		JRadioButton offenseButton = new JRadioButton(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
-		offenseButton.setBounds(237, 164, 109, 23);
+		JRadioButton offenseButton = new JRadioButton(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
+		offenseButton.setBounds(135, 222, 117, 23);
 		frame.getContentPane().add(offenseButton);
 		offenseButton.setActionCommand("5");
 		statsTrain.add(offenseButton);
 		
-		JRadioButton tacklingButton = new JRadioButton(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
-		tacklingButton.setBounds(237, 207, 109, 23);
+		JRadioButton tacklingButton = new JRadioButton(athlete.attributes[3] +  ": " + athlete.stats.get(athlete.attributes[3]));
+		tacklingButton.setBounds(312, 222, 117, 23);
 		frame.getContentPane().add(tacklingButton);
 		tacklingButton.setActionCommand("4");
 		statsTrain.add(tacklingButton);
 		
-		JRadioButton fitnessButton = new JRadioButton(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
-		fitnessButton.setBounds(237, 251, 109, 23);
-		frame.getContentPane().add(fitnessButton);
-		fitnessButton.setActionCommand("0");
-		statsTrain.add(fitnessButton);
-		
-		JRadioButton paceButton = new JRadioButton(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
-		paceButton.setBounds(237, 290, 109, 23);
+		JRadioButton paceButton = new JRadioButton(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
+		paceButton.setBounds(135, 266, 117, 23);
 		frame.getContentPane().add(paceButton);
-		paceButton.setActionCommand("1");
+		paceButton.setActionCommand("0");
 		statsTrain.add(paceButton);
 		
-		JRadioButton defenseButton = new JRadioButton(athlete.attributes[3]+  ": " + athlete.stats.get(athlete.attributes[3]));
-		defenseButton.setBounds(237, 77, 109, 23);
+		JRadioButton fitnessButton = new JRadioButton(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
+		fitnessButton.setBounds(312, 266, 117, 23);
+		frame.getContentPane().add(fitnessButton);
+		fitnessButton.setActionCommand("1");
+		statsTrain.add(fitnessButton);
+		
+		JRadioButton defenseButton = new JRadioButton(athlete.attributes[2]+  ": " + athlete.stats.get(athlete.attributes[3]));
+		defenseButton.setBounds(135, 173, 117, 23);
 		frame.getContentPane().add(defenseButton);
 		defenseButton.setActionCommand("3");
+		defenseButton.setSelected(true);
 		statsTrain.add(defenseButton);
+		JLabel lblNewLabel_2 = new JLabel(String.valueOf(athlete.sellPrice), SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(70, 102, 67, 14);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Sell Price", SwingConstants.CENTER);
+		lblNewLabel_3.setBounds(70, 77, 67, 14);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Injured", SwingConstants.CENTER);
+		lblNewLabel_4.setBounds(192, 77, 59, 14);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel(String.valueOf(athlete.injured), SwingConstants.CENTER);
+		lblNewLabel_5.setBounds(192, 102, 59, 14);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Wage", SwingConstants.CENTER);
+		lblNewLabel_6.setBounds(323, 77, 67, 14);
+		frame.getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("$" + String.valueOf(athlete.wage), SwingConstants.CENTER);
+		lblNewLabel_7.setBounds(323, 102, 67, 14);
+		frame.getContentPane().add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("Position");
+		lblNewLabel_8.setBounds(468, 77, 59, 14);
+		frame.getContentPane().add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_9 = new JLabel(String.valueOf(athlete.position), SwingConstants.CENTER);
+		lblNewLabel_9.setBounds(468, 102, 59, 14);
+		frame.getContentPane().add(lblNewLabel_9);
 		
 
 	}
