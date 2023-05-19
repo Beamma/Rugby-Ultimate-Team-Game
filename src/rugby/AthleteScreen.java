@@ -19,6 +19,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import javax.swing.JRadioButton;
 
 public class AthleteScreen {
 	
@@ -37,6 +39,7 @@ public class AthleteScreen {
 	private JLabel lblNewLabel;
 	private Athlete athlete;
 	private JLabel lblNewLabel_1;
+	private final ButtonGroup statsTrain = new ButtonGroup();
 
 	
 	public AthleteScreen(GameEnviroment enviroment, Athlete athlete){
@@ -56,6 +59,7 @@ public class AthleteScreen {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		
 		
@@ -69,14 +73,10 @@ public class AthleteScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton);
 
-		lblNewLabel = new JLabel("athlete");
-		lblNewLabel.setBounds(244, -11, 42, 46);
+		lblNewLabel = new JLabel(athlete.name);
+		lblNewLabel.setBounds(250, 24, 169, 46);
 		frame.getContentPane().add(lblNewLabel);
 
-		lblNewLabel_1 = new JLabel(athlete.name);
-		lblNewLabel_1.setBounds(240, 117, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
-		
 		DefaultListModel<Integer> athleteListModel = new DefaultListModel<Integer>();
 		athleteListModel.add(0, athlete.stats.get("Pace"));
 		athleteListModel.add(1, athlete.stats.get("Passing"));
@@ -85,24 +85,58 @@ public class AthleteScreen {
 		athleteListModel.add(4, athlete.stats.get("Ofense"));
 		athleteListModel.add(5, athlete.stats.get("Fitness"));
 		
-		JList<Integer> athleteStats = new JList<Integer>();
-		athleteStats.setBounds(170, 142, 227, 184);
-		frame.getContentPane().add(athleteStats);
-		athleteStats.setModel(athleteListModel);
-		
 		JButton btnNewButton_1 = new JButton("train attribute");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int previousStat = athleteStats.getSelectedValue();
-				int increaseStat = athleteStats.getSelectedIndex();
-				athlete.train(athlete.attributes[increaseStat]);
-				JOptionPane.showMessageDialog(frame, athlete.attributes[increaseStat] + " increased from " + previousStat + " to " + athlete.stats.get(athlete.attributes[increaseStat]));
-				goHome();
+				int statChange = Integer.valueOf(statsTrain.getSelection().getActionCommand());
+				int beforeStat = athlete.stats.get(athlete.attributes[statChange]);
+				if (beforeStat == 99) {
+					JOptionPane.showMessageDialog(frame, "stat max rn");
+				}else {
+					athlete.train(athlete.attributes[statChange]);
+					JOptionPane.showMessageDialog(frame, athlete.attributes[statChange] + " increased from " + beforeStat + " to " + athlete.stats.get(athlete.attributes[statChange]));
+					goHome();
+				}
 			}
 		});
-		btnNewButton_1.setBounds(242, 350, 89, 23);
+		btnNewButton_1.setBounds(229, 345, 117, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
+		JRadioButton passingButton = new JRadioButton(athlete.attributes[2] +  ": " + athlete.stats.get(athlete.attributes[2]));
+		passingButton.setBounds(237, 121, 109, 23);
+		frame.getContentPane().add(passingButton);
+		passingButton.setActionCommand("2");
+		statsTrain.add(passingButton);
+		
+		JRadioButton offenseButton = new JRadioButton(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
+		offenseButton.setBounds(237, 164, 109, 23);
+		frame.getContentPane().add(offenseButton);
+		offenseButton.setActionCommand("5");
+		statsTrain.add(offenseButton);
+		
+		JRadioButton tacklingButton = new JRadioButton(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
+		tacklingButton.setBounds(237, 207, 109, 23);
+		frame.getContentPane().add(tacklingButton);
+		tacklingButton.setActionCommand("4");
+		statsTrain.add(tacklingButton);
+		
+		JRadioButton fitnessButton = new JRadioButton(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
+		fitnessButton.setBounds(237, 251, 109, 23);
+		frame.getContentPane().add(fitnessButton);
+		fitnessButton.setActionCommand("0");
+		statsTrain.add(fitnessButton);
+		
+		JRadioButton paceButton = new JRadioButton(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
+		paceButton.setBounds(237, 290, 109, 23);
+		frame.getContentPane().add(paceButton);
+		paceButton.setActionCommand("1");
+		statsTrain.add(paceButton);
+		
+		JRadioButton defenseButton = new JRadioButton(athlete.attributes[3]+  ": " + athlete.stats.get(athlete.attributes[3]));
+		defenseButton.setBounds(237, 77, 109, 23);
+		frame.getContentPane().add(defenseButton);
+		defenseButton.setActionCommand("3");
+		statsTrain.add(defenseButton);
 		
 
 	}

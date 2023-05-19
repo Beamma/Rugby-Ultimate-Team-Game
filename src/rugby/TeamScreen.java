@@ -92,7 +92,12 @@ public class TeamScreen {
 		JButton btnNewButton_1 = new JButton("select athlete");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goAthlete(activePlayerList.getSelectedValue());
+				Athlete athlete1 = activePlayerList.getSelectedValue(); 	
+				if (athlete1 != null) {
+					goAthlete(activePlayerList.getSelectedValue());
+				}else {
+					JOptionPane.showMessageDialog(frame,"Please select a athlete from active team");
+				}
 			}
 		});
 		btnNewButton_1.setBounds(46, 372, 120, 23);
@@ -115,7 +120,12 @@ public class TeamScreen {
 		JButton btnNewButton_2 = new JButton("select reserve athlete");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goAthlete(reserveList.getSelectedValue());
+				Athlete athlete1 = reserveList.getSelectedValue(); 	
+				if (athlete1 != null) {
+					goAthlete(reserveList.getSelectedValue());
+				}else {
+					JOptionPane.showMessageDialog(frame,"Please select a athlete from reserve");
+				}
 			}
 		});
 		btnNewButton_2.setBounds(386, 372, 148, 23);
