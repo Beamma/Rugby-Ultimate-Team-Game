@@ -60,7 +60,7 @@ public class TeamScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(262, 413, 69, 23);
+		btnNewButton.setBounds(242, 413, 83, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
