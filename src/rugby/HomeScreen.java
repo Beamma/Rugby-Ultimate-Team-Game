@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class HomeScreen {
 	
@@ -48,49 +50,60 @@ public class HomeScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
 		
-		JButton goInventoryButton = new JButton("got to inventory");
+		JButton goInventoryButton = new JButton("Inventory");
+		goInventoryButton.setBackground(new Color(192, 192, 192));
+		goInventoryButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		goInventoryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goInventory();
 			}
 		});
-		goInventoryButton.setBounds(312, 265, 122, 147);
+		goInventoryButton.setBounds(303, 341, 122, 71);
 		frame.getContentPane().add(goInventoryButton);
 		
-		JLabel homeLabel = new JLabel(enviroment.teamName + "'s home", SwingConstants.CENTER);
-		homeLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		homeLabel.setBounds(211, 36, 150, 43);
-		frame.getContentPane().add(homeLabel);
-		
 		JButton goMarketButton = new JButton("Market");
+		goMarketButton.setForeground(new Color(0, 0, 0));
+		goMarketButton.setBackground(new Color(192, 192, 192));
+		goMarketButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		goMarketButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMarket();
 			}
 		});
-		goMarketButton.setBounds(10, 265, 122, 147);
+		goMarketButton.setBounds(10, 341, 122, 71);
 		frame.getContentPane().add(goMarketButton);
 		
 		JButton goMatchButton = new JButton("Match");
+		goMatchButton.setBackground(new Color(192, 192, 192));
+		goMatchButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		goMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goMatch();
 			}
 		});
 		
-		goMatchButton.setBounds(164, 265, 122, 147);
+		JLabel homeLabel = new JLabel(enviroment.teamName + " Rugby Club", SwingConstants.CENTER);
+		homeLabel.setForeground(new Color(255, 255, 255));
+		homeLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		homeLabel.setBounds(10, 128, 564, 129);
+		frame.getContentPane().add(homeLabel);
+		
+		goMatchButton.setBounds(157, 341, 122, 71);
 		frame.getContentPane().add(goMatchButton);
 		
-		JLabel moneyCountLabel = new JLabel(String.valueOf(enviroment.money));
-		moneyCountLabel.setBounds(506, 27, 46, 14);
+		JLabel moneyCountLabel = new JLabel("$" + String.valueOf(enviroment.money));
+		moneyCountLabel.setBounds(528, 27, 46, 14);
 		frame.getContentPane().add(moneyCountLabel);
 		
 		JButton byeLabel = new JButton("Take a Bye");
+		byeLabel.setBackground(new Color(192, 192, 192));
+		byeLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				enviroment.updateWeek();
@@ -100,35 +113,46 @@ public class HomeScreen {
 			}
 		});
 		
-		byeLabel.setBounds(452, 265, 122, 147);
+		byeLabel.setBounds(452, 341, 122, 71);
 		frame.getContentPane().add(byeLabel);
 		
 		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.week));
-		weekCountLabel.setBounds(68, 27, 46, 14);
+		weekCountLabel.setBounds(10, 27, 46, 14);
 		frame.getContentPane().add(weekCountLabel);
 		
 		JLabel winsCountLabel = new JLabel(String.valueOf(enviroment.winloss[0]));
-		winsCountLabel.setBounds(315, 27, 46, 14);
+		winsCountLabel.setBounds(416, 27, 46, 14);
 		frame.getContentPane().add(winsCountLabel);
 		
 		JLabel lossesCountLabel = new JLabel(String.valueOf(enviroment.winloss[2]));
-		lossesCountLabel.setBounds(388, 27, 46, 14);
+		lossesCountLabel.setBounds(472, 27, 46, 14);
 		frame.getContentPane().add(lossesCountLabel);
 		
-		JLabel winsLabel = new JLabel("win");
-		winsLabel.setBounds(315, 11, 46, 14);
+		JLabel winsLabel = new JLabel("Win");
+		winsLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		winsLabel.setBounds(416, 11, 46, 14);
 		frame.getContentPane().add(winsLabel);
 		
-		JLabel lossesLabel = new JLabel("loss");
-		lossesLabel.setBounds(388, 11, 46, 14);
+		JLabel lossesLabel = new JLabel("Loss");
+		lossesLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lossesLabel.setBounds(472, 11, 46, 14);
 		frame.getContentPane().add(lossesLabel);
 		
-		JLabel weekLabel = new JLabel("week");
-		weekLabel.setBounds(68, 11, 46, 14);
+		JLabel weekLabel = new JLabel("Week");
+		weekLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		weekLabel.setBounds(10, 11, 46, 14);
 		frame.getContentPane().add(weekLabel);
 		
-		JLabel moneyLabel = new JLabel("money");
-		moneyLabel.setBounds(506, 11, 46, 14);
+		JLabel moneyLabel = new JLabel("Money");
+		moneyLabel.setForeground(new Color(0, 255, 64));
+		moneyLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		moneyLabel.setBounds(528, 12, 46, 14);
 		frame.getContentPane().add(moneyLabel);
+		
+		JLabel stadiumBackground = new JLabel("");
+		stadiumBackground.setForeground(new Color(255, 255, 255));
+		stadiumBackground.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/field (2).jpg")));
+		stadiumBackground.setBounds(0, 49, 584, 412);
+		frame.getContentPane().add(stadiumBackground);
 	}
 }
