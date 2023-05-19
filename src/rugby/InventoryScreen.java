@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.DefaultListModel;
@@ -109,7 +111,11 @@ public class InventoryScreen {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item useItem = list.getSelectedValue();
-				goItem(useItem);
+				if (useItem != null) {
+					goItem(useItem);
+				}else {
+					JOptionPane.showMessageDialog(frame,"Please select a item from list");
+				}
 			}
 		});
 		btnNewButton_2.setBounds(384, 403, 89, 23);
