@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 20230;
+	public int money = 202030;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
@@ -36,20 +36,21 @@ public class GameEnviroment {
 	
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
-			this.week += 1;
-			this.oposition.clear();
-			Team team1 = generateTeam(this.difficulty);
-			Team team2 = generateTeam(this.difficulty);
-			Team team3 = generateTeam(this.difficulty);
-			this.oposition.add(team1);
-			this.oposition.add(team2);
-			this.oposition.add(team3);
-			System.out.println(this.week);
+				this.week += 1;
+				this.oposition.clear();
+				Team team1 = generateTeam(this.difficulty);
+				Team team2 = generateTeam(this.difficulty);
+				Team team3 = generateTeam(this.difficulty);
+				this.oposition.add(team1);
+				this.oposition.add(team2);
+				this.oposition.add(team3);
+				System.out.println(this.week);
+				
+	//			RandomEvent.randomEvents(randomness);
+			} else {
+				System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
+			}
 			
-//			RandomEvent.randomEvents(randomness);
-		} else {
-			System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
-		}
 	}
 	
 	public ArrayList<Athlete> getTeam(){
@@ -173,7 +174,7 @@ public class GameEnviroment {
 	public void closeHomeScreen(HomeScreen homeWindow, int tester) {
 		homeWindow.closeWindow();
 		if (tester == 1) {
-			launchSetupScreen();
+			launchTrainScreen();
 		}
 		else if (tester == 2) {
 			launchInventoryScreen();
@@ -284,6 +285,15 @@ public class GameEnviroment {
 	
 	public void closeAthleteScreen(AthleteScreen athleteWindow) {
 		athleteWindow.closeWindow();
+		launchHomeScreen();
+	}
+	
+	public void launchTrainScreen() {
+		TrainScreen matchWindow = new TrainScreen(this);
+	}
+	
+	public void closeTrainScreen(TrainScreen trainWindow) {
+		trainWindow.closeWindow();
 		launchHomeScreen();
 	}
 	

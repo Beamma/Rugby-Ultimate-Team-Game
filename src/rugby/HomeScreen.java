@@ -48,6 +48,10 @@ public class HomeScreen {
 		enviroment.closeHomeScreen(this, 5);
 	}
 	
+	public void goTrain() {
+		enviroment.closeHomeScreen(this, 1);
+	}
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
@@ -110,8 +114,9 @@ public class HomeScreen {
 				enviroment.updateWeek();
 				enviroment.money += 5000;
 				enviroment.club.team.maxStamina();
+				
 				JOptionPane.showMessageDialog(frame, "Taken a bye all players now fully rested");
-				goInventory();
+				goTrain();
 			}
 		});
 		

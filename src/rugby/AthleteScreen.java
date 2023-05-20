@@ -65,7 +65,7 @@ public class AthleteScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(262, 427, 59, 23);
+		btnNewButton.setBounds(248, 427, 84, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -100,6 +100,7 @@ public class AthleteScreen {
 				}
 			}
 		});
+		
 		btnNewButton_1.setBounds(229, 334, 117, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		

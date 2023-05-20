@@ -49,7 +49,7 @@ public class MarketPlaceScreen {
 				finishedWindow();
 			}
 		});
-		Athlete ed = GameEnviroment.generatePlayer();
+
 		btnNewButton_1.setBounds(245, 400, 89, 30);
 		frame.getContentPane().add(btnNewButton_1);
 		
@@ -69,12 +69,19 @@ public class MarketPlaceScreen {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
-				if (athleteBuy.buyPrice > enviroment.money) {
-					JOptionPane.showMessageDialog(frame, " no money");
-				}else if (enviroment.club.team.addPlayer(athleteBuy) == true | enviroment.club.team.addPlayer(athleteBuy) == false ){
-					JOptionPane.showMessageDialog(frame, "brought");
-					enviroment.minusMoney(athleteBuy.buyPrice);
-					enviroment.club.addPlayer(athleteBuy);
+				if (athleteBuy != null) {
+					if (athleteBuy.buyPrice > enviroment.money) {
+						JOptionPane.showMessageDialog(frame, "no money");
+					}else if (enviroment.club.team.addPlayer(athleteBuy) == false ){
+						JOptionPane.showMessageDialog(frame, "brought");
+						enviroment.minusMoney(athleteBuy.buyPrice);
+						enviroment.club.addPlayer(athleteBuy);
+					}else {
+						enviroment.minusMoney(athleteBuy.buyPrice);
+						JOptionPane.showMessageDialog(frame, "brought");
+					}
+				}else {
+					JOptionPane.showMessageDialog(frame, "please select a athlete");
 				}
 			}
 		});

@@ -70,6 +70,7 @@ public class InventoryScreen {
 		
 		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
 		athleteListModel.addAll(enviroment.club.players);
+		athleteListModel.addAll(enviroment.getTeam());
 		
 		JButton btnNewButton_1 = new JButton("Home");
 		btnNewButton_1.setBounds(68, 403, 77, 23);
@@ -80,7 +81,7 @@ public class InventoryScreen {
 		});
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("Reserve athletes", SwingConstants.CENTER);
+		JLabel lblNewLabel = new JLabel("Athletes", SwingConstants.CENTER);
 		lblNewLabel.setBounds(68, 44, 149, 14);
 		frame.getContentPane().add(lblNewLabel);
 		

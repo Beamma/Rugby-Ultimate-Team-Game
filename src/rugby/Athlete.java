@@ -48,6 +48,12 @@ public class Athlete {
 		stats.put(stat, stats.get(stat) + 1);
 	}
 	
+	public void trainAll(){
+		for (String stat : attributes) {
+			stats.put(stat, stats.get(stat) + 1);
+		}
+	}
+	
 	public void changeValue(int changeValue) {
 		this.sellPrice = changeValue;
 	}
