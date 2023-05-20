@@ -12,6 +12,7 @@ import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
@@ -75,7 +76,7 @@ public class ItemScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(262, 413, 59, 23);
+		btnNewButton.setBounds(231, 412, 90, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -84,8 +85,8 @@ public class ItemScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btnNewButton);
 
-		lblNewLabel = new JLabel("item");
-		lblNewLabel.setBounds(244, -11, 42, 46);
+		lblNewLabel = new JLabel("item", SwingConstants.CENTER);
+		lblNewLabel.setBounds(231, 14, 90, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
 		lblNewLabel_2 = new JLabel(item.attributes[0]);
@@ -117,7 +118,7 @@ public class ItemScreen {
 		frame.getContentPane().add(lblNewLabel_8);
 		
 		lblNewLabel_9 = new JLabel(String.valueOf(item.stats.get(item.attributes[1])));
-		lblNewLabel_9.setBounds(142, 96, 46, 14);
+		lblNewLabel_9.setBounds(132, 96, 46, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		lblNewLabel_10 = new JLabel(String.valueOf(item.stats.get(item.attributes[2])));
@@ -125,15 +126,15 @@ public class ItemScreen {
 		frame.getContentPane().add(lblNewLabel_10);
 		
 		lblNewLabel_11 = new JLabel(String.valueOf(item.stats.get(item.attributes[3])));
-		lblNewLabel_11.setBounds(298, 96, 46, 14);
+		lblNewLabel_11.setBounds(288, 96, 46, 14);
 		frame.getContentPane().add(lblNewLabel_11);
 		
 		lblNewLabel_12 = new JLabel(String.valueOf(item.stats.get(item.attributes[4])));
-		lblNewLabel_12.setBounds(382, 96, 46, 14);
+		lblNewLabel_12.setBounds(372, 96, 46, 14);
 		frame.getContentPane().add(lblNewLabel_12);
 		
 		lblNewLabel_13 = new JLabel(String.valueOf(item.stats.get(item.attributes[5])));
-		lblNewLabel_13.setBounds(480, 96, 46, 14);
+		lblNewLabel_13.setBounds(470, 96, 46, 14);
 		frame.getContentPane().add(lblNewLabel_13);
 
 	
@@ -142,11 +143,11 @@ public class ItemScreen {
 		reserveModelList.addAll(enviroment.getTeam());
 		
 		JList<Athlete> reserveList = new JList<Athlete>();
-		reserveList.setBounds(164, 142, 233, 204);
+		reserveList.setBounds(164, 132, 233, 204);
 		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
 		
-		btnNewButton_1 = new JButton("use item;");
+		btnNewButton_1 = new JButton("Use item on selected player");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete itemUser = reserveList.getSelectedValue();			
@@ -157,7 +158,7 @@ public class ItemScreen {
 			}
 		});
 		
-		btnNewButton_1.setBounds(231, 379, 89, 23);
+		btnNewButton_1.setBounds(164, 358, 233, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 
