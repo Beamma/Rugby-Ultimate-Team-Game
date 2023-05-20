@@ -73,7 +73,7 @@ public class InventoryScreen {
 		athleteListModel.addAll(enviroment.getTeam());
 		
 		JButton btnNewButton_1 = new JButton("Home");
-		btnNewButton_1.setBounds(68, 403, 77, 23);
+		btnNewButton_1.setBounds(10, 11, 77, 23);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -82,11 +82,11 @@ public class InventoryScreen {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Athletes", SwingConstants.CENTER);
-		lblNewLabel.setBounds(68, 44, 149, 14);
+		lblNewLabel.setBounds(68, 67, 149, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JList<Athlete> athleteStats = new JList<Athlete>();
-		athleteStats.setBounds(68, 69, 149, 292);
+		athleteStats.setBounds(68, 80, 149, 292);
 		frame.getContentPane().add(athleteStats);
 		athleteStats.setModel(athleteListModel);
 		
@@ -100,13 +100,13 @@ public class InventoryScreen {
 		itemListModel.addAll(enviroment.club.items);
 		
 		JList<Item> list = new JList<Item>(itemListModel);
-		list.setBounds(346, 69, 149, 293);
+		list.setBounds(346, 80, 149, 293);
 		frame.getContentPane().add(list);
 		
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("Owened items", SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(346, 44, 149, 14);
+		lblNewLabel_1.setBounds(346, 67, 149, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton_2 = new JButton("Use item");
@@ -122,6 +122,22 @@ public class InventoryScreen {
 		});
 		btnNewButton_2.setBounds(406, 403, 89, 23);
 		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Sell athlete");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Athlete athlete1 = athleteStats.getSelectedValue();
+				if (athlete1 != null) {
+					enviroment.addMoney(athlete1.sellPrice);
+					JOptionPane.showMessageDialog(frame, athlete1.name + " sold for " + String.valueOf(athlete1.sellPrice));
+					goHome();
+				}else {
+					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
+				}
+			}
+		});
+		btnNewButton_3.setBounds(68, 403, 89, 23);
+		frame.getContentPane().add(btnNewButton_3);
 		
 		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
