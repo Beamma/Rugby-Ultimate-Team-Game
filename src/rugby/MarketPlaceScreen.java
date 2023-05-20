@@ -78,11 +78,13 @@ public class MarketPlaceScreen {
 					}else if (enviroment.club.players.size() < 6) {
 						if (enviroment.club.team.addPlayer(athleteBuy) == false ){
 							JOptionPane.showMessageDialog(frame, "brought");
+							enviroment.market.removeMarketPlayer(athleteBuy);
 							enviroment.minusMoney(athleteBuy.buyPrice);
 							enviroment.club.addPlayer(athleteBuy);
 							enviroment.market.removeMarketPlayer(athleteBuy);
 						}else {
 							enviroment.minusMoney(athleteBuy.buyPrice);
+							enviroment.market.removeMarketPlayer(athleteBuy);
 							JOptionPane.showMessageDialog(frame, "brought");
 						}
 					}else {

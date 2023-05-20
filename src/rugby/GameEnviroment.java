@@ -339,10 +339,7 @@ public class GameEnviroment {
 		club.team = team;
 		MarketPlace market = new MarketPlace(manager, manager.club);
 		manager.market = market;
-		Athlete ed = generatePlayer();
-		manager.club.team.addPlayer(ed);
 		Team liam = generateTeam(1);
-		
 		Team liams = generateTeam(1);
 		Team liame = generateTeam(1);
 		ArrayList<Team> holder = new ArrayList<Team>();
@@ -350,27 +347,8 @@ public class GameEnviroment {
 		holder.add(liame);
 		holder.add(liams);
 		manager.oposition = holder;
-		Item i = generateItem();
-		club.items.add(i);
-
 		manager.launchSetupScreen();
 
-//		GameEnviroment game = new GameEnviroment();
-//		Inventory club = new Inventory(game);sdadsa
-//		game.club = club;
-//		MarketPlace market = new MarketPlace(game, club);
-//		Team team = new Team();
-//		club.team = team;
-//		Athlete ed = generatePlayer();
-//		game.club.addPlayer(ed);
-//		game.club.team.addPlayer(ed);
-//		game.club.team.printTeamInfo();
-		
-//		market.buyObject(ed);
-//		System.out.println(game.money);
-//		game.updateWeek();
-//		System.out.println(game.money);
-//		market.listBuyables();
 		
 		
 		
