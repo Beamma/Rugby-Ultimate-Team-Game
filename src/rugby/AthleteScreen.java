@@ -86,61 +86,33 @@ public class AthleteScreen {
 		athleteListModel.add(3, athlete.stats.get("Tacking"));
 		athleteListModel.add(4, athlete.stats.get("Ofense"));
 		athleteListModel.add(5, athlete.stats.get("Fitness"));
+
 		
-		JButton btnNewButton_1 = new JButton("train attribute");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int statChange = Integer.valueOf(statsTrain.getSelection().getActionCommand());
-				int beforeStat = athlete.stats.get(athlete.attributes[statChange]);
-				if (beforeStat == 99) {
-					JOptionPane.showMessageDialog(frame, "stat max rn");
-				}else {
-					athlete.train(athlete.attributes[statChange]);
-					JOptionPane.showMessageDialog(frame, athlete.attributes[statChange] + " increased from " + beforeStat + " to " + athlete.stats.get(athlete.attributes[statChange]));
-					goHome();
-				}
-			}
-		});
+		lblNewLabel = new JLabel(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
+		lblNewLabel.setBounds(312, 173, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
 		
-		btnNewButton_1.setBounds(229, 334, 117, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		lblNewLabel = new JLabel(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
+		lblNewLabel.setBounds(135, 222, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
+
 		
-		JRadioButton passingButton = new JRadioButton(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
-		passingButton.setBounds(312, 173, 117, 23);
-		frame.getContentPane().add(passingButton);
-		passingButton.setActionCommand("2");
-		statsTrain.add(passingButton);
-		
-		JRadioButton offenseButton = new JRadioButton(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
-		offenseButton.setBounds(135, 222, 117, 23);
-		frame.getContentPane().add(offenseButton);
-		offenseButton.setActionCommand("5");
-		statsTrain.add(offenseButton);
-		
-		JRadioButton tacklingButton = new JRadioButton(athlete.attributes[3] +  ": " + athlete.stats.get(athlete.attributes[3]));
-		tacklingButton.setBounds(312, 222, 117, 23);
-		frame.getContentPane().add(tacklingButton);
-		tacklingButton.setActionCommand("4");
-		statsTrain.add(tacklingButton);
-		
-		JRadioButton paceButton = new JRadioButton(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
-		paceButton.setBounds(135, 266, 117, 23);
-		frame.getContentPane().add(paceButton);
-		paceButton.setActionCommand("0");
-		statsTrain.add(paceButton);
-		
-		JRadioButton fitnessButton = new JRadioButton(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
-		fitnessButton.setBounds(312, 266, 117, 23);
-		frame.getContentPane().add(fitnessButton);
-		fitnessButton.setActionCommand("1");
-		statsTrain.add(fitnessButton);
-		
-		JRadioButton defenseButton = new JRadioButton(athlete.attributes[2]+  ": " + athlete.stats.get(athlete.attributes[3]));
-		defenseButton.setBounds(135, 173, 117, 23);
-		frame.getContentPane().add(defenseButton);
-		defenseButton.setActionCommand("3");
-		defenseButton.setSelected(true);
-		statsTrain.add(defenseButton);
+		lblNewLabel = new JLabel(athlete.attributes[3] +  ": " + athlete.stats.get(athlete.attributes[3]));
+		lblNewLabel.setBounds(312, 222, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
+
+		lblNewLabel = new JLabel(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
+		lblNewLabel.setBounds(135, 266, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
+
+		lblNewLabel = new JLabel(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
+		lblNewLabel.setBounds(312, 266, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
+
+		lblNewLabel = new JLabel(athlete.attributes[2]+  ": " + athlete.stats.get(athlete.attributes[3]));
+		lblNewLabel.setBounds(135, 173, 117, 23);
+		frame.getContentPane().add(lblNewLabel);
+
 		JLabel lblNewLabel_2 = new JLabel(String.valueOf(athlete.sellPrice), SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(70, 102, 67, 14);
 		frame.getContentPane().add(lblNewLabel_2);

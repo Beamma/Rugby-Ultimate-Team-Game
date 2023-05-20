@@ -36,7 +36,10 @@ public class MarketPlaceScreen {
 	public void finishedWindow() {
 		enviroment.closeMarketPlaceScreen(this);
 	}
-
+	
+	public void goAthlete(Athlete athlete) {
+		enviroment.closeTeamScreen(this, athlete);
+	}
 	
 	private void initialize() {
 		frame = new JFrame();
@@ -114,6 +117,20 @@ public class MarketPlaceScreen {
 		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
 		lblNewLabel_1.setBounds(490, 43, 46, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton_3 = new JButton("Inspect athlete");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
+				if (athleteBuy != null) {
+					goAthlete(athleteBuy);
+				}else {
+					JOptionPane.showMessageDialog(frame, "please select a athlete");
+				}
+			}
+		});
+		btnNewButton_3.setBounds(47, 57, 173, 23);
+		frame.getContentPane().add(btnNewButton_3);
 
 	}
 }
