@@ -41,6 +41,7 @@ public class AthleteScreen {
 	private Athlete athlete;
 	private JLabel lblNewLabel_1;
 	private final ButtonGroup statsTrain = new ButtonGroup();
+	private JTextField newNickName;
 
 	
 	public AthleteScreen(GameEnviroment enviroment, Athlete athlete){
@@ -171,6 +172,21 @@ public class AthleteScreen {
 		JLabel lblNewLabel_9 = new JLabel(String.valueOf(athlete.position), SwingConstants.CENTER);
 		lblNewLabel_9.setBounds(468, 102, 59, 14);
 		frame.getContentPane().add(lblNewLabel_9);
+		
+		newNickName = new JTextField();
+		newNickName.setBounds(229, 368, 117, 36);
+		frame.getContentPane().add(newNickName);
+		newNickName.setColumns(10);
+		
+		JButton changeNickName = new JButton("Change Nickname");
+		changeNickName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				athlete.changeNickName(newNickName.getText());
+				JOptionPane.showMessageDialog(frame, "Nickname Succesfully changed to:" + newNickName.getText());
+			}
+		});
+		changeNickName.setBounds(366, 375, 89, 23);
+		frame.getContentPane().add(changeNickName);
 		
 
 	}

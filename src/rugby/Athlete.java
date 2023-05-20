@@ -19,6 +19,7 @@ public class Athlete {
 	
 	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, int[] value) {
 		this.name = name;
+		this.nickName = name;
 		this.wage = wage;
 		this.sellPrice = sellPrice;
 		this.buyPrice = buyPrice;
@@ -33,7 +34,7 @@ public class Athlete {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %d, %s, %d",this.name, this.stamina, this.position, this.rarity);
+		return String.format("%s, %d, %s, %d",this.nickName, this.stamina, this.position, this.rarity);
 	}
 	
 	public void changeNickName(String changeName){
