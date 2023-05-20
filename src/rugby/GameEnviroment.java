@@ -21,6 +21,12 @@ public class GameEnviroment {
 	int randomness = (10 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
+//	public String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
+//			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
+//			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
+//			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"};
+			
+	
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -124,7 +130,7 @@ public class GameEnviroment {
 		
 		rarity = rarity/6; 
 		
-		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
+		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood", ""};
 		String name = nameGenerator[r.nextInt(nameGenerator.length)];
 		String position = "cb";
 		int buyPrice = rarity*20;
@@ -153,7 +159,7 @@ public class GameEnviroment {
 			}
 		}
 	   
-		String[] itemGenerator = new String[] {"water", "poweraid", "joel", "liam"};
+		String[] itemGenerator = new String[] {"Powerade"};
 		String item = itemGenerator[r.nextInt(itemGenerator.length)];
 		int price = 10 * result;
 		
@@ -168,9 +174,9 @@ public class GameEnviroment {
 	        opisiton.addPlayer(random);
 	    }
 	    
-	    String[] clubNameGenerator = new String[] {"rfc", "ufc", "nfl", "abc"};
+	    String[] clubNameGenerator = new String[] {"Crusaders", "Blues", "Cheifs", "Hurricanes", "Highlanders", "Drua", "Pasifika", "Reds", "Warratahs", "Force", "Rebels", "Brumbies"};
 		
-	    opisiton.teamName = clubNameGenerator[r.nextInt(4)];
+	    opisiton.teamName = clubNameGenerator[r.nextInt(clubNameGenerator.length)];
 	    return opisiton;
 	}
 	
