@@ -119,6 +119,7 @@ public class HomeScreen {
 						if (enviroment.club.players.size() != 0 ) {
 							Athlete randomTrain = RandomEvent.getRandomPlayer(enviroment.club);
 							randomTrain.trainAll();
+							randomTrain.updateRating();
 							JOptionPane.showMessageDialog(frame, "player had been trained");
 						}
 					}

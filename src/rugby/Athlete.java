@@ -34,7 +34,7 @@ public class Athlete {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %d, %s, %d",this.nickName, this.stamina, this.position, this.rarity);
+		return String.format("%s, %d, %s, %d, %d",this.nickName, this.stamina, this.position, this.rarity, this.buyPrice);
 	}
 	
 	public void changeNickName(String changeName){
@@ -53,6 +53,15 @@ public class Athlete {
 		for (String stat : attributes) {
 			stats.put(stat, stats.get(stat) + 1);
 		}
+	}
+	
+	public void updateRating() {
+		int newRating = 0;
+		for (int i = 0; i < 6; i++) {
+			newRating += this.stats.get(attributes[i]);
+		}
+		this.rarity = newRating/6;
+		this.sellPrice = this.rarity*15;
 	}
 	
 	public void changeValue(int changeValue) {

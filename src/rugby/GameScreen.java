@@ -68,7 +68,7 @@ public class GameScreen {
 		JButton homeButton = new JButton("Home");
 		homeButton.setBackground(new Color(192, 192, 192));
 		homeButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		homeButton.setBounds(30, 12, 65, 29);
+		homeButton.setBounds(30, 12, 81, 29);
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();

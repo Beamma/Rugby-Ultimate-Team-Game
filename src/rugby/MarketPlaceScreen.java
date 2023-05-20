@@ -72,7 +72,7 @@ public class MarketPlaceScreen {
 		frame.getContentPane().add(listAthleteMarket);
 		listAthleteMarket.setModel(athleteMarketModel);
 		
-		JButton buyAthleteButton = new JButton("buy athlete");
+		final  JButton buyAthleteButton = new JButton("buy athlete");
 		buyAthleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
