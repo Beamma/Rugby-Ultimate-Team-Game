@@ -101,6 +101,14 @@ public class GameEnviroment {
 		this.money += amount;
 	} 
 	
+	public boolean checkString(String setupCheck) {
+		for (int i = 0; i < setupCheck.length(); i++) {
+			if((Character.isLetter(setupCheck.charAt(i)) == false)){
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	public int getMatchResult(Team team1, Team team2, Inventory club) {
 		int resultMatch = Match.matchResult(team1, team2, club);

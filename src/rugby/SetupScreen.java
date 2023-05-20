@@ -60,8 +60,8 @@ public class SetupScreen {
 		setupSubmit.setBackground(new Color(144, 238, 144));
 		setupSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (teamName.getText().length() == 0) {
-	                JOptionPane.showMessageDialog(frmSetup, "Please enter a team name");
+				if (teamName.getText().length() < 3 | enviroment.checkString(teamName.getText()) != true | teamName.getText().length() > 15 ) {
+	                JOptionPane.showMessageDialog(frmSetup, "Please enter a valid team name");
 				}else {
 					enviroment.setName(teamName.getText());
 					enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
