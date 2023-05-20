@@ -72,13 +72,17 @@ public class MarketPlaceScreen {
 				if (athleteBuy != null) {
 					if (athleteBuy.buyPrice > enviroment.money) {
 						JOptionPane.showMessageDialog(frame, "no money");
-					}else if (enviroment.club.team.addPlayer(athleteBuy) == false ){
-						JOptionPane.showMessageDialog(frame, "brought");
-						enviroment.minusMoney(athleteBuy.buyPrice);
-						enviroment.club.addPlayer(athleteBuy);
+					}else if (enviroment.club.players.size() < 6) {
+						if (enviroment.club.team.addPlayer(athleteBuy) == false ){
+							JOptionPane.showMessageDialog(frame, "brought");
+							enviroment.minusMoney(athleteBuy.buyPrice);
+							enviroment.club.addPlayer(athleteBuy);
+						}else {
+							enviroment.minusMoney(athleteBuy.buyPrice);
+							JOptionPane.showMessageDialog(frame, "brought");
+						}
 					}else {
-						enviroment.minusMoney(athleteBuy.buyPrice);
-						JOptionPane.showMessageDialog(frame, "brought");
+						JOptionPane.showMessageDialog(frame, "Club full");
 					}
 				}else {
 					JOptionPane.showMessageDialog(frame, "please select a athlete");
