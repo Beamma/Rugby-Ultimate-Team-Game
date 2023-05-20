@@ -106,6 +106,10 @@ public class MarketPlaceScreen {
 		});
 		btnNewButton_2.setBounds(358, 359, 173, 23);
 		frame.getContentPane().add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
+		lblNewLabel_1.setBounds(490, 43, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 
 	}
 }
