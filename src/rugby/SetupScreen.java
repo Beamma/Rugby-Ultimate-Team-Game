@@ -66,6 +66,7 @@ public class SetupScreen {
 					enviroment.setName(teamName.getText());
 					enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
 					enviroment.setSeasonLength(seasonLength.getValue());
+					enviroment.setStartMoney();
 					finishedWindow();
 				}
 			}

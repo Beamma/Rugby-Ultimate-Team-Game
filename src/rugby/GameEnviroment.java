@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 20;
+	public int money;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
@@ -34,6 +34,17 @@ public class GameEnviroment {
 		this.teamName = name;
 	}
 	
+	public void setStartMoney() {
+		if (this.difficulty == 1) {
+			this.money = 30000;
+		}
+		else if (this.difficulty == 2){
+			this.money = 20000;
+		}
+		else if (this.difficulty == 1) {
+			this.money = 15000;
+		}
+	}
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 				this.week += 1;
