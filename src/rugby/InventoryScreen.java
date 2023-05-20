@@ -52,6 +52,10 @@ public class InventoryScreen {
 		enviroment.closeInventoryScreen(this, item);
 	}
 	
+	public void refreshWindow() {
+		enviroment.refreshInventoryScreen(this);
+	}
+	
 	
 	private void initialize() {
 		frame = new JFrame();
@@ -135,7 +139,7 @@ public class InventoryScreen {
 						enviroment.club.team.removePlayer(athlete1);
 					}
 					JOptionPane.showMessageDialog(frame, athlete1.name + " sold for " + String.valueOf(athlete1.sellPrice));
-					goHome();
+					refreshWindow();
 				}else {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
 				}

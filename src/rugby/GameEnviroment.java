@@ -250,6 +250,11 @@ public class GameEnviroment {
 		launchItemScreen(item);
 	}
 	
+	public void refreshInventoryScreen(InventoryScreen inventoryScreen) {
+		inventoryScreen.closeWindow();
+		launchInventoryScreen();
+	}
+
 	public void launchItemScreen(Item item) {
 		ItemScreen itemWindow = new ItemScreen(this, item);
 	}
