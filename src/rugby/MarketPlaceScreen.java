@@ -37,6 +37,10 @@ public class MarketPlaceScreen {
 		enviroment.closeMarketPlaceScreen(this);
 	}
 	
+	public void refreshWindow() {
+		enviroment.refreshMarketPlaceScreen(this);
+	}
+	
 	public void goAthlete(Athlete athlete) {
 		enviroment.closeTeamScreen(this, athlete);
 	}
@@ -46,7 +50,7 @@ public class MarketPlaceScreen {
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("got home");
+		JButton btnNewButton_1 = new JButton("go home");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				finishedWindow();
@@ -82,10 +86,13 @@ public class MarketPlaceScreen {
 							enviroment.minusMoney(athleteBuy.buyPrice);
 							enviroment.club.addPlayer(athleteBuy);
 							enviroment.market.removeMarketPlayer(athleteBuy);
+							refreshWindow();
 						}else {
 							enviroment.minusMoney(athleteBuy.buyPrice);
-							enviroment.market.removeMarketPlayer(athleteBuy);
+							enviroment.market.removeMarketPlayer(athleteBuy); 	
 							JOptionPane.showMessageDialog(frame, "brought");
+							refreshWindow();
+							
 						}
 					}else {
 						JOptionPane.showMessageDialog(frame, "Club full");
@@ -95,6 +102,7 @@ public class MarketPlaceScreen {
 				}
 			}
 		});
+		
 		
 		btnNewButton.setBounds(47, 359, 173, 23);
 		frame.getContentPane().add(btnNewButton);
