@@ -18,7 +18,7 @@ public class GameEnviroment {
 	public Inventory club;
 	public int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
-	int randomness = (10 - (3*this.difficulty));
+	int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
 //	public String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
@@ -62,7 +62,12 @@ public class GameEnviroment {
 				this.oposition.add(team2);
 				this.oposition.add(team3);
 				System.out.println(this.week);
-				
+				this.market.playersForSale.clear();
+				this.market.itemsForSale.clear();
+				for (int i = 0 ; i <= 5 ; i++) {
+					this.market.playersForSale.add(generatePlayer());
+					this.market.itemsForSale.add(generateItem());
+				}
 	//			RandomEvent.randomEvents(randomness);
 			} else {
 				System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
@@ -148,6 +153,8 @@ public class GameEnviroment {
 		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
 	}
 	
+	
+	
 	public static Item generateItem() {
 		
 		int[] atributes = new int[]{0, 0, 0, 0, 0, 0};
@@ -174,6 +181,7 @@ public class GameEnviroment {
 		return(new Item(item, price, atributes));
 	}
 	
+	
 	public static Team generateTeam(int diffuculty){
 		Random r = new Random();
 	    Team opisiton = new Team();
@@ -187,6 +195,7 @@ public class GameEnviroment {
 	    opisiton.teamName = clubNameGenerator[r.nextInt(clubNameGenerator.length)];
 	    return opisiton;
 	}
+	
 	
 	public void launchHomeScreen() {
 		if (this.week > this.seasonLength) {
@@ -318,6 +327,11 @@ public class GameEnviroment {
 	public void closeGameScreen(GameScreen gameWindow) {
 		gameWindow.closeWindow();
 		launchHomeScreen();
+	}
+	
+	public void closeGameScreen(GameScreen gameWindow, int team) {
+		gameWindow.closeWindow();
+		launchTeamScreen();
 	}
 	
 	public void launchAthleteScreen(Athlete athlete) {

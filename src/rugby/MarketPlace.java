@@ -12,14 +12,22 @@ public class MarketPlace extends GameEnviroment{
 	public MarketPlace(GameEnviroment game, Inventory club) {
 		this.game = game;
 		this.club = club;
-		for (int i = 0 ; i <= 5 ; i++) {
+		for (int i = 0 ; i <= 15 ; i++) {
 			playersForSale.add(generatePlayer());
+		}
+		
+		for (int i = 0 ; i <= 9 ; i++) {
 			itemsForSale.add(generateItem());
 		}
 	}
 	
+	
 	public void removeMarketPlayer(Athlete athlete) {
 		playersForSale.remove(athlete);
+	}
+	
+	public void removeMarketItem(Item item) {
+		itemsForSale.remove(item);
 	}
 	
 	public void updateMarket() {

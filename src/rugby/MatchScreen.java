@@ -25,7 +25,7 @@ public class MatchScreen {
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JLabel lblNewLabel;
+	private JLabel gameTitle;
 
 	
 	public MatchScreen(GameEnviroment enviroment){
@@ -66,11 +66,11 @@ public class MatchScreen {
 		frame.getContentPane().add(goHomeButton);
 		
 		
-		lblNewLabel = new JLabel("Pick A Match To Play");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(141, 101, 284, 30);
-		frame.getContentPane().add(lblNewLabel);
+		gameTitle = new JLabel("Pick A Match To Play");
+		gameTitle.setFont(new Font("Tahoma", Font.BOLD, 20));
+		gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		gameTitle.setBounds(141, 101, 284, 30);
+		frame.getContentPane().add(gameTitle);
 		
 		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " rated: " + enviroment.oposition.get(0).teamRating(enviroment.oposition.get(0)));
 		team1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));

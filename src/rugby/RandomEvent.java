@@ -8,15 +8,16 @@ public class RandomEvent {
 	public int event = 0;
 	
 	public static int randomEvents(int randnomness, Inventory inventory) {
+		int joinChance = (5 - inventory.players.size());
 		
 		Random rand = new Random();  
 		int event = rand.nextInt(randnomness);
-		System.out.println(event);
-		if (event == 0) {
+		
+		if (event <= joinChance) {
 			return(newPlayer(inventory));
-		}else if (event == 1){
+		}else if (event == 7){
 			return(playerLeaves(inventory));
-		}else if (event == 2){
+		}else if (event == 8){
 			return(playerInjured(inventory));
 		}
 		return 4;
@@ -49,6 +50,15 @@ public class RandomEvent {
 		Athlete remove = getRandomPlayer(inventory);
 		inventory.removePlayer(remove);
 		return 2;
+	}
+	
+	public static boolean playerTrained(int randnomness){
+		Random rand = new Random();  
+		int event = rand.nextInt(randnomness);
+		if (event == 1) {
+			return true;
+		}
+		return false;
 	}
 	
 	public static int playerInjured(Inventory inventory){

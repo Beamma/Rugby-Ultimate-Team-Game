@@ -50,30 +50,30 @@ public class MarketPlaceScreen {
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("go home");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("go home");
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				finishedWindow();
 			}
 		});
 
-		btnNewButton_1.setBounds(245, 400, 89, 30);
-		frame.getContentPane().add(btnNewButton_1);
+		homeButton.setBounds(245, 400, 89, 30);
+		frame.getContentPane().add(homeButton);
 		
-		JLabel lblNewLabel = new JLabel("MarketPlace");
-		lblNewLabel.setBounds(262, 43, 72, 14);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel marketPlaceTitle = new JLabel("MarketPlace");
+		marketPlaceTitle.setBounds(262, 43, 72, 14);
+		frame.getContentPane().add(marketPlaceTitle);
 		
 		DefaultListModel<Athlete> athleteMarketModel = new DefaultListModel<Athlete>();
 		athleteMarketModel.addAll(enviroment.market.playersForSale);
 		
 		JList<Athlete> listAthleteMarket = new JList<Athlete>();
-		listAthleteMarket.setBounds(47, 87, 173, 252);
+		listAthleteMarket.setBounds(47, 87, 173, 275);
 		frame.getContentPane().add(listAthleteMarket);
 		listAthleteMarket.setModel(athleteMarketModel);
 		
-		JButton btnNewButton = new JButton("buy athlete");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton buyAthleteButton = new JButton("buy athlete");
+		buyAthleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
 				if (athleteBuy != null) {
@@ -104,33 +104,41 @@ public class MarketPlaceScreen {
 		});
 		
 		
-		btnNewButton.setBounds(47, 359, 173, 23);
-		frame.getContentPane().add(btnNewButton);
+		buyAthleteButton.setBounds(47, 373, 173, 23);
+		frame.getContentPane().add(buyAthleteButton);
 		
 		DefaultListModel<Item> itemMarketModel = new DefaultListModel<Item>();
 		itemMarketModel.addAll(enviroment.market.itemsForSale);
 		
-		JList<Item> list = new JList<Item>();
-		list.setBounds(358, 87, 173, 252);
-		frame.getContentPane().add(list);
-		list.setModel(itemMarketModel);
+		JList<Item> itemList = new JList<Item>();
+		itemList.setBounds(358, 87, 173, 275);
+		frame.getContentPane().add(itemList);
+		itemList.setModel(itemMarketModel);
 		
-		JButton btnNewButton_2 = new JButton("buy item");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton buyItemButton = new JButton("buy item");
+		buyItemButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item itemBuy = list.getSelectedValue();
-				enviroment.club.addItem(itemBuy);
+				
+				Item itemBuy = itemList.getSelectedValue();
+				if (enviroment.club.items.size() < 5) {
+					enviroment.club.addItem(itemBuy);
+					enviroment.market.removeMarketItem(itemBuy);
+					JOptionPane.showMessageDialog(frame, "brought ");
+					refreshWindow();
+				}else {
+					JOptionPane.showMessageDialog(frame, "Inventory full");
+				}
 			}
 		});
-		btnNewButton_2.setBounds(358, 359, 173, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		buyItemButton.setBounds(358, 373, 173, 23);
+		frame.getContentPane().add(buyItemButton);
 		
-		JLabel lblNewLabel_1 = new JLabel(String.valueOf(enviroment.money));
-		lblNewLabel_1.setBounds(490, 43, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel moneyLabel = new JLabel(String.valueOf(enviroment.money));
+		moneyLabel.setBounds(490, 43, 46, 14);
+		frame.getContentPane().add(moneyLabel);
 		
-		JButton btnNewButton_3 = new JButton("Inspect athlete");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton inspectAthleteButton = new JButton("Inspect athlete");
+		inspectAthleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athleteBuy = listAthleteMarket.getSelectedValue();
 				if (athleteBuy != null) {
@@ -140,8 +148,8 @@ public class MarketPlaceScreen {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(47, 57, 173, 23);
-		frame.getContentPane().add(btnNewButton_3);
+		inspectAthleteButton.setBounds(47, 57, 173, 23);
+		frame.getContentPane().add(inspectAthleteButton);
 
 	}
 }

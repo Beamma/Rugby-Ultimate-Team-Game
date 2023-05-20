@@ -115,7 +115,13 @@ public class HomeScreen {
 				}else {
 					enviroment.updateWeek();
 					enviroment.club.team.maxStamina();
-					
+					if (RandomEvent.playerTrained(enviroment.randomness)) {
+						if (enviroment.club.players.size() != 0 ) {
+							Athlete randomTrain = RandomEvent.getRandomPlayer(enviroment.club);
+							randomTrain.trainAll();
+							JOptionPane.showMessageDialog(frame, "player had been trained");
+						}
+					}
 					JOptionPane.showMessageDialog(frame, "Taken a bye all players now fully rested");
 					goTrain();
 				}

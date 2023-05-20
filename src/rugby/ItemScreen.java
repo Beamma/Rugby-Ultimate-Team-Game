@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
 
@@ -35,7 +36,7 @@ public class ItemScreen {
 	private GameEnviroment enviroment;
 	private JTextField random;
 	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JLabel itemTitle;
 	private Item item;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -52,6 +53,7 @@ public class ItemScreen {
 	private JLabel lblNewLabel_13;
 	private JButton btnNewButton_1;
 	private JList list;
+	
 
 	
 	public ItemScreen(GameEnviroment enviroment, Item item){
@@ -75,19 +77,19 @@ public class ItemScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(231, 412, 90, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(231, 412, 90, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel("item", SwingConstants.CENTER);
-		lblNewLabel.setBounds(231, 14, 90, 46);
-		frame.getContentPane().add(lblNewLabel);
+		itemTitle = new JLabel("item", SwingConstants.CENTER);
+		itemTitle.setBounds(231, 14, 90, 46);
+		frame.getContentPane().add(itemTitle);
 		
 		lblNewLabel_2 = new JLabel(item.attributes[0]);
 		lblNewLabel_2.setBounds(46, 71, 46, 14);
@@ -144,8 +146,12 @@ public class ItemScreen {
 		
 		JList<Athlete> reserveList = new JList<Athlete>();
 		reserveList.setBounds(164, 132, 233, 204);
-		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(reserveList);
+		
+		frame.getContentPane().add(scrollPane);
 		
 		btnNewButton_1 = new JButton("Use item on selected player");
 		btnNewButton_1.addActionListener(new ActionListener() {
