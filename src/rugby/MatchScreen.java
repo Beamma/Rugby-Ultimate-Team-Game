@@ -71,7 +71,7 @@ public class MatchScreen {
 		lblNewLabel.setBounds(141, 101, 284, 30);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton team1 = new JButton("<dynamic> Rated: 0");
+		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " rated: " + enviroment.oposition.get(0).teamRating(enviroment.oposition.get(0)));
 		team1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team1.setBackground(new Color(192, 192, 192));
 		team1.addActionListener(new ActionListener() {
@@ -83,7 +83,7 @@ public class MatchScreen {
 		team1.setBounds(194, 158, 186, 61);
 		frame.getContentPane().add(team1);
 		
-		JButton team2 = new JButton("<dynamic> Rated: 0");
+		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " rated: " + enviroment.oposition.get(1).teamRating(enviroment.oposition.get(1)));
 		team2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team2.setBackground(new Color(192, 192, 192));
 		team2.addActionListener(new ActionListener() {
@@ -95,7 +95,7 @@ public class MatchScreen {
 		team2.setBounds(194, 230, 186, 61);
 		frame.getContentPane().add(team2);
 		
-		JButton team3 = new JButton("<dynamic> Rated: 0");
+		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " rated: " + enviroment.oposition.get(2).teamRating(enviroment.oposition.get(2)));
 		team3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team3.setBackground(new Color(192, 192, 192));
 		team3.addActionListener(new ActionListener() {
