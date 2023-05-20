@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import rugby.GameEnviroment;
 
@@ -76,7 +77,11 @@ public class MatchScreen {
 		team1.setBackground(new Color(192, 192, 192));
 		team1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goGame(enviroment.oposition.get(0));
+				if (enviroment.club.getPlayerWages() < enviroment.money) {
+					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
+				}else {
+					goGame(enviroment.oposition.get(0));
+				}
 			}
 		});
 		
@@ -88,7 +93,11 @@ public class MatchScreen {
 		team2.setBackground(new Color(192, 192, 192));
 		team2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goGame(enviroment.oposition.get(1));
+				if (enviroment.club.getPlayerWages() < enviroment.money) {
+					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
+				}else {
+					goGame(enviroment.oposition.get(1));
+				}
 			}
 		});
 		
@@ -100,7 +109,11 @@ public class MatchScreen {
 		team3.setBackground(new Color(192, 192, 192));
 		team3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goGame(enviroment.oposition.get(2));
+				if (enviroment.club.getPlayerWages() < enviroment.money) {
+					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
+				}else {
+					goGame(enviroment.oposition.get(2));
+				}
 			}
 		});
 		team3.setBounds(194, 302, 186, 61);

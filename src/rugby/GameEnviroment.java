@@ -9,7 +9,7 @@ import gui.MainScreen;
 import gui.SetupScreen;  
 
 public class GameEnviroment {
-	public int money = 202030;
+	public int money = 20;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;

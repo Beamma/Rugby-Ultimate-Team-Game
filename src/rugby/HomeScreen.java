@@ -110,13 +110,15 @@ public class HomeScreen {
 		byeLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				enviroment.updateWeek();
-				enviroment.money += 5000;
-				enviroment.club.team.maxStamina();
-				
-				JOptionPane.showMessageDialog(frame, "Taken a bye all players now fully rested");
-				goTrain();
+				if (enviroment.club.getPlayerWages() < enviroment.money) {
+					JOptionPane.showMessageDialog(frame, "dont have enough money to wages");
+				}else {
+					enviroment.updateWeek();
+					enviroment.club.team.maxStamina();
+					
+					JOptionPane.showMessageDialog(frame, "Taken a bye all players now fully rested");
+					goTrain();
+				}
 			}
 		});
 		
