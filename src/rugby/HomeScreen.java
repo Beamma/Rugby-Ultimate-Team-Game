@@ -125,7 +125,7 @@ public class HomeScreen {
 		byeLabel.setBounds(452, 341, 122, 71);
 		frame.getContentPane().add(byeLabel);
 		
-		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.week));
+		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.week + " of " + enviroment.seasonLength));
 		weekCountLabel.setBounds(10, 27, 46, 14);
 		frame.getContentPane().add(weekCountLabel);
 		

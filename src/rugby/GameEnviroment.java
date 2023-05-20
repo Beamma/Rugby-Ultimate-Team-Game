@@ -16,7 +16,7 @@ public class GameEnviroment {
 	public ArrayList<Team> oposition;
 	private HashMap<String, Integer> standings;
 	public Inventory club;
-	private int seasonLength;
+	public int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
 	int randomness = (10 - (3*this.difficulty));
 	public MarketPlace market;
