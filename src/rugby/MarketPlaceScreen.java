@@ -50,18 +50,18 @@ public class MarketPlaceScreen {
 			}
 		});
 		Athlete ed = GameEnviroment.generatePlayer();
-		btnNewButton_1.setBounds(231, 350, 139, 63);
+		btnNewButton_1.setBounds(245, 400, 89, 30);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("market");
-		lblNewLabel.setBounds(203, 62, 46, 14);
+		JLabel lblNewLabel = new JLabel("MarketPlace");
+		lblNewLabel.setBounds(262, 43, 72, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		DefaultListModel<Athlete> athleteMarketModel = new DefaultListModel<Athlete>();
 		athleteMarketModel.addAll(enviroment.market.playersForSale);
 		
 		JList<Athlete> listAthleteMarket = new JList<Athlete>();
-		listAthleteMarket.setBounds(48, 105, 126, 252);
+		listAthleteMarket.setBounds(47, 87, 173, 252);
 		frame.getContentPane().add(listAthleteMarket);
 		listAthleteMarket.setModel(athleteMarketModel);
 		
@@ -79,14 +79,14 @@ public class MarketPlaceScreen {
 			}
 		});
 		
-		btnNewButton.setBounds(70, 370, 89, 23);
+		btnNewButton.setBounds(47, 359, 173, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		DefaultListModel<Item> itemMarketModel = new DefaultListModel<Item>();
 		itemMarketModel.addAll(enviroment.market.itemsForSale);
 		
 		JList<Item> list = new JList<Item>();
-		list.setBounds(395, 105, 126, 252);
+		list.setBounds(358, 87, 173, 252);
 		frame.getContentPane().add(list);
 		list.setModel(itemMarketModel);
 		
@@ -97,7 +97,7 @@ public class MarketPlaceScreen {
 				enviroment.club.addItem(itemBuy);
 			}
 		});
-		btnNewButton_2.setBounds(419, 370, 89, 23);
+		btnNewButton_2.setBounds(358, 359, 173, 23);
 		frame.getContentPane().add(btnNewButton_2);
 
 	}
