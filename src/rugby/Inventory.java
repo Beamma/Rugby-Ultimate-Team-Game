@@ -109,6 +109,12 @@ public class Inventory {
 		return weeklyWage;
 	}
 	
+	public void boostStamina() {
+		for (Athlete athlete : this.players) {
+			athlete.rest();
+		}
+	}
+	
 	public void returnInventory() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Would you like to view 1:Players or 2:Items or 3:Team Roster: ");

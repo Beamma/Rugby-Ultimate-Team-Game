@@ -36,13 +36,13 @@ public class GameEnviroment {
 	
 	public void setStartMoney() {
 		if (this.difficulty == 1) {
-			this.money = 30000;
+			this.money = 45000;
 		}
 		else if (this.difficulty == 2){
-			this.money = 20000;
+			this.money = 30000;
 		}
 		else if (this.difficulty == 1) {
-			this.money = 15000;
+			this.money = 20000;
 		}
 	}
 	public void updateWeek() {

@@ -86,7 +86,7 @@ public class GameScreen {
 		playMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (enviroment.club.team.checkReady() == true) {
-				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition);
+				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition, enviroment.club);
 				int randomDecider = RandomEvent.randomEvents(enviroment.randomness, enviroment.club);
 				if (randomDecider < 2) {
 					if (randomDecider == 2) {

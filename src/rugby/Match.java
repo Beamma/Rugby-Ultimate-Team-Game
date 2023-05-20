@@ -37,9 +37,10 @@ public class Match {
 
 	}
 	
-	public static int matchResult(Team team1, Team team2) {
+	public static int matchResult(Team team1, Team team2, Inventory inventory) {
 		
 		if (team1.checkReady()) {
+			inventory.boostStamina();
 			ArrayList<Athlete> roster1 = team1.getAthletes();
 			ArrayList<Athlete> roster2 = team2.getAthletes();
 			int totalScore = 0;
