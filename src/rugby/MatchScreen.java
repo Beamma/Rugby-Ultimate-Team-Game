@@ -77,7 +77,7 @@ public class MatchScreen {
 		team1.setBackground(new Color(192, 192, 192));
 		team1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() < enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.money) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(0));
@@ -93,7 +93,7 @@ public class MatchScreen {
 		team2.setBackground(new Color(192, 192, 192));
 		team2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() < enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.money) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(1));
@@ -109,7 +109,7 @@ public class MatchScreen {
 		team3.setBackground(new Color(192, 192, 192));
 		team3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() < enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.money) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(2));

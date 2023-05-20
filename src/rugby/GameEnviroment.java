@@ -36,7 +36,7 @@ public class GameEnviroment {
 	
 	public void setStartMoney() {
 		if (this.difficulty == 1) {
-			this.money = 45000;
+			this.money = 450000;
 		}
 		else if (this.difficulty == 2){
 			this.money = 30000;
@@ -96,8 +96,9 @@ public class GameEnviroment {
 	} 
 	
 	
-	public int getMatchResult(Team team1, Team team2) {
-		int resultMatch = Match.matchResult(team1, team2);
+	public int getMatchResult(Team team1, Team team2, Inventory club) {
+		int resultMatch = Match.matchResult(team1, team2, club);
+		
 		return resultMatch;
 	}
 	

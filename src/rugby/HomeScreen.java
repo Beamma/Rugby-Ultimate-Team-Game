@@ -110,7 +110,7 @@ public class HomeScreen {
 		byeLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() < enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.money) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to wages");
 				}else {
 					enviroment.updateWeek();

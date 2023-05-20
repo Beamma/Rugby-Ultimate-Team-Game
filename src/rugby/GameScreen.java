@@ -100,19 +100,19 @@ public class GameScreen {
 				enviroment.club.team.reduceStamina();
 				if (gameResult > 0) {
 					enviroment.updateWeek();
-					enviroment.addMoney(20000);
+					enviroment.addMoney(10000 * (4-enviroment.difficulty));
 					enviroment.winloss[0] += 1;
-					JOptionPane.showMessageDialog(frame, "Won by " + enviroment.getMatchResult(enviroment.club.team, opposition));
+					JOptionPane.showMessageDialog(frame, "Won by " + gameResult);
 					goHome();
 				}else if (gameResult < 0) {
 					enviroment.updateWeek();
-					enviroment.addMoney(10000);
+					enviroment.addMoney(2500 * (4-enviroment.difficulty));
 					enviroment.winloss[2] += 1;
-					JOptionPane.showMessageDialog(frame, "Lost by " + enviroment.getMatchResult(enviroment.club.team, opposition));
+					JOptionPane.showMessageDialog(frame, "Lost by " + gameResult);
 					goHome();
 				}else if (gameResult == 0){
 					enviroment.updateWeek();
-					enviroment.addMoney(5000);
+					enviroment.addMoney(5000* (4-enviroment.difficulty));
 					enviroment.winloss[1] += 1;
 					JOptionPane.showMessageDialog(frame, "Drew");
 					goHome();
