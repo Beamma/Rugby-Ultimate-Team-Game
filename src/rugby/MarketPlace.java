@@ -18,6 +18,10 @@ public class MarketPlace extends GameEnviroment{
 		}
 	}
 	
+	public void removeMarketPlayer(Athlete athlete) {
+		playersForSale.remove(athlete);
+	}
+	
 	public void updateMarket() {
 		playersForSale.clear();
 		itemsForSale.clear();

@@ -80,6 +80,7 @@ public class MarketPlaceScreen {
 							JOptionPane.showMessageDialog(frame, "brought");
 							enviroment.minusMoney(athleteBuy.buyPrice);
 							enviroment.club.addPlayer(athleteBuy);
+							enviroment.market.removeMarketPlayer(athleteBuy);
 						}else {
 							enviroment.minusMoney(athleteBuy.buyPrice);
 							JOptionPane.showMessageDialog(frame, "brought");
