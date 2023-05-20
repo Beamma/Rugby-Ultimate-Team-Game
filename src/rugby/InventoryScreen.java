@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.JScrollBar;
+import javax.swing.SwingConstants;
 
 public class InventoryScreen {
 	
@@ -56,8 +57,8 @@ public class InventoryScreen {
 		frame = new JFrame();
 		frame.setBounds(500, 300, 600, 500);
 		
-		JButton btnNewButton = new JButton("go to Team");
-		btnNewButton.setBounds(240, 403, 87, 23);
+		JButton btnNewButton = new JButton("View team:");
+		btnNewButton.setBounds(215, 403, 132, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goTeam();
@@ -70,8 +71,8 @@ public class InventoryScreen {
 		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
 		athleteListModel.addAll(enviroment.club.players);
 		
-		JButton btnNewButton_1 = new JButton("got home");
-		btnNewButton_1.setBounds(87, 403, 77, 23);
+		JButton btnNewButton_1 = new JButton("Home");
+		btnNewButton_1.setBounds(68, 403, 77, 23);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -79,12 +80,12 @@ public class InventoryScreen {
 		});
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("reserve athletes");
-		lblNewLabel.setBounds(99, 44, 120, 14);
+		JLabel lblNewLabel = new JLabel("Reserve athletes", SwingConstants.CENTER);
+		lblNewLabel.setBounds(68, 44, 149, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JList<Athlete> athleteStats = new JList<Athlete>();
-		athleteStats.setBounds(87, 69, 120, 292);
+		athleteStats.setBounds(68, 69, 149, 292);
 		frame.getContentPane().add(athleteStats);
 		athleteStats.setModel(athleteListModel);
 		
@@ -98,16 +99,16 @@ public class InventoryScreen {
 		itemListModel.addAll(enviroment.club.items);
 		
 		JList<Item> list = new JList<Item>(itemListModel);
-		list.setBounds(372, 69, 120, 293);
+		list.setBounds(346, 69, 149, 293);
 		frame.getContentPane().add(list);
 		
 		
 		
-		JLabel lblNewLabel_1 = new JLabel("owened itemns");
-		lblNewLabel_1.setBounds(410, 44, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Owened items", SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(346, 44, 149, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton_2 = new JButton("use item");
+		JButton btnNewButton_2 = new JButton("Use item");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item useItem = list.getSelectedValue();
@@ -118,7 +119,7 @@ public class InventoryScreen {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(384, 403, 89, 23);
+		btnNewButton_2.setBounds(406, 403, 89, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		

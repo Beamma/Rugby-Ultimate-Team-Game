@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -106,9 +106,11 @@ public class HomeScreen {
 		byeLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				enviroment.updateWeek();
 				enviroment.money += 5000;
 				enviroment.club.team.maxStamina();
+				JOptionPane.showMessageDialog(frame, "Taken a bye all players now fully rested");
 				goInventory();
 			}
 		});
