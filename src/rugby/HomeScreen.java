@@ -160,7 +160,7 @@ public class HomeScreen {
 		
 		JLabel stadiumBackground = new JLabel("");
 		stadiumBackground.setForeground(new Color(255, 255, 255));
-		stadiumBackground.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/field (2).jpg")));
+		stadiumBackground.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/new.jpg")));
 		stadiumBackground.setBounds(0, 49, 584, 412);
 		frame.getContentPane().add(stadiumBackground);
 		
