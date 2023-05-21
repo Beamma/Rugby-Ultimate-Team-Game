@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
+import rugby.Athlete;
 import rugby.GameEnviroment;
 
 import javax.swing.JPanel;

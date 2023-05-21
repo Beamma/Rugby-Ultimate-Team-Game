@@ -4,9 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import gui.AthleteScreen;
+import gui.EndGameScreen;
+import gui.GameScreen;
 import gui.HomeScreen;
+import gui.InventoryScreen;
+import gui.ItemScreen;
 import gui.MainScreen;
-import gui.SetupScreen;  
+import gui.MarketPlaceScreen;
+import gui.MatchScreen;
+import gui.SetupScreen;
+import gui.TeamScreen;
+import gui.TrainScreen;  
 
 public class GameEnviroment {
 	public int money;
@@ -18,7 +27,7 @@ public class GameEnviroment {
 	public Inventory club;
 	public int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
-	int randomness = (20 - (3*this.difficulty));
+	public int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
 //	public String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",

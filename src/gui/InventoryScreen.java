@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -18,6 +18,11 @@ import javax.swing.DefaultListModel;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.border.TitledBorder;
+
+import rugby.Athlete;
+import rugby.GameEnviroment;
+import rugby.Item;
+
 import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
 

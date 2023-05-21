@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -8,7 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
+import rugby.Athlete;
 import rugby.GameEnviroment;
+import rugby.Item;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -104,6 +106,7 @@ public class TrainScreen {
 				Athlete trainedUser = reserveList.getSelectedValue();			
 				if (trainedUser != null) {
 					trainedUser.trainAll();
+					trainedUser.updateRating();
 					JOptionPane.showMessageDialog(frame, trainedUser.name + " trained");
 					goHome();
 				}else {

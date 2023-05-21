@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 import java.awt.Font;

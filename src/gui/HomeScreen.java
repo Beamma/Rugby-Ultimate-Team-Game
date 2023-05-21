@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -10,6 +10,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import rugby.Athlete;
+import rugby.GameEnviroment;
+import rugby.RandomEvent;
 
 import java.awt.Font;
 import javax.swing.ImageIcon;

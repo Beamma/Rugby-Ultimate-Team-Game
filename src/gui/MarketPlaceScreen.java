@@ -1,4 +1,4 @@
-package rugby;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -11,6 +11,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
+
+import rugby.Athlete;
+import rugby.GameEnviroment;
+import rugby.Item;
+
 import javax.swing.JList;
 
 public class MarketPlaceScreen {
