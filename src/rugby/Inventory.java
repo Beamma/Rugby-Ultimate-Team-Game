@@ -1,5 +1,7 @@
 package rugby;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +21,9 @@ public class Inventory {
 	}
 	
 	public void addPlayer(Athlete athlete) {
-		players.add(athlete);
+		if (players.size() < 5) {
+			players.add(athlete);
+		}
 	}
 	
 	public void removePlayer(Athlete athlete) {
@@ -100,10 +104,13 @@ public class Inventory {
 	
 	public int getPlayerWages(){
 		int weeklyWage = 0;
-		if (players.size() <= 0) {
+		if (this.team.players.size() <= 0) {
 			return 0;
 		}
-		for (Athlete player : players) {
+		for (Athlete player : this.team.players) {
+			weeklyWage += player.wage;
+		}
+		for (Athlete player : this.players) {
 			weeklyWage += player.wage;
 		}
 		return weeklyWage;
@@ -140,6 +147,26 @@ public class Inventory {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		GameEnviroment manager = new GameEnviroment();
+		Inventory club = new Inventory(manager);
+		Team team = new Team();
+		club.team = team;
+		int wage = 0;
+		
+		Athlete event = GameEnviroment.generatePlayer();
+		for (int i = 0; i < 5; i++ ) {
+			club.addPlayer(event);
+			wage += event.wage;
+		}
+		for (int i = 0; i < 15; i++ ) {
+			System.out.println(i);
+			club.team.addPlayer(event);
+			wage += event.wage;
+		}
+		
+		System.out.println(wage);
+		System.out.println(club.getPlayerWages());
 	}
 
 }

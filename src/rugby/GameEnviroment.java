@@ -53,32 +53,25 @@ public class GameEnviroment {
 	}
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
-				this.week += 1;
-				this.oposition.clear();
-				Team team1 = generateTeam(this, this.difficulty);
-				Team team2 = generateTeam(this, this.difficulty);
-				Team team3 = generateTeam(this, this.difficulty);
-				this.oposition.add(team1);
-				this.oposition.add(team2);
-				this.oposition.add(team3);
-				System.out.println(this.week);
-<<<<<<< HEAD
-				market.updateMarket();
-				
-=======
-				this.market.playersForSale.clear();
-				this.market.itemsForSale.clear();
-				for (int i = 0 ; i <= 5 ; i++) {
-					this.market.playersForSale.add(generatePlayer());
-					this.market.itemsForSale.add(generateItem());
-				}
->>>>>>> 4b5065267adf72c10658d32b390d7e94649784ad
-	//			RandomEvent.randomEvents(randomness);
-			} else {
-				System.out.println("Sorry you do not have enough money to pay this weeks wages please remove some players from your club");
+			this.week += 1;
+			this.oposition.clear();
+			Team team1 = generateTeam(this, this.difficulty);
+			Team team2 = generateTeam(this, this.difficulty);
+			Team team3 = generateTeam(this, this.difficulty);
+			this.oposition.add(team1);
+			this.oposition.add(team2);
+			this.oposition.add(team3);
+			System.out.println(this.week);
+			market.updateMarket();
+		
+			this.market.playersForSale.clear();
+			this.market.itemsForSale.clear();
+			for (int i = 0 ; i <= 5 ; i++) {
+				this.market.playersForSale.add(generatePlayer());
+				this.market.itemsForSale.add(generateItem());
 			}
-			
-	}
+		}
+	}		
 	
 	public ArrayList<Athlete> getTeam(){
 		return(this.club.team.getAthletes());

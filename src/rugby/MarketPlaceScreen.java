@@ -79,7 +79,7 @@ public class MarketPlaceScreen {
 				if (athleteBuy != null) {
 					if (athleteBuy.buyPrice > enviroment.money) {
 						JOptionPane.showMessageDialog(frame, "no money");
-					}else if (enviroment.club.players.size() < 6) {
+					}else if (enviroment.club.players.size() < 5) {
 						if (enviroment.club.team.addPlayer(athleteBuy) == false ){
 							JOptionPane.showMessageDialog(frame, "brought");
 							enviroment.market.removeMarketPlayer(athleteBuy);
