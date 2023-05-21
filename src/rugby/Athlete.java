@@ -15,7 +15,7 @@ public class Athlete {
 	public boolean injured = false;
 	public String position;
 	public int rarity;
-	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
+	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, int[] value) {
 		this.name = name;
@@ -34,7 +34,7 @@ public class Athlete {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %d, %s, %d",this.nickName, this.stamina, this.position, this.rarity);
+		return String.format("%s, $%d, %d, %s, %d",this.nickName, this.buyPrice, this.stamina, this.position, this.rarity);
 	}
 	
 	public void changeNickName(String changeName){

@@ -12,10 +12,12 @@ public class MarketPlace extends GameEnviroment{
 	public MarketPlace(GameEnviroment game, Inventory club) {
 		this.game = game;
 		this.club = club;
-		for (int i = 0 ; i <= 5 ; i++) {
+		for (int i = 0 ; i <= 20 ; i++) {
 			playersForSale.add(generatePlayer());
-			itemsForSale.add(generateItem());
 		}
+		itemsForSale.add(generateItem());
+		itemsForSale.add(generateItem());
+		itemsForSale.add(generateItem());
 	}
 	
 	public void removeMarketPlayer(Athlete athlete) {
@@ -27,8 +29,10 @@ public class MarketPlace extends GameEnviroment{
 		itemsForSale.clear();
 		for (int i = 0; i < 5; i++) {
 			playersForSale.add(generatePlayer());
-			itemsForSale.add(generateItem());
 			}
+		itemsForSale.add(generateItem());
+		itemsForSale.add(generateItem());
+		itemsForSale.add(generateItem());
 	}
 	
 	public void buyObject(Athlete athlete) {

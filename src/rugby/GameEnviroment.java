@@ -62,6 +62,7 @@ public class GameEnviroment {
 				this.oposition.add(team2);
 				this.oposition.add(team3);
 				System.out.println(this.week);
+				market.updateMarket();
 				
 	//			RandomEvent.randomEvents(randomness);
 			} else {
@@ -138,7 +139,7 @@ public class GameEnviroment {
 		
 		rarity = rarity/6; 
 		
-		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood", ""};
+		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
 		String name = nameGenerator[r.nextInt(nameGenerator.length)];
 		String position = "cb";
 		int buyPrice = rarity*20;
@@ -150,28 +151,15 @@ public class GameEnviroment {
 	
 	public static Item generateItem() {
 		
-		int[] atributes = new int[]{0, 0, 0, 0, 0, 0};
+		Item fitness = new Item("Fitness Train", 500, new int[]{10, 0, 0, 0, 0, 20});
+		Item gym = new Item("Gym Session", 750, new int[]{0, 0, 0, 20, 20, 0});
+		Item train = new Item("Training Camp", 1500, new int[]{10, 10, 10, 10, 10, 10});
+		Item skills = new Item("Skills Session", 250, new int[]{0, 10, 10, 0, 0, 0});
+		Item coaching = new Item("Focused Coaching", 2000, new int[]{0, 25, 25, 10, 10, 0});
+		
+		Item[] items = new Item[] {fitness, gym, train, skills, coaching};
 		Random r = new Random();
-		int lowValue = 1;
-		int highValue = 10;
-		int result = r.nextInt(highValue-lowValue) + lowValue;
-		
-		for (int i = 0; i < 6; i++) {
-			int statValue = r.nextInt((result+2)-(result-2)) + (result-2);
-			if (statValue > 10) {
-				atributes[i] = 10;
-			}else if (statValue < 0) {
-				atributes[i] = 0;
-			}else{
-				atributes[i] = statValue;
-			}
-		}
-	   
-		String[] itemGenerator = new String[] {"Powerade"};
-		String item = itemGenerator[r.nextInt(itemGenerator.length)];
-		int price = 10 * result;
-		
-		return(new Item(item, price, atributes));
+		return(items[r.nextInt(5)]);
 	}
 	
 	public static Team generateTeam(int diffuculty){
