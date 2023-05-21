@@ -34,11 +34,9 @@ public class Athlete {
 	
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-		return String.format("%s, $%d, %d, %s, %d",this.nickName, this.buyPrice, this.stamina, this.position, this.rarity);
-=======
+
 		return String.format("%s, %d, %s, %d, %d",this.nickName, this.stamina, this.position, this.rarity, this.buyPrice);
->>>>>>> 4b5065267adf72c10658d32b390d7e94649784ad
+
 	}
 	
 	public void changeNickName(String changeName){

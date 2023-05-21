@@ -213,30 +213,7 @@ public class GameEnviroment {
 		
 		Item[] items = new Item[] {fitness, gym, train, skills, coaching};
 		Random r = new Random();
-<<<<<<< HEAD
 		return(items[r.nextInt(5)]);
-=======
-		int lowValue = 1;
-		int highValue = 5;
-		int result = r.nextInt(highValue-lowValue) + lowValue;
-		
-		for (int i = 0; i < 6; i++) {
-			int statValue = r.nextInt((result+1)-(result-1)) + (result-1);
-			if (statValue > 5) {
-				atributes[i] = 5;
-			}else if (statValue < 0) {
-				atributes[i] = 0;
-			}else{
-				atributes[i] = statValue;
-			}
-		}
-	   
-		String[] itemGenerator = new String[] {"Powerade"};
-		String item = itemGenerator[r.nextInt(itemGenerator.length)];
-		int price = 100 * result;
-		
-		return(new Item(item, price, atributes));
->>>>>>> 4b5065267adf72c10658d32b390d7e94649784ad
 	}
 	
 	
