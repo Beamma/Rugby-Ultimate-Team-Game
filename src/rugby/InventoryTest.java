@@ -4,26 +4,34 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class InventoryTest {
-
+	private static Inventory club;
+	private static GameEnviroment manager;
+	private static Team team;
+	
+	
+	
+	@BeforeAll 
+	public static void init(){
+		manager = new GameEnviroment();
+		club = new Inventory(manager);
+		team = new Team();
+		club.team = team;
+	}
+	
 	@Test
 	void addPlayer() {
-		// if active team is empty
-		GameEnviroment manager = new GameEnviroment();
-		Inventory club = new Inventory(manager);
 		Athlete event = GameEnviroment.generatePlayer();
-		
 		club.addPlayer(event);
-		assertTrue(club.players.size() == 1);
+		assertTrue(club.team.players.size() == 1);
 	}
 	
 	@Test
 	void addPlayerFull() {
 		// if reserve team is full
-		GameEnviroment manager = new GameEnviroment();
-		Inventory club = new Inventory(manager);
 		Athlete event = GameEnviroment.generatePlayer();
 		for (int i = 0; i < 36; i++ ) {
 			club.addPlayer(event);
@@ -34,11 +42,7 @@ class InventoryTest {
 	
 	@Test
 	void swapPlayer() {
-		GameEnviroment manager = new GameEnviroment();
-		Inventory club = new Inventory(manager);
-		Team team = new Team();
-		club.team = team;
-		
+
 		// checking to see if event1 gets swapped in reserves while even2 goes into team
 		Athlete event1 = GameEnviroment.generatePlayer();
 		Athlete event2 = GameEnviroment.generatePlayer();

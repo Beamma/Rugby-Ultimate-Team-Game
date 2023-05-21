@@ -47,10 +47,10 @@ public class Athlete {
 		this.stamina = 100;
 	}
 	
-	public void train(String stat){
-		stats.put(stat, stats.get(stat) + 1);
-	}
-	
+//	public void train(String stat){
+//		stats.put(stat, stats.get(stat) + 1);
+//	}
+
 	public void trainAll(){
 		for (String stat : attributes) {
 			stats.put(stat, stats.get(stat) + 1);
@@ -78,25 +78,19 @@ public class Athlete {
 		int athleteFitness = this.stats.get("Fitness");
 		if (this.stamina - (100 - athleteFitness) <= 0) {
 			this.stamina = 0;
-			System.out.printf(this.name + " Is now injured due to lack of stamina");
+			//System.out.printf(this.name + " Is now injured due to lack of stamina");
 		}
 		else{
 			this.stamina -= (100 - athleteFitness);  
 		}
 	}
 	
-	public void athleteOptions() {
-		System.out.println("Options");
-	}
+//	public void athleteOptions() {
+//		System.out.println("Options");
+//	}
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] tester = new int[]{1, 2, 3, 4, 6, 90};
-		
-		Athlete liam = new Athlete("liam", 10, 10, 10, false, "rb", 90, tester);
-		System.out.println(liam.stats.get(liam.attributes[0]));
-		
 	}
 
 }

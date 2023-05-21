@@ -7,7 +7,7 @@ public class Item {
 	public String item;
 	public HashMap<String, Integer> stats;
 	public int price;
-	String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
+	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tacking", "Ofense", "Fitness"};
 	
 	public Item(String item, int price, int[] value) {
 		this.item = item;
@@ -24,35 +24,28 @@ public class Item {
 		for (int i = 0; i < 6; i++) {
 			athlete.stats.put(attributes[i], athlete.stats.get(attributes[i]) + (item.stats.get(attributes[i])));
 		}
-		System.out.println("You have used item " + this.item + ", it has boosted your athletes stats by:");
-		printEffect();
+//		System.out.println("You have used item " + this.item + ", it has boosted your athletes stats by:");
+//		printEffect();
 	}
 	
-	public void printEffect(){
-		for (int i = 0; i < 6; i++) {
-			if (this.stats.get(attributes[i]) > 0){
-				System.out.println(attributes[i] + ":" + this.stats.get(attributes[i]));
-			}
-		}
-	}
-	
+//	public void printEffect(){
+//		for (int i = 0; i < 6; i++) {
+//			if (this.stats.get(attributes[i]) > 0){
+//				System.out.println(attributes[i] + ":" + this.stats.get(attributes[i]));
+//			}
+//		}
+//	}
+//	
 	@Override
 	public String toString() {
 		return String.format("%s, %d",this.item, this.price);
 	}
 	
-	public void itemOptions() {
-		System.out.println("Options");
-	}
+//	public void itemOptions() {
+//		System.out.println("Options");
+//	}
 	public static void main(String[] args) {
-		
-		int[] tester = new int[]{1, 0, 3, 4, 6, 5};
-		int[] tester2 = new int[]{60, 60, 60, 60, 60, 60};
-		Athlete liams = new Athlete("liam", 10, 10, 10, false, "rb", 90, tester2);
-		Item liam = new Item("liam", 90, tester);
-		System.out.println(liams.stats);
-		liam.useItem(liams);
-		System.out.println(liams.stats);
+
 	}
 
 }

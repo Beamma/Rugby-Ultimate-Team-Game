@@ -111,9 +111,6 @@ public class MarketPlace extends GameEnviroment{
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method setup
-		
-		
 	}
 
 }

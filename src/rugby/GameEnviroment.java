@@ -10,7 +10,6 @@ import gui.GameScreen;
 import gui.HomeScreen;
 import gui.InventoryScreen;
 import gui.ItemScreen;
-import gui.MainScreen;
 import gui.MarketPlaceScreen;
 import gui.MatchScreen;
 import gui.SetupScreen;

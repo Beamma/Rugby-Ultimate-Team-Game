@@ -27,11 +27,9 @@ public class Inventory {
 	}
 	
 	public void removePlayer(Athlete athlete) {
-		if (this.players.contains(athlete)) {
-			this.players.remove(athlete);
-		} else {
-			System.out.println("The athlete you've chosen is not currently in your club");
-		}
+		if (players.contains(athlete)) {
+			players.remove(athlete);
+		} 
 	}
 	
 	public void addItem(Item item) {
@@ -42,7 +40,7 @@ public class Inventory {
 		if (this.items.contains(item)) {
 			this.items.remove(item);
 		} else {
-			System.out.println("The item you've chosen is not currently in your inventory");
+//			System.out.println("The item you've chosen is not currently in your inventory");
 		}
 	}
 	
@@ -54,53 +52,53 @@ public class Inventory {
 	}
 	
 	
-	public void useItem(){
-		Item item = selectItem();
-		Athlete athlete = selectAthlete();
-		
-		if (this.items.contains(item)) {
-			items.remove(item);
-			item.useItem(athlete);
-		} else {
-			System.out.println("You do not own this item");
-		}
-	}
+//	public void useItem(){
+//		Item item = selectItem();
+//		Athlete athlete = selectAthlete();
+//		
+//		if (this.items.contains(item)) {
+//			items.remove(item);
+//			item.useItem(athlete);
+//		} else {
+//			System.out.println("You do not own this item");
+//		}
+//	}
 	
-	public Item selectItem() {
-		int count = 0;
-		for (Item item: this.items) {
-			count += 1;
-			System.out.printf(String.valueOf(count) + ": " + item.item);
-			System.out.println();
-		}
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Please Select One Of The Above Items To Use:");
-		int itemIndex = input.nextInt();
-		return this.items.get(itemIndex-1);
-	}
+//	public Item selectItem() {
+//		int count = 0;
+//		for (Item item: this.items) {
+//			count += 1;
+//			System.out.printf(String.valueOf(count) + ": " + item.item);
+//			System.out.println();
+//		}
+//		
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("Please Select One Of The Above Items To Use:");
+//		int itemIndex = input.nextInt();
+//		return this.items.get(itemIndex-1);
+//	}
 	
-	public Athlete selectAthlete() {
-		
-		int count = 0;
-		for (Athlete athlete: this.players) {
-			count += 1;
-			System.out.printf(String.valueOf(count) + ": " + athlete.name);
-			System.out.println();
-		}
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Please Select One Of The Above Players:");
-		int athlete = input.nextInt();
-		return this.players.get(athlete-1);
-		
-	}
+//	public Athlete selectAthlete() {
+//		
+//		int count = 0;
+//		for (Athlete athlete: this.players) {
+//			count += 1;
+//			System.out.printf(String.valueOf(count) + ": " + athlete.name);
+//			System.out.println();
+//		}
+//		
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("Please Select One Of The Above Players:");
+//		int athlete = input.nextInt();
+//		return this.players.get(athlete-1);
+//		
+//	}
 	
-	public void displayAthletes() {
-		for (Athlete player : players) {
-			System.out.println(player.name);
-		}
-	}
+//	public void displayAthletes() {
+//		for (Athlete player : players) {
+//			System.out.println(player.name);
+//		}
+//	}
 	
 	public int getPlayerWages(){
 		int weeklyWage = 0;
@@ -122,32 +120,30 @@ public class Inventory {
 		}
 	}
 	
-	public void returnInventory() {
-		Scanner input = new Scanner(System.in);
-		System.out.println("Would you like to view 1:Players or 2:Items or 3:Team Roster: ");
-		int option = input.nextInt();
-		if (option == 1) {
-			Athlete player = selectAthlete();
-			player.athleteOptions();
-		}
-		
-		else if (option == 2){
-			Item item = selectItem();
-			item.itemOptions();
-		}
-		
-		else if (option == 3){
-			Athlete player = team.selectAthlete();
-			player.athleteOptions();
-		} else {
-			System.out.println("Invalid option selected please try again");
-			this.returnInventory();
-		}
-	}
+//	public void returnInventory() {
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("Would you like to view 1:Players or 2:Items or 3:Team Roster: ");
+//		int option = input.nextInt();
+//		if (option == 1) {
+//			Athlete player = selectAthlete();
+//			player.athleteOptions();
+//		}
+//		
+//		else if (option == 2){
+//			Item item = selectItem();
+//			item.itemOptions();
+//		}
+//		
+//		else if (option == 3){
+//			Athlete player = team.selectAthlete();
+//			player.athleteOptions();
+//		} else {
+//			System.out.println("Invalid option selected please try again");
+//			this.returnInventory();
+//		}
+//	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		GameEnviroment manager = new GameEnviroment();
 		Inventory club = new Inventory(manager);
 		Team team = new Team();
@@ -165,8 +161,9 @@ public class Inventory {
 			wage += event.wage;
 		}
 		
-		System.out.println(wage);
 		System.out.println(club.getPlayerWages());
+		System.out.println(wage );
+		
 	}
 
 }

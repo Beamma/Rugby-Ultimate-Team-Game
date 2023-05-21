@@ -1,25 +1,16 @@
 package rugby;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import seng201.assignment.Event;
-import seng201.assignment.Pet;
-import seng201.assignment.PetType;
-import seng201.assignment.SicknessEvent;
-
-import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public final class AthleteTest {
 
 	@Test
-	void rarityTest() {
+	public void rarityTest() {
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
 		Item fitness = new Item("Fitness Train", 500, new int[]{10, 10, 10, 10, 10, 10});
 		
@@ -41,7 +32,7 @@ public final class AthleteTest {
 	}	
 	
 	@Test
-	void statOverHundred() {
+	public void statOverHundred() {
 		
 		// making sure that a player can never have a pregenerated stat over 100 
 		
@@ -55,7 +46,7 @@ public final class AthleteTest {
 	
 	
 	@Test
-	void trainAthleteTest() {
+	public void trainAthleteTest() {
 		
 		//checking if it trains all athletes by one and update rating works
 		Athlete event = new Athlete("", 10, 10, 10, false, "", 10, new int[]{10, 10, 10, 10, 10, 10});

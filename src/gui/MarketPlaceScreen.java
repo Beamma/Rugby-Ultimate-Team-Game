@@ -125,18 +125,22 @@ public class MarketPlaceScreen {
 			public void actionPerformed(ActionEvent e) {
 				
 				Item itemBuy = itemList.getSelectedValue();
-				if (enviroment.club.items.size() < 5) {
-					if (enviroment.money >= itemBuy.price) {
-						enviroment.club.addItem(itemBuy);
-						enviroment.market.removeMarketItem(itemBuy);
-						enviroment.money -= itemBuy.price;
-						JOptionPane.showMessageDialog(frame, "brought ");
-						refreshWindow();
-					} else {
-						JOptionPane.showMessageDialog(frame, "Not Enough Money");
+				if (itemBuy != null) {
+					if (enviroment.club.items.size() < 5) {
+						if (enviroment.money >= itemBuy.price) {
+							enviroment.club.addItem(itemBuy);
+							enviroment.market.removeMarketItem(itemBuy);
+							enviroment.money -= itemBuy.price;
+							JOptionPane.showMessageDialog(frame, "brought ");
+							refreshWindow();
+						} else {
+							JOptionPane.showMessageDialog(frame, "Not Enough Money");
+						}
+					}else {
+						JOptionPane.showMessageDialog(frame, "Inventory full");
 					}
 				}else {
-					JOptionPane.showMessageDialog(frame, "Inventory full");
+					JOptionPane.showMessageDialog(frame, "Please select item");
 				}
 			}
 		});

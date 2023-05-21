@@ -25,8 +25,8 @@ public class RandomEvent {
 	
 	public static int newPlayer(Inventory inventory){
 		Athlete newPlayer = GameEnviroment.generatePlayer();
-		inventory.players.add(newPlayer);
-		System.out.println("add");
+		inventory.addPlayer(newPlayer);
+		//System.out.println("add");
 		return 1;
 
 //		if (inventory.players.size() < 16) {
@@ -75,17 +75,6 @@ public class RandomEvent {
 	}
 	
 	public static void main(String[] args) {
-		Athlete ed = GameEnviroment.generatePlayer();
-		Athlete eds = GameEnviroment.generatePlayer();
-		Athlete edsss = GameEnviroment.generatePlayer();
-		Athlete edss = GameEnviroment.generatePlayer();
-		Inventory hrfc =  new Inventory(null);
-		hrfc.addPlayer(ed);
-		hrfc.addPlayer(eds);
-		hrfc.addPlayer(edss);
-		hrfc.addPlayer(edsss);
-		hrfc.displayAthletes();
-		System.out.println(randomEvents(3, hrfc));
 	}
 	
 }
