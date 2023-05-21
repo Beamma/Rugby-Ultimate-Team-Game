@@ -52,38 +52,41 @@ public class InventoryScreen {
 		enviroment.closeInventoryScreen(this, item);
 	}
 	
+	public void refreshWindow() {
+		enviroment.refreshInventoryScreen(this);
+	}
+	
 	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(500, 300, 600, 500);
 		
-		JButton btnNewButton = new JButton("View team:");
-		btnNewButton.setBounds(215, 403, 132, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton viewTeam = new JButton("View team:");
+		viewTeam.setBounds(215, 403, 132, 23);
+		viewTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goTeam();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(viewTeam);
 		
 		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
 		athleteListModel.addAll(enviroment.club.players);
 		athleteListModel.addAll(enviroment.getTeam());
 		
-		JButton btnNewButton_1 = new JButton("Home");
-		btnNewButton_1.setBounds(10, 11, 77, 23);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(10, 11, 77, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
-		frame.getContentPane().add(btnNewButton_1);
+		frame.getContentPane().add(homeButton);
 		
-		JLabel lblNewLabel = new JLabel("Athletes", SwingConstants.CENTER);
-		lblNewLabel.setBounds(68, 67, 149, 14);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel athleteTitle = new JLabel("Athletes", SwingConstants.CENTER);
+		athleteTitle.setBounds(68, 67, 149, 14);
+		frame.getContentPane().add(athleteTitle);
 		
 		JList<Athlete> athleteStats = new JList<Athlete>();
 		athleteStats.setBounds(68, 80, 149, 292);
@@ -99,20 +102,20 @@ public class InventoryScreen {
 		DefaultListModel<Item> itemListModel = new DefaultListModel<Item>();
 		itemListModel.addAll(enviroment.club.items);
 		
-		JList<Item> list = new JList<Item>(itemListModel);
-		list.setBounds(346, 80, 149, 293);
-		frame.getContentPane().add(list);
+		JList<Item> ownedItems = new JList<Item>(itemListModel);
+		ownedItems.setBounds(346, 80, 149, 293);
+		frame.getContentPane().add(ownedItems);
 		
 		
 		
-		JLabel lblNewLabel_1 = new JLabel("Owened items", SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(346, 67, 149, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel ownedTitle = new JLabel("Owened items", SwingConstants.CENTER);
+		ownedTitle.setBounds(346, 67, 149, 14);
+		frame.getContentPane().add(ownedTitle);
 		
-		JButton btnNewButton_2 = new JButton("Use item");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton useItemButton = new JButton("use item");
+		useItemButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item useItem = list.getSelectedValue();
+				Item useItem = ownedItems.getSelectedValue();
 				if (useItem != null) {
 					goItem(useItem);
 				}else {
@@ -120,11 +123,11 @@ public class InventoryScreen {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(406, 403, 89, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		useItemButton.setBounds(385, 384, 89, 23);
+		frame.getContentPane().add(useItemButton);
 		
-		JButton btnNewButton_3 = new JButton("Sell athlete");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton sellAthleteButton = new JButton("Sell athlete");
+		sellAthleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athlete1 = athleteStats.getSelectedValue();
 				if (athlete1 != null) {
@@ -135,14 +138,31 @@ public class InventoryScreen {
 						enviroment.club.team.removePlayer(athlete1);
 					}
 					JOptionPane.showMessageDialog(frame, athlete1.name + " sold for " + String.valueOf(athlete1.sellPrice));
-					goHome();
+					refreshWindow();
 				}else {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
 				}
 			}
 		});
-		btnNewButton_3.setBounds(68, 403, 89, 23);
-		frame.getContentPane().add(btnNewButton_3);
+		sellAthleteButton.setBounds(68, 403, 89, 23);
+		frame.getContentPane().add(sellAthleteButton);
+		
+		JButton sellItemButton = new JButton("sell items");
+		sellItemButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Item item1 = ownedItems.getSelectedValue();
+				if (item1 != null) {
+					enviroment.addMoney(item1.price);
+					enviroment.club.removeItem(item1);
+					JOptionPane.showMessageDialog(frame, item1.item + " sold for " + String.valueOf(item1.price));
+					refreshWindow();
+				}else {
+					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
+				}
+			}
+		});
+		sellItemButton.setBounds(385, 418, 89, 23);
+		frame.getContentPane().add(sellItemButton);
 		
 		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));

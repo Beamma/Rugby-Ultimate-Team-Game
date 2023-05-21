@@ -34,7 +34,7 @@ public class TeamScreen {
 	private GameEnviroment enviroment;
 	private JTextField random;
 	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JLabel activeLabel;
 
 	
 	public TeamScreen(GameEnviroment enviroment){
@@ -60,19 +60,19 @@ public class TeamScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(252, 410, 89, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(252, 410, 89, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel("Active team", SwingConstants.CENTER);
-		lblNewLabel.setBounds(46, 19, 172, 30);
-		frame.getContentPane().add(lblNewLabel);
+		activeLabel = new JLabel("Active team", SwingConstants.CENTER);
+		activeLabel.setBounds(46, 19, 172, 30);
+		frame.getContentPane().add(activeLabel);
 		
 		DefaultListModel<Athlete> athleteListModel = new DefaultListModel<Athlete>();
 		athleteListModel.addAll(this.enviroment.getTeam());
@@ -90,8 +90,8 @@ public class TeamScreen {
 		activePlayerList.setModel(athleteListModel);
 		Athlete ed = GameEnviroment.generatePlayer();
 		
-		JButton btnNewButton_1 = new JButton("select athlete");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton selectAthleteButton = new JButton("select athlete");
+		selectAthleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athlete1 = activePlayerList.getSelectedValue(); 	
 				if (athlete1 != null) {
@@ -101,13 +101,13 @@ public class TeamScreen {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(46, 356, 172, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		selectAthleteButton.setBounds(46, 356, 172, 23);
+		frame.getContentPane().add(selectAthleteButton);
 		
 		
-		JLabel lblNewLabel_1 = new JLabel("Reserve team", SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(362, 27, 172, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel reserveTitle = new JLabel("Reserve team", SwingConstants.CENTER);
+		reserveTitle.setBounds(362, 27, 172, 14);
+		frame.getContentPane().add(reserveTitle);
 		
 		DefaultListModel<Athlete> reserveModelList = new DefaultListModel<Athlete>();
 		reserveModelList.addAll(enviroment.club.players);
@@ -118,8 +118,8 @@ public class TeamScreen {
 		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
 		
-		JButton btnNewButton_2 = new JButton("select reserve athlete");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton selectReserveButton = new JButton("select reserve athlete");
+		selectReserveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athlete1 = reserveList.getSelectedValue(); 	
 				if (athlete1 != null) {
@@ -129,11 +129,11 @@ public class TeamScreen {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(372, 356, 172, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		selectReserveButton.setBounds(372, 356, 172, 23);
+		frame.getContentPane().add(selectReserveButton);
 		
-		JButton btnNewButton_3 = new JButton("swap");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton swapButton = new JButton("swap");
+		swapButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athlete1 = reserveList.getSelectedValue(); 	
 				Athlete athlete2 = activePlayerList.getSelectedValue();
@@ -147,8 +147,8 @@ public class TeamScreen {
 				
 			}
 		});
-		btnNewButton_3.setBounds(252, 168, 89, 23);
-		frame.getContentPane().add(btnNewButton_3);
+		swapButton.setBounds(252, 168, 89, 23);
+		frame.getContentPane().add(swapButton);
 
 	}
 }

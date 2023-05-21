@@ -54,6 +54,11 @@ public class GameScreen {
 	public void goHome() {
 		enviroment.closeGameScreen(this);
 	}
+	
+	public void goTeam() {
+		enviroment.closeGameScreen(this, 1);
+	}
+	
 
 	private void initialize() {
 		frame = new JFrame();
@@ -63,7 +68,7 @@ public class GameScreen {
 		JButton homeButton = new JButton("Home");
 		homeButton.setBackground(new Color(192, 192, 192));
 		homeButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		homeButton.setBounds(30, 12, 65, 29);
+		homeButton.setBounds(30, 12, 81, 29);
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -103,19 +108,19 @@ public class GameScreen {
 					enviroment.addMoney(10000 * (4-enviroment.difficulty));
 					enviroment.winloss[0] += 1;
 					JOptionPane.showMessageDialog(frame, "Won by " + gameResult);
-					goHome();
+					goTeam();
 				}else if (gameResult < 0) {
 					enviroment.updateWeek();
 					enviroment.addMoney(2500 * (4-enviroment.difficulty));
 					enviroment.winloss[2] += 1;
 					JOptionPane.showMessageDialog(frame, "Lost by " + gameResult);
-					goHome();
+					goTeam();
 				}else if (gameResult == 0){
 					enviroment.updateWeek();
 					enviroment.addMoney(5000* (4-enviroment.difficulty));
 					enviroment.winloss[1] += 1;
 					JOptionPane.showMessageDialog(frame, "Drew");
-					goHome();
+					goTeam();
 					
 				}else {
 					JOptionPane.showMessageDialog(frame, "cannot play because of lack of player stamina");
@@ -161,11 +166,11 @@ public class GameScreen {
 		oppositionLabel.setBounds(378, 71, 175, 29);
 		frame.getContentPane().add(oppositionLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Game Day");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(204, 6, 175, 37);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel titleLabel = new JLabel("Game Day");
+		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel.setBounds(204, 6, 175, 37);
+		frame.getContentPane().add(titleLabel);
 
 	}
 }

@@ -146,18 +146,23 @@ public class AthleteScreen {
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		newNickName = new JTextField();
-		newNickName.setBounds(229, 368, 117, 36);
+		newNickName.setBounds(153, 346, 117, 36);
 		frame.getContentPane().add(newNickName);
 		newNickName.setColumns(10);
 		
 		JButton changeNickName = new JButton("Change Nickname");
 		changeNickName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				athlete.changeNickName(newNickName.getText());
-				JOptionPane.showMessageDialog(frame, "Nickname Succesfully changed to:" + newNickName.getText());
+				if (newNickName.getText().length() < 15 ) {
+					athlete.changeNickName(newNickName.getText());
+					JOptionPane.showMessageDialog(frame, "Nickname Succesfully changed to: " + newNickName.getText());
+				}else {
+					JOptionPane.showMessageDialog(frame, "Too long of a name");
+				}
 			}
 		});
-		changeNickName.setBounds(366, 375, 89, 23);
+		
+		changeNickName.setBounds(297, 353, 149, 23);
 		frame.getContentPane().add(changeNickName);
 		
 

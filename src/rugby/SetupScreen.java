@@ -1,7 +1,7 @@
 package rugby;
 
 import java.awt.EventQueue;
-
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +11,7 @@ import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -113,9 +114,18 @@ public class SetupScreen {
 		frmSetup.getContentPane().add(seasonLength);
 
 		
-		JLabel lblNewLabel_1 = new JLabel("Team name");
-		lblNewLabel_1.setBounds(258, 52, 69, 14);
+		JLabel lblNewLabel_1 = new JLabel("Team name", SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(217, 52, 147, 14);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		frmSetup.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("please enter: 3-15 characters");
+		lblNewLabel.setBounds(31, 47, 197, 28);
+		frmSetup.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_2 = new JLabel("no special characters");
+		lblNewLabel_2.setBounds(394, 54, 180, 14);
+		frmSetup.getContentPane().add(lblNewLabel_2);
 		
 //		random = new JTextField();
 //		random.setBounds(147, 279, 86, 20);

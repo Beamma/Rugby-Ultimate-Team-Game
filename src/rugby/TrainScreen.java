@@ -35,7 +35,7 @@ public class TrainScreen {
 	private GameEnviroment enviroment;
 	private JTextField random;
 	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JLabel trainingLabel;
 	private Item item;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -50,7 +50,7 @@ public class TrainScreen {
 	private JLabel lblNewLabel_11;
 	private JLabel lblNewLabel_12;
 	private JLabel lblNewLabel_13;
-	private JButton btnNewButton_1;
+	private JButton trainButton;
 	private JList list;
 
 	
@@ -74,19 +74,19 @@ public class TrainScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(231, 412, 90, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(231, 412, 90, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel("training", SwingConstants.CENTER);
-		lblNewLabel.setBounds(231, 14, 90, 46);
-		frame.getContentPane().add(lblNewLabel);
+		trainingLabel = new JLabel("training", SwingConstants.CENTER);
+		trainingLabel.setBounds(231, 14, 90, 46);
+		frame.getContentPane().add(trainingLabel);
 		
 	
 		DefaultListModel<Athlete> reserveModelList = new DefaultListModel<Athlete>();
@@ -98,8 +98,8 @@ public class TrainScreen {
 		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
 		
-		btnNewButton_1 = new JButton("Train a Player in your team");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		trainButton = new JButton("Train a Player in your team");
+		trainButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete trainedUser = reserveList.getSelectedValue();			
 				if (trainedUser != null) {
@@ -112,8 +112,8 @@ public class TrainScreen {
 			}
 		});
 		
-		btnNewButton_1.setBounds(164, 358, 233, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		trainButton.setBounds(164, 358, 233, 23);
+		frame.getContentPane().add(trainButton);
 		
 
 
