@@ -7,12 +7,14 @@ public class Item {
 	public String item;
 	public HashMap<String, Integer> stats;
 	public int price;
+	public int sellPrice;
 	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	public Item(String item, int price, int[] value) {
 		this.item = item;
 		this.price = price;
 		this.stats = new HashMap<String, Integer>();
+		this.sellPrice = price - 100;
 		
 		for (int i = 0; i < 6; i++) {
 			this.stats.put(attributes[i], value[i]);
@@ -36,7 +38,7 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return String.format("%s",this.item);
+		return String.format("%s Sell Price: $%d",this.item, this.sellPrice);
 	}
 	
 //	public void itemOptions() {

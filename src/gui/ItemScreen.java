@@ -55,6 +55,7 @@ public class ItemScreen {
 	private JLabel fitnessAmount;
 	private JButton useItemButton;
 	private JList list;
+	private JButton sellItem;
 	
 
 	
@@ -80,7 +81,7 @@ public class ItemScreen {
 		
 		
 		JButton homeButton = new JButton("Home");
-		homeButton.setBounds(231, 412, 90, 23);
+		homeButton.setBounds(231, 425, 90, 23);
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -167,6 +168,18 @@ public class ItemScreen {
 		
 		useItemButton.setBounds(164, 358, 233, 23);
 		frame.getContentPane().add(useItemButton);
+		
+		sellItem = new JButton("Sell");
+		sellItem.setBounds(232, 391, 89, 23);
+		frame.getContentPane().add(sellItem);
+		sellItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				enviroment.addMoney(item.sellPrice);
+				enviroment.club.removeItem(item);
+				JOptionPane.showMessageDialog(frame, item.item + " sold for " + String.valueOf(item.sellPrice));
+				goHome();
+			}
+		});
 		
 
 

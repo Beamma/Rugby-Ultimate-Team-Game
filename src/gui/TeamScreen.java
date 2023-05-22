@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 public class TeamScreen {
 	
@@ -62,7 +63,7 @@ public class TeamScreen {
 		
 		
 		JButton homeButton = new JButton("Home");
-		homeButton.setBounds(252, 410, 89, 23);
+		homeButton.setBounds(252, 409, 89, 23);
 		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -86,7 +87,8 @@ public class TeamScreen {
 
 		
 		JList<Athlete> activePlayerList = new JList<Athlete>();
-		activePlayerList.setBounds(46, 49, 172, 285);
+		activePlayerList.setFont(new Font("Tahoma", Font.BOLD, 10));
+		activePlayerList.setBounds(10, 49, 270, 285);
 		frame.getContentPane().add(activePlayerList);
 		activePlayerList.setModel(athleteListModel);
 //		Athlete ed = GameEnviroment.generatePlayer();
@@ -115,7 +117,8 @@ public class TeamScreen {
 		
 		
 		JList<Athlete> reserveList = new JList<Athlete>();
-		reserveList.setBounds(372, 49, 172, 285);
+		reserveList.setFont(new Font("Tahoma", Font.BOLD, 10));
+		reserveList.setBounds(304, 49, 270, 285);
 		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
 		
@@ -148,7 +151,7 @@ public class TeamScreen {
 				
 			}
 		});
-		swapButton.setBounds(252, 168, 89, 23);
+		swapButton.setBounds(252, 356, 89, 23);
 		frame.getContentPane().add(swapButton);
 
 	}

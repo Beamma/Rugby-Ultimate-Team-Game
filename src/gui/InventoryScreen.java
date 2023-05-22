@@ -25,6 +25,7 @@ import rugby.Item;
 
 import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class InventoryScreen {
 	
@@ -98,7 +99,8 @@ public class InventoryScreen {
 		frame.getContentPane().add(athleteTitle);
 		
 		JList<Athlete> athleteStats = new JList<Athlete>();
-		athleteStats.setBounds(10, 80, 258, 292);
+		athleteStats.setFont(new Font("Tahoma", Font.BOLD, 10));
+		athleteStats.setBounds(10, 80, 270, 292);
 		frame.getContentPane().add(athleteStats);
 		athleteStats.setModel(athleteListModel);
 		
@@ -112,7 +114,8 @@ public class InventoryScreen {
 		itemListModel.addAll(enviroment.club.items);
 		
 		JList<Item> ownedItems = new JList<Item>(itemListModel);
-		ownedItems.setBounds(316, 80, 258, 293);
+		ownedItems.setFont(new Font("Tahoma", Font.BOLD, 10));
+		ownedItems.setBounds(304, 80, 270, 293);
 		frame.getContentPane().add(ownedItems);
 		
 		
@@ -161,9 +164,9 @@ public class InventoryScreen {
 			public void actionPerformed(ActionEvent e) {
 				Item item1 = ownedItems.getSelectedValue();
 				if (item1 != null) {
-					enviroment.addMoney(item1.price);
+					enviroment.addMoney(item1.sellPrice);
 					enviroment.club.removeItem(item1);
-					JOptionPane.showMessageDialog(frame, item1.item + " sold for " + String.valueOf(item1.price));
+					JOptionPane.showMessageDialog(frame, item1.item + " sold for " + String.valueOf(item1.sellPrice));
 					refreshWindow();
 				}else {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");

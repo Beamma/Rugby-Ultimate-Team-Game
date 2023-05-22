@@ -67,7 +67,7 @@ public class AthleteScreen {
 		
 		
 		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(248, 427, 84, 23);
+		btnNewButton.setBounds(237, 427, 99, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
@@ -165,6 +165,23 @@ public class AthleteScreen {
 		
 		changeNickName.setBounds(297, 353, 149, 23);
 		frame.getContentPane().add(changeNickName);
+		
+		JButton sellAthlete = new JButton("Sell");
+		sellAthlete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				enviroment.addMoney(athlete.sellPrice);
+				if (enviroment.club.players.contains(athlete)) {
+					enviroment.club.removePlayer(athlete);
+				}else {
+					enviroment.club.team.removePlayer(athlete);
+				}
+				JOptionPane.showMessageDialog(frame, athlete.name + " sold for " + String.valueOf(athlete.sellPrice));
+				goHome();
+				
+			}
+		});
+		sellAthlete.setBounds(237, 393, 99, 23);
+		frame.getContentPane().add(sellAthlete);
 		
 
 	}
