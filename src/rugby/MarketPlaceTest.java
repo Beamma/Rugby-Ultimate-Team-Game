@@ -37,7 +37,7 @@ class MarketPlaceTest {
 	
 	@Test
 	void removeMarketPlayer() {
-
+		// checking removing a player
 		Athlete event = market.playersForSale.get(0);
 		market.removeMarketPlayer(market.playersForSale.get(0));
 		
@@ -47,6 +47,7 @@ class MarketPlaceTest {
 	
 	@Test
 	void removeMarketItem() {
+		// checking removing a item
 		Item event = market.itemsForSale.get(0);
 		market.removeMarketItem(market.itemsForSale.get(0));
 		
