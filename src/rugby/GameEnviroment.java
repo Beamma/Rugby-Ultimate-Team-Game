@@ -30,12 +30,16 @@ public class GameEnviroment {
 	public int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
+	public static int teamSize = 7;
 	private static ArrayList<String> teamNames = new ArrayList<String>(Arrays.asList("Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
 			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
 			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
 			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"));
 			
 	
+	public GameEnviroment() {
+		RandomEvent.gameEnviroment = this;
+	}
 	
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -70,15 +74,7 @@ public class GameEnviroment {
 			this.oposition.add(team1);
 			this.oposition.add(team2);
 			this.oposition.add(team3);
-			System.out.println(this.week);
 			market.updateMarket();
-		
-			this.market.playersForSale.clear();
-			this.market.itemsForSale.clear();
-			for (int i = 0 ; i <= 5 ; i++) {
-				this.market.playersForSale.add(generatePlayer());
-				this.market.itemsForSale.add(generateItem());
-			}
 		}
 	}		
 	
@@ -128,48 +124,48 @@ public class GameEnviroment {
 		return resultMatch;
 	}
 	
-	public static Athlete generatePlayer() {
-		
-		int[] atributes = new int[]{0, 0, 0, 0, 0, 0};
-		Random r = new Random();
-		int lowValue = 50;
-		int highValue = 100;
-		int result = r.nextInt(highValue-lowValue) + lowValue;
-		int rarity = 0;
-		
-		for (int i = 0; i < 6; i++) {
-			int statValue = r.nextInt((result+10)-(result-10)) + (result-10);
-			if (statValue > 99) {
-				atributes[i] = 99;
-				rarity += 99;
-			}else {
-				atributes[i] = statValue;
-				rarity += statValue;
-			}
-		}
-		
-		rarity = rarity/6; 
-		
-		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
-		String name = nameGenerator[r.nextInt(nameGenerator.length)];
-		String position = "cb";
-		int buyPrice = rarity*20;
-		int sellPrice = rarity*15;
-		int wage = rarity*8;
-		
-		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
-	}
+//	public static Athlete generatePlayer() {
+//		
+//		int[] atributes = new int[]{0, 0, 0, 0, 0, 0};
+//		Random r = new Random();
+//		int lowValue = 50;
+//		int highValue = 100;
+//		int result = r.nextInt(highValue-lowValue) + lowValue;
+//		int rarity = 0;
+//		
+//		for (int i = 0; i < 6; i++) {
+//			int statValue = r.nextInt((result+10)-(result-10)) + (result-10);
+//			if (statValue > 99) {
+//				atributes[i] = 99;
+//				rarity += 99;
+//			}else {
+//				atributes[i] = statValue;
+//				rarity += statValue;
+//			}
+//		}
+//		
+//		rarity = rarity/6; 
+//		
+//		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
+//		String name = nameGenerator[r.nextInt(nameGenerator.length)];
+//		String position = "cb";
+//		int buyPrice = rarity*20;
+//		int sellPrice = rarity*15;
+//		int wage = rarity*8;
+//		
+//		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
+//	}
 	
 	public static Athlete generatePlayer(int diffuculty) {
 		int lowValue = 0;
 		int highValue = 0;
-		if (diffuculty == 1) {
+		if (diffuculty == 3) {
 			lowValue = 40;
 			highValue = 75;
 		}else if(diffuculty == 2) {
 			lowValue = 50;
 			highValue = 85;
-		}else if(diffuculty == 3) {
+		}else if(diffuculty == 1) {
 			lowValue = 60;
 			highValue = 100;
 		}
@@ -223,8 +219,8 @@ public class GameEnviroment {
 	public Team generateTeam(GameEnviroment gameEnviroment, int diffuculty){
 		Random r = new Random();
 	    Team opisiton = new Team();
-	    for (int i = 0; i < 15; i++){
-	        Athlete random = GameEnviroment.generatePlayer(gameEnviroment.difficulty);
+	    for (int i = 0; i < GameEnviroment.teamSize; i++){
+	        Athlete random = GameEnviroment.generatePlayer(4-gameEnviroment.difficulty);
 	        opisiton.addPlayer(random);
 	    }
 	    

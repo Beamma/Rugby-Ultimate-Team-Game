@@ -13,8 +13,8 @@ public class MarketPlace extends GameEnviroment{
 		this.game = game;
 		this.club = club;
 
-		for (int i = 0 ; i <= 20 ; i++) {
-			playersForSale.add(generatePlayer());
+		for (int i = 0 ; i < 14 ; i++) {
+			playersForSale.add(generatePlayer(game.difficulty));
 		}
 		
 		for (int i = 0 ; i <= 2 ; i++) {
@@ -34,12 +34,10 @@ public class MarketPlace extends GameEnviroment{
 	public void updateMarket() {
 		playersForSale.clear();
 		itemsForSale.clear();
-		for (int i = 0; i < 5; i++) {
-			playersForSale.add(generatePlayer());
+		for (int i = 0; i < 3; i++) {
+			playersForSale.add(generatePlayer(game.difficulty));
+			itemsForSale.add(generateItem());
 			}
-		itemsForSale.add(generateItem());
-		itemsForSale.add(generateItem());
-		itemsForSale.add(generateItem());
 	}
 	
 //	public void buyObject(Athlete athlete) {

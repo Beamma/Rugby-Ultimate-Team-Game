@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class RandomEvent {
 	public int event = 0;
+	public static GameEnviroment gameEnviroment;
 	
 	public static int randomEvents(int randnomness, Inventory inventory) {
 		int joinChance = (5 - inventory.players.size());
@@ -24,7 +25,7 @@ public class RandomEvent {
 	}
 	
 	public static int newPlayer(Inventory inventory){
-		Athlete newPlayer = GameEnviroment.generatePlayer();
+		Athlete newPlayer = GameEnviroment.generatePlayer(gameEnviroment.difficulty);
 		inventory.addPlayer(newPlayer);
 		//System.out.println("add");
 		return 1;

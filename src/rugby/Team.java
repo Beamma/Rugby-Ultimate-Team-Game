@@ -2,12 +2,13 @@ package rugby;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Team {
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
 	public String teamName;
 	
 	public boolean addPlayer(Athlete athlete){
-		if (this.players.size() >= 15) {
+		if (this.players.size() >= 7) {
 			return false;
 		}else {
 			this.players.add(athlete);
@@ -50,7 +51,7 @@ public class Team {
 				return false;
 			}
 		}
-		if (this.getAthletes().size() < 15){
+		if (this.getAthletes().size() < GameEnviroment.teamSize){
 			return false;
 		}
 		return true;
@@ -80,11 +81,11 @@ public class Team {
 	
 	public int teamRating(Team team) {
 		int overallRating = 0;
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < GameEnviroment.teamSize; i++) {
 			int a = team.players.get(i).rarity;
 			overallRating += a;
 		}
-		return overallRating/15;
+		return overallRating/GameEnviroment.teamSize;
 	}
 	
 	public static void main(String[] args) {

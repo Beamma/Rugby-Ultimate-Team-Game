@@ -89,7 +89,7 @@ public class TeamScreen {
 		activePlayerList.setBounds(46, 49, 172, 285);
 		frame.getContentPane().add(activePlayerList);
 		activePlayerList.setModel(athleteListModel);
-		Athlete ed = GameEnviroment.generatePlayer();
+//		Athlete ed = GameEnviroment.generatePlayer();
 		
 		JButton selectAthleteButton = new JButton("select athlete");
 		selectAthleteButton.addActionListener(new ActionListener() {
