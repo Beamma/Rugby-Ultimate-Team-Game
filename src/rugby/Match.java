@@ -4,13 +4,31 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import gui.GameScreen;
-
+/**
+ * Class for matches, where matches are simulated and a result is produced
+ * @author Joel Bremner & Liam Ceelan-Thomas
+ *
+ */
 public class Match {
 	private GameScreen gameScreen;
 	
-	public static void main(String[] args) {
-	}
+	/**
+	 * Constructor
+	 * @param team1
+	 * @param team2
+	 * @param inventory
+	 * @param gameScreen
+	 * @return
+	 */
 	
+	/**
+	 * Returns match result between two teams
+	 * @param team1
+	 * @param team2
+	 * @param inventory
+	 * @param gameScreen
+	 * @return
+	 */
 	public static int matchResult(Team team1, Team team2, Inventory inventory, GameScreen gameScreen) {
 		
 		if (team1.checkReady()) {
@@ -47,6 +65,14 @@ public class Match {
 		}
 	}
 	
+	/**
+	 * Comapares stats of two athletes and returns a winner
+	 * @param athlete1
+	 * @param athlete2
+	 * @param flag
+	 * @param gameScreen
+	 * @return
+	 */
 	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag, GameScreen gameScreen) {
 		Collection<Integer> athlete1Stats = athlete1.stats.values();
 		ArrayList<Integer> values1 = new ArrayList<Integer>(athlete1Stats);
@@ -78,16 +104,13 @@ public class Match {
 		
 		if (score > 0) {
 			gameScreen.gameUpdates(String.format("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score));
-//			System.out.printf("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score);
 			return 1;
 		}
 		else if (score < 0) {
 			gameScreen.gameUpdates(String.format("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1));
-//			System.out.printf("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1);
 			return -1;
 		} else{
 			gameScreen.gameUpdates(String.format("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name));
-//			System.out.printf("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name);
 			return 0;
 		}
 		

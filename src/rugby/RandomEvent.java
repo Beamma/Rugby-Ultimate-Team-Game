@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;  
 
+/**
+ * Class which generates random events
+ * @author Joel Bremner & Liam Ceelan-Thomas
+ *
+ */
 public class RandomEvent {
 	public int event = 0;
 	public static GameEnviroment gameEnviroment;
 	
+	/**
+	 * Decides what random even to call, then returns the random event
+	 * @param randnomness
+	 * @param inventory
+	 * @return - returns an int based on the random event chosen
+	 */
 	public static int randomEvents(int randnomness, Inventory inventory) {
 		int joinChance = (5 - inventory.players.size());
 		
@@ -24,35 +35,33 @@ public class RandomEvent {
 		return 4;
 	}
 	
+	/**
+	 * Generates a new player
+	 * @param inventory
+	 * @return - Option selected
+	 */
 	public static int newPlayer(Inventory inventory){
 		Athlete newPlayer = GameEnviroment.generatePlayer(gameEnviroment.difficulty);
 		inventory.addPlayer(newPlayer);
-		//System.out.println("add");
 		return 1;
-
-//		if (inventory.players.size() < 16) {
-//			inventory.players.add(newPlayer);
-//			System.out.println("add");
-//		}else {
-//			System.out.println("your team is full if u wish swap out a player, enter number of player. if not enter 0");
-//			inventory.displayAthletes();
-//			Scanner input = new Scanner(System.in);
-//			String  userName = input.nextLine();
-//			int holder2 = Integer.parseInt(userName);
-//			if (holder2 != 0) {
-//				Athlete swap = inventory.players.get(holder2-1);
-//				inventory.removePlayer(swap);
-//				inventory.addPlayer(newPlayer);
-//			}
-//		}
 	}
 	
+	/**
+	 * Removes random player from your inventory
+	 * @param inventory
+	 * @return - option selected
+	 */
 	public static int playerLeaves(Inventory inventory){
 		Athlete remove = getRandomPlayer(inventory);
 		inventory.removePlayer(remove);
 		return 2;
 	}
 	
+	/**
+	 * Trains a random player
+	 * @param randnomness
+	 * @return - option selected
+	 */
 	public static boolean playerTrained(int randnomness){
 		Random rand = new Random();  
 		int event = rand.nextInt(randnomness);
@@ -62,20 +71,27 @@ public class RandomEvent {
 		return false;
 	}
 	
+	/**
+	 * Injures a random player from inventory
+	 * @param inventory
+	 * @return - option selected
+	 */
 	public static int playerInjured(Inventory inventory){
 		Athlete injur = getRandomPlayer(inventory);
 		injur.injured = true;
 		return 0;
 	}
 	
+	/**
+	 * Returns random player from inventory
+	 * @param inventory
+	 * @return - Athlete randomly chosen
+	 */
 	public static Athlete getRandomPlayer(Inventory inventory) {
 		ArrayList<Athlete> athletes = inventory.team.players;
 		Random rand = new Random();  
 		int event = rand.nextInt(athletes.size());
 		return (athletes.get(event));
-	}
-	
-	public static void main(String[] args) {
 	}
 	
 }
