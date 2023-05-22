@@ -3,6 +3,7 @@ package rugby;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TeamTest {
@@ -10,41 +11,44 @@ class TeamTest {
 	private static GameEnviroment manager;
 	private static Team team;
 	
-	@BeforeAll 
+	@BeforeAll
 	public static void init(){
 		manager = new GameEnviroment();
 		club = new Inventory(manager);
 		team = new Team();
 		club.team = team;
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		for (int i = 0; i < 7; i++) {
+			club.team.addPlayer(event);
+		}
 	}
+	
 	@Test
 	public void reduceStamina() {
-		Athlete newPlayer = GameEnviroment.generatePlayer();
-		club.team.addPlayer(newPlayer);
 		club.team.reduceStamina();
-		assertTrue(club.team.players.get(0).stamina < 100);
+		for (int i = 0; i < 7; i++) {
+			assertTrue(club.team.players.get(i).stamina < 100);
+		}
 	}
 	
 	@Test
 	public void maxStamina() {
-		Athlete newPlayer = GameEnviroment.generatePlayer();
-		club.team.addPlayer(newPlayer);
 		club.team.reduceStamina();
 		club.team.maxStamina();
-		
-		assertTrue(club.team.players.get(0).stamina == 100);
+		for (int i = 0; i < 7; i++) {
+			assertTrue(club.team.players.get(0).stamina == 100);
+		}
 	}
-
 	
 	@Test
 	public void checkReady() {
-		fail("Not yet implemented");
+		club.team.players.get(0).injury();
+		assertFalse(club.team.checkReady());
 	}
 	
 	@Test
 	public void teamRating() {
-		fail("Not yet implemented");
+		assertTrue(club.team.teamRating(club.team) == 10);	
 	}
-
 
 }

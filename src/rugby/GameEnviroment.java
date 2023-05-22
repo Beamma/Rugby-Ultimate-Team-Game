@@ -90,6 +90,7 @@ public class GameEnviroment {
 			this.money = 20000;
 		}
 	}
+	
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;

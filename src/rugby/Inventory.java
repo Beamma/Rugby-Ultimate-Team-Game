@@ -168,26 +168,20 @@ public class Inventory {
 //	}
 	
 	public static void main(String[] args) {
-//		GameEnviroment manager = new GameEnviroment();
-//		Inventory club = new Inventory(manager);
-//		Team team = new Team();
-//		club.team = team;
-//		int wage = 0;
-//		
-//		Athlete event = GameEnviroment.generatePlayer();
-//		for (int i = 0; i < 5; i++ ) {
-//			club.addPlayer(event);
-//			wage += event.wage;
-//		}
-//		for (int i = 0; i < 15; i++ ) {
-//			System.out.println(i);
-//			club.team.addPlayer(event);
-//			wage += event.wage;
-//		}
-//		
-//		System.out.println(club.getPlayerWages());
-//		System.out.println(wage );
+		GameEnviroment manager = new GameEnviroment();
+		Inventory club = new Inventory(manager);
+		Athlete event = GameEnviroment.generatePlayer(2);
+		Team team = new Team();
+		club.team = team;
+		int wage = 0;
+
+		for (int i = 0; i < 12; i++ ) {
+			club.addPlayer(event);
+			wage += event.wage;
+		}
 		
+		System.out.println(wage);
+		System.out.println(club.getPlayerWages());
 	}
 
-}
+	}

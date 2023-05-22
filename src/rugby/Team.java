@@ -1,4 +1,6 @@
 package rugby;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.util.ArrayList;
 
 /**
@@ -101,5 +103,12 @@ public class Team {
 		}
 		return overallRating/GameEnviroment.teamSize;
 	}
+<<<<<<< HEAD
+=======
+	
+	public static void main(String[] args) {
+		
+		}
+>>>>>>> e8521fbb8edc1f7cb5e215cff4a9fd3b3fcdf054
 
 }
