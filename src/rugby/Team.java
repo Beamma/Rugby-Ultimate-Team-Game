@@ -1,4 +1,6 @@
 package rugby;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,6 +91,7 @@ public class Team {
 	}
 	
 	public static void main(String[] args) {
+		
 		}
 
 }
