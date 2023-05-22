@@ -62,7 +62,7 @@ public class MarketPlace extends GameEnviroment{
 		ArrayList<String> itemArrayList = new ArrayList<>();
 		
 		for (Item item: this.itemsForSale) {
-			itemArrayList.add(String.format("%-60s", item.toString()));
+			itemArrayList.add(String.format("%-60s", (item.getName() + " $" + item.getPrice())));
 		}
 		
 		String[] itemArray = itemArrayList.toArray(new String[0]);

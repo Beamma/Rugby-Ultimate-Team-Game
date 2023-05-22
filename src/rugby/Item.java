@@ -30,9 +30,13 @@ public class Item {
 		return this.price;
 	}
 	
+	public String getName() {
+		return this.item;
+	}
+	
 	@Override
 	public String toString() {
-		return String.format("%s, $%d",this.item, this.price);
+		return String.format("%s",this.item);
 	}
 	
 //	public void itemOptions() {
