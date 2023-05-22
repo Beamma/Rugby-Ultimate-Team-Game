@@ -11,6 +11,7 @@ import gui.GameScreen;
 import gui.HomeScreen;
 import gui.InventoryScreen;
 import gui.ItemScreen;
+import gui.MarketItemScreen;
 import gui.MarketPlaceScreen;
 import gui.MatchScreen;
 import gui.SetupScreen;
@@ -358,7 +359,11 @@ public class GameEnviroment {
 	
 	public void closeTeamScreen(MarketPlaceScreen marketWindow, Item item) {
 		marketWindow.closeWindow();
-		launchItemScreen(item);
+		launchMarketItemScreen(item);
+	}
+	
+	public void launchMarketItemScreen(Item item) {
+		MarketItemScreen marketItemWindow = new MarketItemScreen(this, item);
 	}
 	
 	public void launchTeamScreen() {
@@ -421,6 +426,10 @@ public class GameEnviroment {
 		launchHomeScreen();
 	}
 	
+	public void closeMarketItemScreen(MarketItemScreen marketItemScreen) {
+		marketItemScreen.closeWindow();
+		launchHomeScreen();
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
