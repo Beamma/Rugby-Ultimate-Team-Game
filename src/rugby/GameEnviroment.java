@@ -31,10 +31,13 @@ public class GameEnviroment {
 	public MarketPlace market;
 	public boolean trained = false;
 	public static int teamSize = 7;
-	private static ArrayList<String> teamNames = new ArrayList<String>(Arrays.asList("Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
+	private static ArrayList<String> teamNames = new ArrayList<String>(Arrays.asList(
+			"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
 			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
 			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
-			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"));
+			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic", "Collegiate", "Mt Sommers", 
+			"Hampstead", "Allenton", "Temuka", "Mackenzie", "Waimate", "Pleasant Point", "Geraldine", "Timaru Old Boys", "Timaru Celtic", "Harlequins"
+			));
 			
 	
 	public GameEnviroment() {
@@ -188,9 +191,22 @@ public class GameEnviroment {
 		
 		rarity = rarity/6; 
 		
-		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
-		String name = nameGenerator[r.nextInt(nameGenerator.length)];
-		String position = "cb";
+		String[] nameGenerator = new String[] {
+				"Joel", "Liam", "Lorenz", "Matt", "Luke", "Sam", "Jade", "Matthew", "Flynn", "Will", "Tyler", "Richie", "Glenn", "Kane", "Jaydin", "Pio", "Caleb", "Michael",
+				"Mike", "Calib", "Jaden", "Quentin", "Quinton", "Rob", "Robert", "Samuel", "Daniel", "Bryan", "Brydon", "Roger", "Steven", "Devo", "Wayne", "Ashton",
+				"Kerryn", "Kerran", "Tane", "Sonny", "Shanley", "Jack", "Clint", "Jason", "James", "Jordan", "Jordy", "Ben", "Noah", "Alex", "Richard", "Henry", "Aaron",
+				"Ted", "Dan", "Daniel", "Aron", "TJ", "David", "Bradon", "George", "Mitch", "Callum", "Pete", "Peter", "Warren"};
+		
+		String[] lastNames = new String[] {
+				"Smith","Johnson","Williams","Brown","Jones","Garcia","Miller","Davis","Rodriguez","Martinez","Hernandez","Lopez","Gonzalez","Wilson","Anderson","Thomas",
+				"Taylor","Moore","Jackson","Martin","Lee","Perez","Thompson","White","Harris","Sanchez","Clark","Ramirez","Lewis","Robinson","Walker","Young","Allen",
+				"King","Wright","Scott","Torres","Nguyen","Hill","Flores","Green","Adams","Nelson","Baker","Hall","Rivera","Campbell","Mitchell","Carter","Roberts"
+		};
+		String nameFirst = nameGenerator[r.nextInt(nameGenerator.length)];
+		String nameLast = lastNames[r.nextInt(lastNames.length)];
+		String name = nameFirst + " " + nameLast;
+		String[] positions = new String[] {"FR", "LF", "LK","HB", "FF", "MF", "OB"};
+		String position = positions[r.nextInt(positions.length)];
 		int buyPrice = rarity*20;
 		int sellPrice = rarity*15;
 		int wage = rarity*8;
