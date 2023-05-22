@@ -1,14 +1,22 @@
 package rugby;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
+/**
+ * Market place where athlete objects and item objects are able to be bought and transfered to the team/inventory
+ * @author Joel Bremner & Liam Ceelan-Thomas
+ * 
+ */
 public class MarketPlace extends GameEnviroment{
 	public ArrayList<Athlete> playersForSale = new ArrayList<Athlete>();
 	public ArrayList<Item> itemsForSale = new ArrayList<Item>();
 	private GameEnviroment game;
 	private Inventory club;
 	
+	/**
+	 * Constructor
+	 * @param game
+	 * @param club
+	 */
 	public MarketPlace(GameEnviroment game, Inventory club) {
 		this.game = game;
 		this.club = club;
@@ -22,22 +30,43 @@ public class MarketPlace extends GameEnviroment{
 		}
 	}
 	
+	/**
+	 * Gets athlete from market
+	 * @param index - index of player in playersForSale
+	 * @return - Athlete at given index
+	 */
 	public Athlete returnPlayer(int index) {
 		return playersForSale.get(index);
 	}
 	
+	/**
+	 * Gets item from market
+	 * @param index - index of item in itemsForSale
+	 * @return - Item at given index
+	 */
 	public Item returnItem(int index) {
 		return itemsForSale.get(index);
 	}
 	
+	/**
+	 * Removes athlete from market
+	 * @param athlete - athlete to be removed from market
+	 */
 	public void removeMarketPlayer(Athlete athlete) {
 		playersForSale.remove(athlete);
 	}
 	
+	/**
+	 * Removes item from market
+	 * @param item - item to be removed from market
+	 */
 	public void removeMarketItem(Item item) {
 		itemsForSale.remove(item);
 	}
 	
+	/**
+	 * Updates market, getting rid of old objects and putting in 3 new athletes and 3 new items
+	 */
 	public void updateMarket() {
 		playersForSale.clear();
 		itemsForSale.clear();
@@ -47,6 +76,10 @@ public class MarketPlace extends GameEnviroment{
 			}
 	}
 	
+	/**
+	 * Returns a string formatted array of all athlete on the market
+	 * @return - Returns a string formatted array of all athletes on the market
+	 */
 	public String[] returnPlayerArray() { 
 		ArrayList<String> playerArrayList = new ArrayList<>();
 		
@@ -58,6 +91,10 @@ public class MarketPlace extends GameEnviroment{
 		return playerArray;
 	}
 	
+	/**
+	 * Returns a string formatted array of all items on the market
+	 * @return Returns a string formatted array of all items on the market
+	 */
 	public String[] returnItemArray() {
 		ArrayList<String> itemArrayList = new ArrayList<>();
 		
@@ -69,6 +106,11 @@ public class MarketPlace extends GameEnviroment{
 		return itemArray;
 	}
 	
+	/**
+	 * Buys athlete from market and adds it to your inventory
+	 * @param index - index of athlete in playersForSale
+	 * @return - athlete at given index
+	 */
 	public String buyAthlete(int index) {
 		String result = "";
 		Athlete athlete = playersForSale.get(index);
@@ -87,6 +129,11 @@ public class MarketPlace extends GameEnviroment{
 		return result;
 	}
 	
+	/**
+	 * Buys item from market and adds it to your inventory
+	 * @param index - index of item in itemsForSale
+	 * @return - item at given index
+	 */
 	public String buyItem(int index) {
 		String result = "";
 		Item item = itemsForSale.get(index);
@@ -103,77 +150,6 @@ public class MarketPlace extends GameEnviroment{
 			result = "Your Club Is Full";
 		}
 		return result;
-	}
-	
-//	public void buyObject(Athlete athlete) {
-//		if (game.moneyTransfer(-100)) {
-//			System.out.println("Success");
-//			club.addPlayer(athlete);
-//		} else {
-//			System.out.println("Fail");
-//		}
-//	}
-	
-//	public ArrayList<String> getAllItemsNames(){
-//		ArrayList<String> itemNames = new ArrayList<String>();
-//		for (Item item : this.itemsForSale) {
-//			itemNames.add(item.item);
-//		}
-//		return itemNames;
-//	}
-	
-//	public void sellObject(Athlete athlete) {
-//		game.moneyTransfer(athlete.sellPrice);
-//		club.removePlayer(athlete);
-//		System.out.printf("Sold %s for %s", athlete.name, athlete.sellPrice);
-//	}
-	
-//	public void listBuyables() {
-//		System.out.println("Athletes Currently Available For Purchase:");
-//		System.out.printf("%-4s%-10s%-10s%-10s%-10s%35s%n"," ", "Name", "Price", "Wage", "Rating", "Stats");
-//		int i = 0;
-//		for (Athlete athlete : this.playersForSale) {
-//			System.out.printf("%-2s: %-10s$%-10s$%-10s%-10s%s%n", i, athlete.name, athlete.buyPrice, athlete.wage, athlete.rarity, athlete.stats);
-//			i += 1;
-//		}
-//		
-//		System.out.println();
-//		System.out.println("Items Currently Available For Purchase:");
-//		System.out.printf("%-4s%-10s%-10s%35s%n"," ", "Item", "Price", "Boosts");
-//		
-//		for (Item item : this.itemsForSale) {
-//			System.out.printf("%-2s: %-10s$%-10s%s%n", i, item.item, item.price, item.stats);
-//			i += 1;
-//		}
-//		
-//		selectBuyables();
-//	}
-		
-		
-//	public void selectBuyables() {
-//		try {
-//			Scanner input = new Scanner(System.in);
-//			System.out.println("Select An Object To Purchase, or press -1 to return: ");
-//			int athlete = input.nextInt();
-//			if (athlete == -1) {
-//				return;
-//			} else {
-//				buyObject(playersForSale.get(athlete));
-//			}
-//			
-//		}
-//		
-//		catch(Exception  e) {
-//			System.out.println("Please Select A Valid Input");
-//			selectBuyables();
-//			
-//		}
-//	}
-
-		
-	
-	
-	public static void main(String[] args) {
 	}
 
 }
