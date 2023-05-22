@@ -61,6 +61,9 @@ public class Inventory {
 		return players;
 	}
 	
+	public ArrayList<Item> getItems(){
+		return this.items;
+	}
 	
 //	public void useItem(){
 //		Item item = selectItem();

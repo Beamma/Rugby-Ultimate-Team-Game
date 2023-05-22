@@ -65,8 +65,45 @@ public class MarketPlaceScreen {
 			}
 		});
 		
+		JPanel itemsForSalePanel = new JPanel();
+		itemsForSalePanel.setBounds(294, 68, 290, 321);
+		frame.getContentPane().add(itemsForSalePanel);
+		
+		JScrollPane itemScroll = new JScrollPane();
+		itemScroll.setBounds(328, 358, -90, -268);
+		itemsForSalePanel.add(itemScroll);
+		
+		JList<Object> itemsList = new JList<Object>();
+		itemScroll.setViewportView(itemsList);
+		itemsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		itemsList.setModel(new AbstractListModel<Object>() {
+			String[] items = enviroment.market.returnItemArray();
+			public int getSize() {
+				return items.length;
+			}
+			public Object getElementAt(int index) {
+				return items[index];
+			}
+		});
+		itemsList.setSelectedIndex(0);
+		itemsList.setToolTipText("");
+		
+		JButton buyItemButton = new JButton("Buy Item");
+		buyItemButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String result = enviroment.market.buyItem(itemsList.getSelectedIndex());
+				if (result == "Bought") {
+					JOptionPane.showMessageDialog(frame, "Succesfully Bought");
+					refreshWindow();
+				} else {
+					JOptionPane.showMessageDialog(frame, result);
+				}
+			}
+		});
+		itemsForSalePanel.add(buyItemButton);
+		
 		JPanel playersForSalePanel = new JPanel();
-		playersForSalePanel.setBounds(10, 68, 300, 321);
+		playersForSalePanel.setBounds(0, 68, 290, 321);
 		frame.getContentPane().add(playersForSalePanel);
 		
 		JScrollPane athletesScroll = new JScrollPane();

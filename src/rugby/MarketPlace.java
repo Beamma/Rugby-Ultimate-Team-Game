@@ -44,11 +44,22 @@ public class MarketPlace extends GameEnviroment{
 		ArrayList<String> playerArrayList = new ArrayList<>();
 		
 		for (Athlete athlete: this.playersForSale) {
-			playerArrayList.add(athlete.getName() + " $" + athlete.getBuyPrice() + " Pos: " + athlete.getPosition() + " Rating: " + athlete.getRating() );
+			playerArrayList.add(String.format("%-40s", (athlete.getName() + " $" + athlete.getBuyPrice() + " Pos: " + athlete.getPosition() + " Rating: " + athlete.getRating() )));
 		}
 		
 		String[] playerArray = playerArrayList.toArray(new String[0]);
 		return playerArray;
+	}
+	
+	public String[] returnItemArray() {
+		ArrayList<String> itemArrayList = new ArrayList<>();
+		
+		for (Item item: this.itemsForSale) {
+			itemArrayList.add(String.format("%-60s", item.toString()));
+		}
+		
+		String[] itemArray = itemArrayList.toArray(new String[0]);
+		return itemArray;
 	}
 	
 	public String buyAthlete(int index) {
@@ -61,6 +72,24 @@ public class MarketPlace extends GameEnviroment{
 			result = "Bought";
 		}
 		else if (athlete.buyPrice > game.getMoney()){
+			result = "You Dont Have Enough Money";
+		}
+		else {
+			result = "Your Club Is Full";
+		}
+		return result;
+	}
+	
+	public String buyItem(int index) {
+		String result = "";
+		Item item = itemsForSale.get(index);
+		if (item.getPrice() <= game.getMoney() && club.getItems().size() < 5) {
+			removeMarketItem(item);
+			club.addItem(item);
+			game.minusMoney(item.getPrice());
+			result = "Bought";
+		}
+		else if (item.getPrice() > game.getMoney()) {
 			result = "You Dont Have Enough Money";
 		}
 		else {
