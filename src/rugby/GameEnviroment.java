@@ -29,10 +29,10 @@ public class GameEnviroment {
 	public int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
-//	public String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
-//			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
-//			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
-//			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"};
+	public static String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
+			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
+			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
+			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"};
 			
 	
 	
@@ -214,7 +214,8 @@ public class GameEnviroment {
 		
 		Item[] items = new Item[] {fitness, gym, train, skills, coaching};
 		Random r = new Random();
-		return(items[r.nextInt(5)]);
+		return(items[r.nextInt(items.length)]);
+
 	}
 	
 	
