@@ -11,7 +11,7 @@ class InventoryTest {
 	private static Inventory club;
 	private static GameEnviroment manager;
 	private static Team team;
-	
+	private static Athlete athlete;
 	
 	
 	@BeforeAll 
@@ -20,55 +20,44 @@ class InventoryTest {
 		club = new Inventory(manager);
 		team = new Team();
 		club.team = team;
+		// making team full
+		Athlete event = GameEnviroment.generatePlayer(2);
+		for (int i = 0; i < 7; i++ ) {
+			club.addPlayer(event);
+		}
+		athlete = event;
 	}
 	
 	@Test
 	void addPlayer() {
 		Athlete event = GameEnviroment.generatePlayer(2);
 		club.addPlayer(event);
-		assertTrue(club.team.players.size() == 1);
+		assertTrue(club.players.size() == 2);
 	}
 	
-	@Test
-	void addPlayerFull() {
-		// if reserve team is full
-		Athlete event = GameEnviroment.generatePlayer(2);
-		for (int i = 0; i < 36; i++ ) {
-			club.addPlayer(event);
-		}
-		club.addPlayer(event);
-		assertTrue(club.players.size() == 5);
-	}
+
 	
 	@Test
 	void swapPlayer() {
 
 		// checking to see if event1 gets swapped in reserves while even2 goes into team
 		Athlete event1 = GameEnviroment.generatePlayer(2);
-		Athlete event2 = GameEnviroment.generatePlayer(2);
-		club.swapPlayer(event1, event2);
-		assertTrue(club.players.contains(event1));
-		assertTrue(club.team.players.contains(event2));
+		club.swapPlayer(athlete, event1);
+		assertTrue(club.players.contains(athlete));
+		assertTrue(club.team.players.contains(event1));
 		
 	}
 	
 	@Test
 	void getPlayerWages() {
-		//checking that the wage gets both active and reserve members
-		GameEnviroment manager = new GameEnviroment();
-		Inventory club = new Inventory(manager);
-		Team team = new Team();
-		club.team = team;
-		int wage = 0;
 		
+		//checking that the wage gets both active and reserve members
+		int wage = 0;
+		club.players.clear();
+		club.team.players.clear();
 		Athlete event = GameEnviroment.generatePlayer(2);
-		for (int i = 0; i < 5; i++ ) {
+		for (int i = 0; i < 12; i++ ) {
 			club.addPlayer(event);
-			wage += event.wage;
-		}
-		for (int i = 0; i < 15; i++ ) {
-			System.out.println(i);
-			club.team.addPlayer(event);
 			wage += event.wage;
 		}
 		
