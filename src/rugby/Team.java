@@ -8,7 +8,7 @@ public class Team {
 	public String teamName;
 	
 	public boolean addPlayer(Athlete athlete){
-		if (this.players.size() >= 7) {
+		if (this.players.size() >= GameEnviroment.teamSize) {
 			return false;
 		}else {
 			this.players.add(athlete);

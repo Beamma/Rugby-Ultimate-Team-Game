@@ -40,6 +40,35 @@ public class MarketPlace extends GameEnviroment{
 			}
 	}
 	
+	public String[] returnPlayerArray() { 
+		ArrayList<String> playerArrayList = new ArrayList<>();
+		
+		for (Athlete athlete: this.playersForSale) {
+			playerArrayList.add(athlete.getName() + " $" + athlete.getBuyPrice() + " Pos: " + athlete.getPosition() + " Rating: " + athlete.getRating() );
+		}
+		
+		String[] playerArray = playerArrayList.toArray(new String[0]);
+		return playerArray;
+	}
+	
+	public String buyAthlete(int index) {
+		String result = "";
+		Athlete athlete = playersForSale.get(index);
+		if (athlete.buyPrice <= game.getMoney() && club.getPlayers().size() < 5) {
+			removeMarketPlayer(athlete);
+			club.addPlayer(athlete);
+			game.minusMoney(athlete.buyPrice);
+			result = "Bought";
+		}
+		else if (athlete.buyPrice > game.getMoney()){
+			result = "You Dont Have Enough Money";
+		}
+		else {
+			result = "Your Club Is Full";
+		}
+		return result;
+	}
+	
 //	public void buyObject(Athlete athlete) {
 //		if (game.moneyTransfer(-100)) {
 //			System.out.println("Success");

@@ -85,6 +85,22 @@ public class Athlete {
 		}
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getBuyPrice() {
+		return this.buyPrice;
+	}
+	
+	public int getRating() {
+		return this.rarity;
+	}
+	
+	public String getPosition() {
+		return this.position;
+	}
+	
 //	public void athleteOptions() {
 //		System.out.println("Options");
 //	}

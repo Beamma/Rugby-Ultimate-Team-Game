@@ -110,7 +110,11 @@ public class GameEnviroment {
 	
 	public void addMoney(int amount){
 		this.money += amount;
-	} 
+	}
+	
+	public int getMoney() {
+		return this.money;
+	}
 	
 	public boolean checkString(String setupCheck) {
 		for (int i = 0; i < setupCheck.length(); i++) {

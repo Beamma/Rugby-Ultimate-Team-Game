@@ -20,12 +20,18 @@ public class Inventory {
 		return this.players;
 	}
 	
-	public void addPlayer(Athlete athlete) {
-		if (players.size() < 5) {
-			players.add(athlete);
-		}
-	}
+//	public void addPlayer(Athlete athlete) {
+//		if (players.size() < 5) {
+//			players.add(athlete);
+//		}
+//	}
 	
+	public void addPlayer(Athlete athlete) {
+		if (team.addPlayer(athlete)) {
+		} else {
+			players.add(athlete);
+		} 
+	}
 	public void removePlayer(Athlete athlete) {
 		if (players.contains(athlete)) {
 			players.remove(athlete);
@@ -49,6 +55,10 @@ public class Inventory {
 		this.team.removePlayer(athlete1);
 		this.removePlayer(athlete2);
 		this.team.addPlayer(athlete2);
+	}
+	
+	public ArrayList<Athlete> getPlayers(){
+		return players;
 	}
 	
 	
