@@ -22,6 +22,13 @@ public class MarketPlace extends GameEnviroment{
 		}
 	}
 	
+	public Athlete returnPlayer(int index) {
+		return playersForSale.get(index);
+	}
+	
+	public Item returnItem(int index) {
+		return itemsForSale.get(index);
+	}
 	
 	public void removeMarketPlayer(Athlete athlete) {
 		playersForSale.remove(athlete);

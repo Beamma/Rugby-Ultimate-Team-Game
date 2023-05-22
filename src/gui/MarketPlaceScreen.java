@@ -53,6 +53,10 @@ public class MarketPlaceScreen {
 		enviroment.closeTeamScreen(this, athlete);
 	}
 	
+	public void goItem(Item item) {
+		enviroment.closeTeamScreen(this, item);
+	}
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(500, 300, 600, 500);
@@ -102,6 +106,14 @@ public class MarketPlaceScreen {
 		});
 		itemsForSalePanel.add(buyItemButton);
 		
+		JButton viewItem = new JButton("Select Item");
+		viewItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goItem(enviroment.market.returnItem(itemsList.getSelectedIndex()));
+			}
+		});
+		itemsForSalePanel.add(viewItem);
+		
 		JPanel playersForSalePanel = new JPanel();
 		playersForSalePanel.setBounds(0, 68, 290, 321);
 		frame.getContentPane().add(playersForSalePanel);
@@ -138,6 +150,14 @@ public class MarketPlaceScreen {
 			}
 		});
 		playersForSalePanel.add(buyAthleteButton);
+		
+		JButton selectAthlete = new JButton("Select Athlete");
+		selectAthlete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goAthlete(enviroment.market.returnPlayer(athletesList.getSelectedIndex()));
+			}
+		});
+		playersForSalePanel.add(selectAthlete);
 		
 		homeButton.setBounds(245, 400, 89, 30);
 		frame.getContentPane().add(homeButton);

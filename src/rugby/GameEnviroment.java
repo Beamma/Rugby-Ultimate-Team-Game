@@ -356,6 +356,11 @@ public class GameEnviroment {
 		launchAthleteScreen(athlete);
 	}
 	
+	public void closeTeamScreen(MarketPlaceScreen marketWindow, Item item) {
+		marketWindow.closeWindow();
+		launchItemScreen(item);
+	}
+	
 	public void launchTeamScreen() {
 		TeamScreen teamWindow = new TeamScreen(this);
 	}
