@@ -41,7 +41,7 @@ public class GameScreen {
 	private JTextField textField;
 	private JLabel lblNewLabel;
 	private Team opposition;
-
+	private GameScreen gameScreen = this;
 	
 	public GameScreen(GameEnviroment enviroment ,Team opposition){
 		this.enviroment = enviroment;
@@ -60,6 +60,10 @@ public class GameScreen {
 	
 	public void goTeam() {
 		enviroment.closeGameScreen(this, 1);
+	}
+	
+	public void gameUpdates(String string) {
+		JOptionPane.showMessageDialog(frame, string);
 	}
 	
 
@@ -94,7 +98,7 @@ public class GameScreen {
 		playMatchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (enviroment.club.team.checkReady() == true) {
-				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition, enviroment.club);
+				int gameResult = enviroment.getMatchResult(enviroment.club.team, opposition, enviroment.club, gameScreen);
 				int randomDecider = RandomEvent.randomEvents(enviroment.randomness, enviroment.club);
 				if (randomDecider < 2) {
 					if (randomDecider == 2) {

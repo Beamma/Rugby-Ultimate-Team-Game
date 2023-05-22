@@ -3,12 +3,15 @@ package rugby;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Match {
+import gui.GameScreen;
 
+public class Match {
+	private GameScreen gameScreen;
+	
 	public static void main(String[] args) {
 	}
 	
-	public static int matchResult(Team team1, Team team2, Inventory inventory) {
+	public static int matchResult(Team team1, Team team2, Inventory inventory, GameScreen gameScreen) {
 		
 		if (team1.checkReady()) {
 			inventory.boostStamina();
@@ -23,11 +26,10 @@ public class Match {
 				}
 				positions.add(athlete.getPosition());
 			}
-			System.out.println(flag);
 			int totalScore = 0;
 			for (int i = 0; i < roster1.size(); i++) {
 				Match game =  new Match();
-				totalScore += game.compareStats(roster1.get(i), roster2.get(i), flag);
+				totalScore += game.compareStats(roster1.get(i), roster2.get(i), flag, gameScreen);
 			}
 			
 
@@ -45,7 +47,7 @@ public class Match {
 		}
 	}
 	
-	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag) {
+	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag, GameScreen gameScreen) {
 		Collection<Integer> athlete1Stats = athlete1.stats.values();
 		ArrayList<Integer> values1 = new ArrayList<Integer>(athlete1Stats);
 		Collection<Integer> athlete2Stats = athlete2.stats.values();
@@ -57,11 +59,9 @@ public class Match {
 			if (flag) {
 				if (values1.get(i) + 5 > values2.get(i)) {
 					score += 1;
-					System.out.println("Boost");
 				}
 				else if(values1.get(i) + 5 < values2.get(i)){
 					score -= 1;
-					System.out.println("Boost");
 				}
 			}
 			else {
@@ -77,13 +77,16 @@ public class Match {
 		
 		
 		if (score > 0) {
+			gameScreen.gameUpdates(String.format("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score));
 //			System.out.printf("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score);
 			return 1;
 		}
 		else if (score < 0) {
+			gameScreen.gameUpdates(String.format("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1));
 //			System.out.printf("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1);
 			return -1;
 		} else{
+			gameScreen.gameUpdates(String.format("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name));
 //			System.out.printf("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name);
 			return 0;
 		}

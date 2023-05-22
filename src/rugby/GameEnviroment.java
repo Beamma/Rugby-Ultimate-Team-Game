@@ -65,7 +65,7 @@ public class GameEnviroment {
 		else if (this.difficulty == 2){
 			this.money = 30000;
 		}
-		else if (this.difficulty == 1) {
+		else if (this.difficulty == 3) {
 			this.money = 20000;
 		}
 	}
@@ -127,8 +127,8 @@ public class GameEnviroment {
 		return true;
 	}
 	
-	public int getMatchResult(Team team1, Team team2, Inventory club) {
-		int resultMatch = Match.matchResult(team1, team2, club);
+	public int getMatchResult(Team team1, Team team2, Inventory club, GameScreen gameScreen) {
+		int resultMatch = Match.matchResult(team1, team2, club, gameScreen);
 		
 		return resultMatch;
 	}
