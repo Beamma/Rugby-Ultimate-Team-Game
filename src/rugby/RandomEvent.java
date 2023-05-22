@@ -69,7 +69,7 @@ public class RandomEvent {
 	}
 	
 	public static Athlete getRandomPlayer(Inventory inventory) {
-		ArrayList<Athlete> athletes = inventory.players;
+		ArrayList<Athlete> athletes = inventory.team.players;
 		Random rand = new Random();  
 		int event = rand.nextInt(athletes.size());
 		return (athletes.get(event));

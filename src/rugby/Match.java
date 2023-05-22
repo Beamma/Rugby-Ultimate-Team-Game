@@ -14,23 +14,30 @@ public class Match {
 			inventory.boostStamina();
 			ArrayList<Athlete> roster1 = team1.getAthletes();
 			ArrayList<Athlete> roster2 = team2.getAthletes();
+			
+			ArrayList<String> positions = new ArrayList<>();
+			boolean flag = true;
+			for (Athlete athlete : roster1) {
+				if (positions.contains(athlete.getPosition())){
+					flag = false;
+				}
+				positions.add(athlete.getPosition());
+			}
+			System.out.println(flag);
 			int totalScore = 0;
 			for (int i = 0; i < roster1.size(); i++) {
 				Match game =  new Match();
-				totalScore += game.compareStats(roster1.get(i), roster2.get(i));
+				totalScore += game.compareStats(roster1.get(i), roster2.get(i), flag);
 			}
 			
 
 			
 			if (totalScore > 0) {
-//				System.out.printf("Your team won by %s\n", totalScore);
 				return totalScore;
 			}
 			else if (totalScore < 0) {
-//				System.out.printf("Your team lost by %s\n", totalScore * -1);
 				return totalScore;
 			} else{
-//				System.out.printf("You drew\n");
 				return 0;
 			}
 		} else {
@@ -38,7 +45,7 @@ public class Match {
 		}
 	}
 	
-	private int compareStats(Athlete athlete1, Athlete athlete2) {
+	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag) {
 		Collection<Integer> athlete1Stats = athlete1.stats.values();
 		ArrayList<Integer> values1 = new ArrayList<Integer>(athlete1Stats);
 		Collection<Integer> athlete2Stats = athlete2.stats.values();
@@ -47,11 +54,23 @@ public class Match {
 		int score = 0;
 		
 		for (int i = 0; i < values1.size(); i++) {
-			if (values1.get(i) > values2.get(i)) {
-				score += 1;
+			if (flag) {
+				if (values1.get(i) + 5 > values2.get(i)) {
+					score += 1;
+					System.out.println("Boost");
+				}
+				else if(values1.get(i) + 5 < values2.get(i)){
+					score -= 1;
+					System.out.println("Boost");
+				}
 			}
-			else if(values1.get(i) < values2.get(i)){
-				score -= 1;
+			else {
+				if (values1.get(i) > values2.get(i)) {
+					score += 1;
+				}
+				else if(values1.get(i) < values2.get(i)){
+					score -= 1;
+				}
 			}
 			
 		}
