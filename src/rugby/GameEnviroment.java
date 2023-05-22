@@ -19,13 +19,17 @@ import gui.SetupScreen;
 import gui.TeamScreen;
 import gui.TrainScreen;  
 
+/**
+ * 
+ * @author Joel Bremner & Liam Ceelan-thomas
+ * Game environment class responsible for managing the play through of the game
+ */
 public class GameEnviroment {
 	public int money;
 	public String teamName;
 	public int difficulty = 2;
 	public int week = 1;
 	public ArrayList<Team> oposition = new ArrayList<Team>();
-	private HashMap<String, Integer> standings;
 	public Inventory club;
 	public int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
@@ -41,29 +45,46 @@ public class GameEnviroment {
 			"Hampstead", "Allenton", "Temuka", "Mackenzie", "Waimate", "Pleasant Point", "Geraldine", "Timaru Old Boys", "Timaru Celtic", "Harlequins"
 			));
 			
-	
+	/**
+	 * Constructor
+	 */
 	public GameEnviroment() {
 		RandomEvent.gameEnviroment = this;
 	}
 	
+	/**
+	 * Sets season length
+	 * @param value - chosen season length
+	 */
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
 	}
 	
+	/**
+	 * Sets difficulty of game
+	 * @param value - chosen difficulty
+	 */
 	public void setdifficulty(String value) {
 		this.difficulty = Integer.valueOf(value);
 	}
 	
+	/**
+	 * Team Name setter
+	 * @param name - chosen teamname
+	 */
 	public void setName(String name){
 		this.teamName = name;
 	}
 	
+	/**
+	 * Sets start money based off difficulty
+	 */
 	public void setStartMoney() {
 		if (this.difficulty == 1) {
-			this.money = 450000;
+			this.money = 50000;
 		}
 		else if (this.difficulty == 2){
-			this.money = 30000;
+			this.money = 35000;
 		}
 		else if (this.difficulty == 3) {
 			this.money = 20000;
@@ -133,38 +154,6 @@ public class GameEnviroment {
 		return resultMatch;
 	}
 	
-//	public static Athlete generatePlayer() {
-//		
-//		int[] atributes = new int[]{0, 0, 0, 0, 0, 0};
-//		Random r = new Random();
-//		int lowValue = 50;
-//		int highValue = 100;
-//		int result = r.nextInt(highValue-lowValue) + lowValue;
-//		int rarity = 0;
-//		
-//		for (int i = 0; i < 6; i++) {
-//			int statValue = r.nextInt((result+10)-(result-10)) + (result-10);
-//			if (statValue > 99) {
-//				atributes[i] = 99;
-//				rarity += 99;
-//			}else {
-//				atributes[i] = statValue;
-//				rarity += statValue;
-//			}
-//		}
-//		
-//		rarity = rarity/6; 
-//		
-//		String[] nameGenerator = new String[] {"Bob", "Tim", "Joel", "Liam", "Matt", "Jim","John", "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Robin","Doe", "Smith", "Johnson", "Williams", "Jones", "Brown", "Hood"};
-//		String name = nameGenerator[r.nextInt(nameGenerator.length)];
-//		String position = "cb";
-//		int buyPrice = rarity*20;
-//		int sellPrice = rarity*15;
-//		int wage = rarity*8;
-//		
-//		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
-//	}
-	
 	public static Athlete generatePlayer(int diffuculty) {
 		int lowValue = 0;
 		int highValue = 0;
@@ -220,8 +209,6 @@ public class GameEnviroment {
 		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
 	}
 
-
-	
 	
 	public static Item generateItem() {
 		

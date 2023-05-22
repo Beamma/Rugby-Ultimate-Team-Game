@@ -1,11 +1,18 @@
 package rugby;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-
+/**
+ * Class for the clubs team
+ */
 public class Team {
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
 	public String teamName;
+	
+	/**
+	 * 
+	 * @param athlete - athlete to add to team
+	 * @return - Successful or not
+	 */
 	
 	public boolean addPlayer(Athlete athlete){
 		if (this.players.size() >= GameEnviroment.teamSize) {
@@ -16,38 +23,61 @@ public class Team {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param athlete - athlete to remove from team
+	 */
+	
 	public void removePlayer(Athlete athlete) {
 		if (this.players.contains(athlete)) {
 			this.players.remove(athlete);
 		}
 	}
 	
+	/**
+	 * 
+	 * @param athlete1 - athlete to swap
+	 * @param athlete2 - athlete to swap
+	 */
+	
 	public void swapPlayer(Athlete athlete1, Athlete athlete2) {
 		this.removePlayer(athlete2);
 		this.addPlayer(athlete1);
 	}
 	
+	/**
+	 * 
+	 * @return - players in team
+	 */
 	public ArrayList<Athlete> getAthletes(){
 		return this.players;
 	}
 	
+	/**
+	 *  Reduces stamina of all athletes in team
+	 */
 	public void reduceStamina() {
 		for (Athlete athlete: this.players) {
 			athlete.reduceStamina();
 		}
 	}
 	
+	/**
+	 * Returns all stamina of athletes in team to max
+	 */
 	public void maxStamina() {
 		for (Athlete athlete: this.players) {
 			athlete.rest();
 		}
-//		System.out.println("Your athletes all now fully rested and have max stamina");
 	}
 	
+	/**
+	 * Check whether team is ready to play or not
+	 * @return whether team is ready to play or not
+	 */
 	public boolean checkReady() {
 		for (Athlete athlete: this.players) {
 			if (athlete.injured == true | athlete.stamina == 0) {
-//				System.out.println("You cannot participate in a match as one or more of your players are injured please swap them out of your squad");
 				return false;
 			}
 		}
@@ -57,28 +87,12 @@ public class Team {
 		return true;
 	}
 	
-//	public void printTeamInfo(){
-//		for (Athlete athlete: this.players) {
-//			System.out.println(athlete.stamina);
-//		}
-//	}
-	
-//	public Athlete selectAthlete() {
-//		
-//		int count = 0;
-//		for (Athlete athlete: this.players) {
-//			count += 1;
-//			System.out.printf(String.valueOf(count) + ": " + athlete.nickName);
-//			System.out.println();
-//		}
-//		
-//		Scanner input = new Scanner(System.in);
-//		System.out.println("Please Select One Of The Above Players:");
-//		int athlete = input.nextInt();
-//		return this.players.get(athlete-1);
-//		
-//	}
-	
+
+	/**
+	 * Recalculate team ratings
+	 * @param team - Object team to calculate rating
+	 * @return new rating of team
+	 */
 	public int teamRating(Team team) {
 		int overallRating = 0;
 		for (int i = 0; i < GameEnviroment.teamSize; i++) {
@@ -87,8 +101,5 @@ public class Team {
 		}
 		return overallRating/GameEnviroment.teamSize;
 	}
-	
-	public static void main(String[] args) {
-		}
 
 }
