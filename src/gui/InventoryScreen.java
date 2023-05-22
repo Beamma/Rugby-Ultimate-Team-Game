@@ -61,13 +61,17 @@ public class InventoryScreen {
 		enviroment.refreshInventoryScreen(this);
 	}
 	
+	public void goAthlete(Athlete athlete) {
+		enviroment.closeInventoryScreen(this, athlete);
+	}
+	
 	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(500, 300, 600, 500);
 		
 		JButton viewTeam = new JButton("View team:");
-		viewTeam.setBounds(215, 403, 132, 23);
+		viewTeam.setBounds(231, 404, 132, 23);
 		viewTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goTeam();
@@ -90,11 +94,11 @@ public class InventoryScreen {
 		frame.getContentPane().add(homeButton);
 		
 		JLabel athleteTitle = new JLabel("Athletes", SwingConstants.CENTER);
-		athleteTitle.setBounds(68, 67, 149, 14);
+		athleteTitle.setBounds(10, 67, 258, 14);
 		frame.getContentPane().add(athleteTitle);
 		
 		JList<Athlete> athleteStats = new JList<Athlete>();
-		athleteStats.setBounds(68, 80, 149, 292);
+		athleteStats.setBounds(10, 80, 258, 292);
 		frame.getContentPane().add(athleteStats);
 		athleteStats.setModel(athleteListModel);
 		
@@ -108,13 +112,13 @@ public class InventoryScreen {
 		itemListModel.addAll(enviroment.club.items);
 		
 		JList<Item> ownedItems = new JList<Item>(itemListModel);
-		ownedItems.setBounds(346, 80, 149, 293);
+		ownedItems.setBounds(316, 80, 258, 293);
 		frame.getContentPane().add(ownedItems);
 		
 		
 		
 		JLabel ownedTitle = new JLabel("Owened items", SwingConstants.CENTER);
-		ownedTitle.setBounds(346, 67, 149, 14);
+		ownedTitle.setBounds(316, 67, 258, 14);
 		frame.getContentPane().add(ownedTitle);
 		
 		JButton useItemButton = new JButton("use item");
@@ -128,7 +132,7 @@ public class InventoryScreen {
 				}
 			}
 		});
-		useItemButton.setBounds(385, 384, 89, 23);
+		useItemButton.setBounds(418, 384, 111, 23);
 		frame.getContentPane().add(useItemButton);
 		
 		JButton sellAthleteButton = new JButton("Sell athlete");
@@ -149,7 +153,7 @@ public class InventoryScreen {
 				}
 			}
 		});
-		sellAthleteButton.setBounds(68, 403, 89, 23);
+		sellAthleteButton.setBounds(65, 383, 111, 23);
 		frame.getContentPane().add(sellAthleteButton);
 		
 		JButton sellItemButton = new JButton("sell items");
@@ -166,8 +170,18 @@ public class InventoryScreen {
 				}
 			}
 		});
-		sellItemButton.setBounds(385, 418, 89, 23);
+		sellItemButton.setBounds(418, 418, 111, 23);
 		frame.getContentPane().add(sellItemButton);
+		
+		JButton selectAthlete = new JButton("Select Athlete");
+		selectAthlete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Athlete viewAthlete = athleteStats.getSelectedValue();
+				goAthlete(viewAthlete);
+			}
+		});
+		selectAthlete.setBounds(65, 418, 111, 23);
+		frame.getContentPane().add(selectAthlete);
 		
 		
 		athletes.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));

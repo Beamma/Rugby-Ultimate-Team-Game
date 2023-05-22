@@ -35,7 +35,7 @@ public class Athlete {
 	@Override
 	public String toString() {
 
-		return String.format("%s, %d, %s, %d, %d",this.nickName, this.stamina, this.position, this.rarity, this.buyPrice);
+		return String.format("%s Stamina: %d Pos: %s Rating: %d",this.nickName, this.stamina, this.position, this.rarity);
 
 	}
 	

@@ -325,6 +325,11 @@ public class GameEnviroment {
 		launchItemScreen(item);
 	}
 	
+	public void closeInventoryScreen(InventoryScreen inventoryWindow, Athlete athlete) {
+		inventoryWindow.closeWindow();
+		launchAthleteScreen(athlete);
+	}
+	
 	public void refreshInventoryScreen(InventoryScreen inventoryScreen) {
 		inventoryScreen.closeWindow();
 		launchInventoryScreen();
