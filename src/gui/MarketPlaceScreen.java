@@ -50,7 +50,7 @@ public class MarketPlaceScreen {
 	}
 	
 	public void goAthlete(Athlete athlete) {
-		enviroment.closeTeamScreen(this, athlete);
+		enviroment.openMarketAthleteScreen(this, athlete);
 	}
 	
 	public void goItem(Item item) {

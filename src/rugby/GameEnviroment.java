@@ -11,6 +11,7 @@ import gui.GameScreen;
 import gui.HomeScreen;
 import gui.InventoryScreen;
 import gui.ItemScreen;
+import gui.MarketAthleteScreen;
 import gui.MarketItemScreen;
 import gui.MarketPlaceScreen;
 import gui.MatchScreen;
@@ -431,6 +432,21 @@ public class GameEnviroment {
 		launchHomeScreen();
 	}
 	
+	public void closeMarketAthleteScreen(MarketAthleteScreen marketAthleteScreen) {
+		marketAthleteScreen.closeWindow();
+		launchHomeScreen();
+	}
+	
+	public void openMarketAthleteScreen(MarketPlaceScreen marketWindow, Athlete athlete) {
+		marketWindow.closeWindow();
+		launchMarketAthleteWindow(athlete);
+	}
+	
+	private void launchMarketAthleteWindow(Athlete athlete) {
+		// TODO Auto-generated method stub
+		MarketAthleteScreen marketAthlete = new MarketAthleteScreen(this, athlete);
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
