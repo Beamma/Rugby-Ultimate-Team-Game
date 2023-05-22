@@ -37,7 +37,7 @@ public final class AthleteTest {
 		// making sure that a player can never have a pregenerated stat over 100 
 		
 		for (int i = 0; i < 99; i++) {
-			Athlete event = GameEnviroment.generatePlayer();
+			Athlete event = GameEnviroment.generatePlayer(2);
 			for (int p = 0; p < 6; p++) {
 				assertTrue(event.stats.get(event.attributes[p]) < 100);
 			}

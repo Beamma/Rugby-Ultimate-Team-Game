@@ -144,11 +144,7 @@ public class InventoryScreen {
 				Athlete athlete1 = athleteStats.getSelectedValue();
 				if (athlete1 != null) {
 					enviroment.addMoney(athlete1.sellPrice);
-					if (enviroment.club.players.contains(athlete1)) {
-						enviroment.club.removePlayer(athlete1);
-					}else {
-						enviroment.club.team.removePlayer(athlete1);
-					}
+					enviroment.club.removePlayer(athlete1);
 					JOptionPane.showMessageDialog(frame, athlete1.name + " sold for " + String.valueOf(athlete1.sellPrice));
 					refreshWindow();
 				}else {

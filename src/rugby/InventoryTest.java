@@ -24,7 +24,7 @@ class InventoryTest {
 	
 	@Test
 	void addPlayer() {
-		Athlete event = GameEnviroment.generatePlayer();
+		Athlete event = GameEnviroment.generatePlayer(2);
 		club.addPlayer(event);
 		assertTrue(club.team.players.size() == 1);
 	}
@@ -32,7 +32,7 @@ class InventoryTest {
 	@Test
 	void addPlayerFull() {
 		// if reserve team is full
-		Athlete event = GameEnviroment.generatePlayer();
+		Athlete event = GameEnviroment.generatePlayer(2);
 		for (int i = 0; i < 36; i++ ) {
 			club.addPlayer(event);
 		}
@@ -44,8 +44,8 @@ class InventoryTest {
 	void swapPlayer() {
 
 		// checking to see if event1 gets swapped in reserves while even2 goes into team
-		Athlete event1 = GameEnviroment.generatePlayer();
-		Athlete event2 = GameEnviroment.generatePlayer();
+		Athlete event1 = GameEnviroment.generatePlayer(2);
+		Athlete event2 = GameEnviroment.generatePlayer(2);
 		club.swapPlayer(event1, event2);
 		assertTrue(club.players.contains(event1));
 		assertTrue(club.team.players.contains(event2));
@@ -61,7 +61,7 @@ class InventoryTest {
 		club.team = team;
 		int wage = 0;
 		
-		Athlete event = GameEnviroment.generatePlayer();
+		Athlete event = GameEnviroment.generatePlayer(2);
 		for (int i = 0; i < 5; i++ ) {
 			club.addPlayer(event);
 			wage += event.wage;

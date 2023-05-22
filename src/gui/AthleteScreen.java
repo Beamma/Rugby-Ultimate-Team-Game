@@ -170,11 +170,7 @@ public class AthleteScreen {
 		sellAthlete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				enviroment.addMoney(athlete.sellPrice);
-				if (enviroment.club.players.contains(athlete)) {
-					enviroment.club.removePlayer(athlete);
-				}else {
-					enviroment.club.team.removePlayer(athlete);
-				}
+				enviroment.club.removePlayer(athlete);
 				JOptionPane.showMessageDialog(frame, athlete.name + " sold for " + String.valueOf(athlete.sellPrice));
 				goHome();
 				
