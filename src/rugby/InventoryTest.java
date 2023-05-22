@@ -16,6 +16,7 @@ class InventoryTest {
 	
 	@BeforeAll 
 	public static void init(){
+		//Initiating the game 
 		manager = new GameEnviroment();
 		club = new Inventory(manager);
 		team = new Team();
@@ -25,14 +26,18 @@ class InventoryTest {
 		for (int i = 0; i < 7; i++ ) {
 			club.addPlayer(event);
 		}
+		//storing a athlete to swap
 		athlete = event;
 	}
 	
 	@Test
 	void addPlayer() {
+		//adding player to reserve team then checking it goes up by one
 		Athlete event = GameEnviroment.generatePlayer(2);
+		//clearing all previous players
+		club.players.clear();
 		club.addPlayer(event);
-		assertTrue(club.players.size() == 2);
+		assertTrue(club.players.size() == 1);
 	}
 	
 
