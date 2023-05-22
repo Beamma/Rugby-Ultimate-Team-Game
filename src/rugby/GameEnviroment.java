@@ -1,6 +1,7 @@
 package rugby;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -29,10 +30,10 @@ public class GameEnviroment {
 	public int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
 	public boolean trained = false;
-	public static String[]  teamNames = new String[]{"Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
+	private static ArrayList<String> teamNames = new ArrayList<String>(Arrays.asList("Kiakoura", "Glenmark-Cheviot", "Hurunui", "Amberly", "Ashley", "Saracens", "Oxford", "Kaipoi", "Woodend", "Ohoka",
 			"Sumner", "New Brighton", "Linwood", "Shirley", "HSOB", "Christchurch", "Belfast", "Sydnham", "UC", "Lincoln Uni", "Burnside", "Marist-Albion",
 			"Oatutahi", "Suburbs", "Lyttleton", "Halswell Wigram", "Hornby", "Prebbleton", "Southbridge", "Linolcn", "Rolleston", "Springston", "Waihora", "Darfield",
-			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"};
+			"WestMelton", "Kirwee", "BDI", "Banks Penninsula", "Diamond Harbour", "Leeston", "Rakaia", "Methven", "Southern", "Celtic"));
 			
 	
 	
@@ -227,9 +228,12 @@ public class GameEnviroment {
 	        opisiton.addPlayer(random);
 	    }
 	    
-	    String[] clubNameGenerator = new String[] {"Crusaders", "Blues", "Cheifs", "Hurricanes", "Highlanders", "Drua", "Pasifika", "Reds", "Warratahs", "Force", "Rebels", "Brumbies"};
+//	    String[] clubNameGenerator = new String[] {"Crusaders", "Blues", "Cheifs", "Hurricanes", "Highlanders", "Drua", "Pasifika", "Reds", "Warratahs", "Force", "Rebels", "Brumbies"};
 		
-	    opisiton.teamName = clubNameGenerator[r.nextInt(clubNameGenerator.length)];
+	    int number = r.nextInt(GameEnviroment.teamNames.size());
+	    opisiton.teamName = GameEnviroment.teamNames.get(number);
+	    GameEnviroment.teamNames.remove(number);
+	    
 	    	
 	    return opisiton;
 	}
