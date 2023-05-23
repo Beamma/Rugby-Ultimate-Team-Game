@@ -21,25 +21,6 @@ public class Match {
 	 * @return
 	 */
 	public static void main(String[] args) {
-		GameEnviroment manager = new GameEnviroment();
-		Inventory club = new Inventory(manager);
-		manager.club = club;
-		Team myTeam = new Team();
-		club.team = myTeam;
-		GameScreen gameScreen = new GameScreen(manager, myTeam);
-		
-		Athlete athlete1 = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{20, 20, 20, 20, 20, 20});
-		for (int i =0 ; i <15; i++) {
-			myTeam.addPlayer(athlete1);
-		}
-		Athlete athlete2 = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{11, 11, 11, 11, 11, 11});
-		Team opposition = new Team();
-		for (int i =0 ; i <15; i++) {
-			opposition.addPlayer(athlete2);
-		}
-		
-	
-		System.out.println(Match.matchResult(myTeam, opposition, club, gameScreen));
 	}
 	
 	/**
