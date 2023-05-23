@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 /**
  * Class for the clubs team
+ * @author sport Joel Bremner & Liam Ceelan-Thomas
  */
 public class Team {
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
@@ -121,7 +122,4 @@ public class Team {
 		}
 		return overallRating/GameEnviroment.teamSize;
 	}
-	
-	public static void main(String[] args) {
-		}
 }

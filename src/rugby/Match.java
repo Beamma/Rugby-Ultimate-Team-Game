@@ -4,9 +4,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import gui.GameScreen;
-
+/**
+ * Class for matches, where matches are simulated and a result is produced
+ * @author Joel Bremner & Liam Ceelan-Thomas
+ *
+ */
 public class Match {
 	
+
+	/**
+	 * Constructor
+	 * @param team1
+	 * @param team2
+	 * @param inventory
+	 * @param gameScreen
+	 * @return
+	 */
 	public static void main(String[] args) {
 		GameEnviroment manager = new GameEnviroment();
 		Inventory club = new Inventory(manager);
@@ -29,6 +42,14 @@ public class Match {
 		System.out.println(Match.matchResult(myTeam, opposition, club, gameScreen));
 	}
 	
+	/**
+	 * Returns match result between two teams
+	 * @param team1
+	 * @param team2
+	 * @param inventory
+	 * @param gameScreen
+	 * @return
+	 */
 	public static int matchResult(Team team1, Team team2, Inventory inventory, GameScreen gameScreen) {
 		
 		if (team1.checkReady()) {
@@ -65,6 +86,14 @@ public class Match {
 		}
 	}
 	
+	/**
+	 * Comapares stats of two athletes and returns a winner
+	 * @param athlete1
+	 * @param athlete2
+	 * @param flag
+	 * @param gameScreen
+	 * @return
+	 */
 	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag, GameScreen gameScreen) {
 		Collection<Integer> athlete1Stats = athlete1.stats.values();
 		ArrayList<Integer> values1 = new ArrayList<Integer>(athlete1Stats);
