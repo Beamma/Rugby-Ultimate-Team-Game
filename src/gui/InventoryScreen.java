@@ -165,7 +165,7 @@ public class InventoryScreen {
 				}
 			}
 		});
-		sellItemButton.setBounds(418, 418, 111, 23);
+		sellItemButton.setBounds(393, 418, 156, 23);
 		frame.getContentPane().add(sellItemButton);
 		
 		JButton selectAthlete = new JButton("Select Athlete");
@@ -179,7 +179,7 @@ public class InventoryScreen {
 				}
 			}
 		});
-		selectAthlete.setBounds(65, 418, 111, 23);
+		selectAthlete.setBounds(44, 418, 156, 23);
 		frame.getContentPane().add(selectAthlete);
 		
 		
