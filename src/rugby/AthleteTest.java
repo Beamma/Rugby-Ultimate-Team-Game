@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public final class AthleteTest {
 
@@ -17,20 +18,17 @@ public final class AthleteTest {
 		
 		// when using a item the rarity of the player correctly changes
 		
-		assertTrue(event.rarity == 10);
+		assertTrue(event.getRating() == 10);
 		//using item then updating player rating
 		fitness.useItem(event, fitness);
 		
 		event.updateRating();
 		// checking new rating
-		assertTrue(event.rarity == 20);
+		assertTrue(event.getRating() == 20);
 
 		
 	}	
 	
-	@Test
-	void fitnessTest() {
-	}	
 	
 	@Test
 	public void statOverHundred() {
@@ -53,7 +51,7 @@ public final class AthleteTest {
 		Athlete event = new Athlete("", 10, 10, 10, false, "", 10, new int[]{10, 10, 10, 10, 10, 10});
 		//keeping a constant athlete with unchanged stats
 		Athlete constantEvent = new Athlete("", 10, 10, 10, false, "", 10, new int[]{10, 10, 10, 10, 10, 10});
-		int startingRating = event.rarity;
+		int startingRating = event.getRating();
 		//Training all stats by one
 		event.trainAll();
 		event.updateRating();
@@ -64,10 +62,52 @@ public final class AthleteTest {
 		}
 		
 		// checking if rating increased 
-		assertTrue(event.rarity > startingRating);
+		assertTrue(event.getRating() > startingRating);
 		
 	}
 	
+	
+	@Test
+	public void getBuyPrice() {
+		// buy price test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getBuyPrice() == 10);
+	}	
+	
+	@Test
+	public void getSellPrice() {
+		// sell price test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getBuyPrice() == 10);
+	}	
+	@Test
+	public void getInjury() {
+		// injury test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertFalse(event.getInjury());
+	}	
+	
+	@Test
+	public void getRating() {
+		// rating test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertFalse(event.getRating() == 10);
+	}	
+	
+	@Test
+	public void getPosition() {
+		// position test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertFalse(event.getPosition() == "cb");
+	}	
+	
+	
+	@Test
+	public void getStamina() {
+		// stamina test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertFalse(event.getStamina() == 100);
+	}	
 	
 	
 

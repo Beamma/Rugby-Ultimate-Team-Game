@@ -18,44 +18,51 @@ class GameEnviromentTest {
 	public void setSeasonLength() {
 		// checking if set season works
 		manager.setSeasonLength(2);
-		assertTrue(manager.seasonLength == 2);
+		assertTrue(manager.getSeasonLength() == 2);
 	}
 	
 	@Test
 	public void setdifficulty() {
 		// checking if set difficulty works
 		manager.setdifficulty("1");
-		assertTrue(manager.difficulty == 1);
+		assertTrue(manager.getDifficulty() == 1);
 	}
 	
 	@Test
 	public void setName() {
 		// checking if set name works
 		manager.setName("test");
-		assertTrue(manager.teamName == "test");
+		assertTrue(manager.getName() == "test");
 	}
 	
 	@Test
 	public void minusMoney() {
 		// checking if minus money works
-		manager.money = 1000;
+		manager.setMoney(1000);
 		manager.minusMoney(100);
-		assertTrue(manager.money == 900);
+		assertTrue(manager.getMoney() == 900);
 	}
 	
 	@Test
 	public void addMoney() {
 		// checking if add money works
-		manager.money = 1000;
+		manager.setMoney(1000);
 		manager.addMoney(100);
-		assertTrue(manager.money ==1100);
+		assertTrue(manager.getMoney() ==1100);
 	}
 	
 	@Test
 	public void getMoney() {
 		// checking if get money works
-		manager.money = 1000;
+		manager.setMoney(1000);
 		assertTrue(manager.getMoney() ==1000);
+	}
+	
+	@Test
+	public void setMoney() {
+		// checking if set money works
+		manager.setMoney(1000);
+		assertTrue(manager.getMoney() == 1000);
 	}
 	
 	@Test

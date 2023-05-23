@@ -1,14 +1,11 @@
 package rugby;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import gui.GameScreen;
 
 public class Match {
-	private GameScreen gameScreen;
 	
 	public static void main(String[] args) {
 		GameEnviroment manager = new GameEnviroment();
@@ -98,17 +95,14 @@ public class Match {
 		
 		
 		if (score > 0) {
-			gameScreen.gameUpdates(String.format("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score));
-//			System.out.printf("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score);
+			gameScreen.gameUpdates(String.format("Your athlete %s beat the opposition athlete %s by %s\n", athlete1.getName(), athlete2.getName(), score));
 			return 1;
 		}
 		else if (score < 0) {
-			gameScreen.gameUpdates(String.format("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1));
-//			System.out.printf("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.name, athlete2.name, score * -1);
+			gameScreen.gameUpdates(String.format("Your athlete %s lost to the opposition athlete %s by %s\n", athlete1.getName(), athlete2.getName(), score * -1));
 			return -1;
 		} else{
-			gameScreen.gameUpdates(String.format("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name));
-//			System.out.printf("Your athlete %s drew with the opposition athlete %s\n", athlete1.name, athlete2.name);
+			gameScreen.gameUpdates(String.format("Your athlete %s drew with the opposition athlete %s\n", athlete1.getName(), athlete2.getName()));
 			return 0;
 		}
 		

@@ -1,7 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,21 +10,16 @@ import rugby.Athlete;
 import rugby.GameEnviroment;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
+
 import javax.swing.border.TitledBorder;
 
-import java.awt.BorderLayout;
-
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
 
 public class TeamScreen {
@@ -34,8 +27,6 @@ public class TeamScreen {
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
 	private JLabel activeLabel;
 
 	
@@ -59,6 +50,7 @@ public class TeamScreen {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		
 		
@@ -145,7 +137,7 @@ public class TeamScreen {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from both");
 				}else {
 					enviroment.club.swapPlayer(athlete2, athlete1);
-					JOptionPane.showMessageDialog(frame,"swapped " + athlete2.name + " with " + athlete1.name);
+					JOptionPane.showMessageDialog(frame,"swapped " + athlete2.getName() + " with " + athlete1.getName());
 					goHome();
 				}
 				

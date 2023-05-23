@@ -1,35 +1,20 @@
 package gui;
 
-import java.awt.EventQueue;
-
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 
-import rugby.Athlete;
+
 import rugby.GameEnviroment;
 import rugby.Item;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.JScrollPane;
 
-import java.awt.BorderLayout;
-
-import javax.swing.BoxLayout;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.FlowLayout;
+
 
 public class MarketItemScreen {
 	

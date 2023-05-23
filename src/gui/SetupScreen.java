@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -9,21 +8,19 @@ import javax.swing.JOptionPane;
 
 import rugby.GameEnviroment;
 
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import javax.swing.JInternalFrame;
+
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
-import javax.swing.JProgressBar;
+
 import javax.swing.JSlider;
-import javax.swing.ImageIcon;
+
 
 public class SetupScreen {
 	
@@ -52,6 +49,7 @@ public class SetupScreen {
 
 	private void initialize() {
 		frmSetup = new JFrame();
+		frmSetup.setResizable(false);
 		frmSetup.setTitle("Setup");
 		frmSetup.setBounds(500, 300, 600, 500);
 		frmSetup.getContentPane().setLayout(null);

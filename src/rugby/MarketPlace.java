@@ -22,7 +22,7 @@ public class MarketPlace extends GameEnviroment{
 		this.club = club;
 
 		for (int i = 0 ; i < 14 ; i++) {
-			playersForSale.add(generatePlayer(game.difficulty));
+			playersForSale.add(generatePlayer(game.getDifficulty()));
 		}
 		
 		for (int i = 0 ; i <= 2 ; i++) {
@@ -71,7 +71,7 @@ public class MarketPlace extends GameEnviroment{
 		playersForSale.clear();
 		itemsForSale.clear();
 		for (int i = 0; i < 3; i++) {
-			playersForSale.add(generatePlayer(game.difficulty));
+			playersForSale.add(generatePlayer(game.getDifficulty()));
 			itemsForSale.add(generateItem());
 			}
 	}
@@ -114,13 +114,13 @@ public class MarketPlace extends GameEnviroment{
 	public String buyAthlete(int index) {
 		String result = "";
 		Athlete athlete = playersForSale.get(index);
-		if (athlete.buyPrice <= game.getMoney() && club.getPlayers().size() < 5) {
+		if (athlete.getBuyPrice() <= game.getMoney() && club.getPlayers().size() < 5) {
 			removeMarketPlayer(athlete);
 			club.addPlayer(athlete);
-			game.minusMoney(athlete.buyPrice);
+			game.minusMoney(athlete.getBuyPrice());
 			result = "Bought";
 		}
-		else if (athlete.buyPrice > game.getMoney()){
+		else if (athlete.getBuyPrice() > game.getMoney()){
 			result = "You Dont Have Enough Money";
 		}
 		else {

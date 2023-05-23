@@ -21,17 +21,17 @@ import gui.TrainScreen;
 
 /**
  * 
- * @author Joel Bremner & Liam Ceelan-thomas
+ * @author Joel Bremner & Liam Ceelen-thomas
  * Game environment class responsible for managing the play through of the game
  */
 public class GameEnviroment {
-	public int money;
-	public String teamName;
-	public int difficulty = 2;
-	public int week = 1;
+	private int money;
+	private String teamName;
+	private int difficulty = 2;
+	private int week = 1;
 	public ArrayList<Team> oposition = new ArrayList<Team>();
 	public Inventory club;
-	public int seasonLength;
+	private int seasonLength;
 	public int[] winloss = new int[]{0,0,0};
 	public int randomness = (20 - (3*this.difficulty));
 	public MarketPlace market;
@@ -68,6 +68,10 @@ public class GameEnviroment {
 		this.difficulty = Integer.valueOf(value);
 	}
 	
+	public int getDifficulty() {
+		return this.difficulty;
+	}
+	
 	/**
 	 * Team Name setter
 	 * @param name - chosen teamname
@@ -91,6 +95,9 @@ public class GameEnviroment {
 		}
 	}
 	
+	/**
+	 * updates week and creates new opponents for next week
+	 */
 	public void updateWeek() {
 		if (moneyTransfer(club.getPlayerWages()*-1)) {
 			this.week += 1;
@@ -138,6 +145,22 @@ public class GameEnviroment {
 	
 	public int getMoney() {
 		return this.money;
+	}
+	
+	public void setMoney(int value) {
+		this.money = value;
+	}
+	
+	public String getName() {
+		return this.teamName;
+	}
+	
+	public int getWeek() {
+		return this.week;
+	}
+	
+	public int getSeasonLength() {
+		return this.seasonLength;
 	}
 	
 	public boolean checkString(String setupCheck) {
@@ -234,10 +257,8 @@ public class GameEnviroment {
 	        opisiton.addPlayer(random);
 	    }
 	    
-//	    String[] clubNameGenerator = new String[] {"Crusaders", "Blues", "Cheifs", "Hurricanes", "Highlanders", "Drua", "Pasifika", "Reds", "Warratahs", "Force", "Rebels", "Brumbies"};
-		
 	    int number = r.nextInt(GameEnviroment.teamNames.size());
-	    opisiton.teamName = GameEnviroment.teamNames.get(number);
+	    opisiton.setTeamName(GameEnviroment.teamNames.get(number));
 	    GameEnviroment.teamNames.remove(number);
 	    
 	    	
@@ -254,24 +275,24 @@ public class GameEnviroment {
 		
 	}
 	
-	public void closeHomeScreen(HomeScreen homeWindow, int tester) {
+	public void closeHomeScreen(HomeScreen homeWindow, int navigator) {
 		homeWindow.closeWindow();
-		if (tester == 1) {
+		if (navigator == 1) {
 			launchTrainScreen();
 		}
-		else if (tester == 2) {
+		else if (navigator == 2) {
 			launchInventoryScreen();
 		}
 		
-		else if (tester == 3){
+		else if (navigator == 3){
 			launchMarketPlaceScreen();
 		}
 		
-		else if (tester == 4){
+		else if (navigator == 4){
 			launchMarketPlaceScreen();
 		}
 		
-		else if (tester == 5){
+		else if (navigator == 5){
 			launchMatchScreen();
 		}
 	}
@@ -297,9 +318,9 @@ public class GameEnviroment {
 		InventoryScreen inventoryWindow = new InventoryScreen(this);
 	}
 	
-	public void closeInventoryScreen(InventoryScreen inventoryWindow, int holder) {
+	public void closeInventoryScreen(InventoryScreen inventoryWindow, int navigator) {
 		inventoryWindow.closeWindow();
-		if (holder == 1) {
+		if (navigator == 1) {
 			launchHomeScreen();
 		}
 		else{
@@ -436,13 +457,10 @@ public class GameEnviroment {
 	}
 	
 	private void launchMarketAthleteWindow(Athlete athlete) {
-		// TODO Auto-generated method stub
 		MarketAthleteScreen marketAthlete = new MarketAthleteScreen(this, athlete);
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		GameEnviroment manager = new GameEnviroment();
 		Inventory club = new Inventory(manager);
 		manager.club = club;
@@ -451,10 +469,6 @@ public class GameEnviroment {
 		MarketPlace market = new MarketPlace(manager, manager.club);
 		manager.market = market;
 		manager.launchSetupScreen();
-
-		
-		
-		
 	}
 
 }

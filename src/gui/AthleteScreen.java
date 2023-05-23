@@ -1,47 +1,32 @@
 package gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import rugby.Athlete;
 import rugby.GameEnviroment;
 
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-
-import java.awt.BorderLayout;
-
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import javax.swing.JRadioButton;
 
 public class AthleteScreen {
 	
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JLabel defenseLabel;
+	private JLabel fitnessLabel;
+	private JLabel paceLabel;
+	private JLabel tacklingLabel;
+	private JLabel offenseLabel;
+	private JLabel passingLabel;
+	private JLabel athleteName;
 	private Athlete athlete;
-	private JLabel lblNewLabel_1;
-	private final ButtonGroup statsTrain = new ButtonGroup();
 	private JTextField newNickName;
 
 	
@@ -66,19 +51,19 @@ public class AthleteScreen {
 		frame.setBounds(500, 300, 600, 500);
 		
 		
-		JButton btnNewButton = new JButton("Home");
-		btnNewButton.setBounds(237, 427, 99, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(237, 427, 99, 23);
+		homeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goHome();
 			}
 		});
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel(athlete.name, SwingConstants.CENTER);
-		lblNewLabel.setBounds(237, 24, 109, 46);
-		frame.getContentPane().add(lblNewLabel);
+		athleteName = new JLabel(athlete.getName(), SwingConstants.CENTER);
+		athleteName.setBounds(237, 24, 109, 46);
+		frame.getContentPane().add(athleteName);
 
 		DefaultListModel<Integer> athleteListModel = new DefaultListModel<Integer>();
 		athleteListModel.add(0, athlete.stats.get("Pace"));
@@ -89,62 +74,62 @@ public class AthleteScreen {
 		athleteListModel.add(5, athlete.stats.get("Fitness"));
 
 		
-		lblNewLabel = new JLabel(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
-		lblNewLabel.setBounds(312, 173, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		passingLabel = new JLabel(athlete.attributes[1] +  ": " + athlete.stats.get(athlete.attributes[1]));
+		passingLabel.setBounds(312, 173, 117, 23);
+		frame.getContentPane().add(passingLabel);
 		
-		lblNewLabel = new JLabel(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
-		lblNewLabel.setBounds(135, 222, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		offenseLabel = new JLabel(athlete.attributes[4] +  ": " + athlete.stats.get(athlete.attributes[4]));
+		offenseLabel.setBounds(135, 222, 117, 23);
+		frame.getContentPane().add(offenseLabel);
 
 		
-		lblNewLabel = new JLabel(athlete.attributes[3] +  ": " + athlete.stats.get(athlete.attributes[3]));
-		lblNewLabel.setBounds(312, 222, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		tacklingLabel = new JLabel(athlete.attributes[3] +  ": " + athlete.stats.get(athlete.attributes[3]));
+		tacklingLabel.setBounds(312, 222, 117, 23);
+		frame.getContentPane().add(tacklingLabel);
 
-		lblNewLabel = new JLabel(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
-		lblNewLabel.setBounds(135, 266, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		paceLabel = new JLabel(athlete.attributes[0] +  ": " + athlete.stats.get(athlete.attributes[0]));
+		paceLabel.setBounds(135, 266, 117, 23);
+		frame.getContentPane().add(paceLabel);
 
-		lblNewLabel = new JLabel(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
-		lblNewLabel.setBounds(312, 266, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		fitnessLabel = new JLabel(athlete.attributes[5] +  ": " + athlete.stats.get(athlete.attributes[5]));
+		fitnessLabel.setBounds(312, 266, 117, 23);
+		frame.getContentPane().add(fitnessLabel);
 
-		lblNewLabel = new JLabel(athlete.attributes[2]+  ": " + athlete.stats.get(athlete.attributes[3]));
-		lblNewLabel.setBounds(135, 173, 117, 23);
-		frame.getContentPane().add(lblNewLabel);
+		defenseLabel = new JLabel(athlete.attributes[2]+  ": " + athlete.stats.get(athlete.attributes[3]));
+		defenseLabel.setBounds(135, 173, 117, 23);
+		frame.getContentPane().add(defenseLabel);
 
-		JLabel lblNewLabel_2 = new JLabel(String.valueOf(athlete.sellPrice), SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(70, 102, 67, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel sellPriceAmount = new JLabel(String.valueOf(athlete.getSellPrice()), SwingConstants.CENTER);
+		sellPriceAmount.setBounds(70, 102, 67, 14);
+		frame.getContentPane().add(sellPriceAmount);
 		
-		JLabel lblNewLabel_3 = new JLabel("Sell Price", SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(70, 77, 67, 14);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel sellPriceLabel = new JLabel("Sell Price", SwingConstants.CENTER);
+		sellPriceLabel.setBounds(70, 77, 67, 14);
+		frame.getContentPane().add(sellPriceLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel("Injured", SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(192, 77, 59, 14);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel injuredLabel = new JLabel("Injured", SwingConstants.CENTER);
+		injuredLabel.setBounds(192, 77, 59, 14);
+		frame.getContentPane().add(injuredLabel);
 		
-		JLabel lblNewLabel_5 = new JLabel(String.valueOf(athlete.injured), SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(192, 102, 59, 14);
-		frame.getContentPane().add(lblNewLabel_5);
+		JLabel injuredBool = new JLabel(String.valueOf(athlete.getInjury()), SwingConstants.CENTER);
+		injuredBool.setBounds(192, 102, 59, 14);
+		frame.getContentPane().add(injuredBool);
 		
-		JLabel lblNewLabel_6 = new JLabel("Wage", SwingConstants.CENTER);
-		lblNewLabel_6.setBounds(323, 77, 67, 14);
-		frame.getContentPane().add(lblNewLabel_6);
+		JLabel wageLabel = new JLabel("Wage", SwingConstants.CENTER);
+		wageLabel.setBounds(323, 77, 67, 14);
+		frame.getContentPane().add(wageLabel);
 		
-		JLabel lblNewLabel_7 = new JLabel("$" + String.valueOf(athlete.wage), SwingConstants.CENTER);
-		lblNewLabel_7.setBounds(323, 102, 67, 14);
-		frame.getContentPane().add(lblNewLabel_7);
+		JLabel wageAmount = new JLabel("$" + String.valueOf(athlete.getWage()), SwingConstants.CENTER);
+		wageAmount.setBounds(323, 102, 67, 14);
+		frame.getContentPane().add(wageAmount);
 		
-		JLabel lblNewLabel_8 = new JLabel("Position");
-		lblNewLabel_8.setBounds(468, 77, 59, 14);
-		frame.getContentPane().add(lblNewLabel_8);
+		JLabel positionLabel = new JLabel("Position");
+		positionLabel.setBounds(468, 77, 59, 14);
+		frame.getContentPane().add(positionLabel);
 		
-		JLabel lblNewLabel_9 = new JLabel(String.valueOf(athlete.position), SwingConstants.CENTER);
-		lblNewLabel_9.setBounds(468, 102, 59, 14);
-		frame.getContentPane().add(lblNewLabel_9);
+		JLabel positionEffect = new JLabel(String.valueOf(athlete.getPosition()), SwingConstants.CENTER);
+		positionEffect.setBounds(468, 102, 59, 14);
+		frame.getContentPane().add(positionEffect);
 		
 		newNickName = new JTextField();
 		newNickName.setBounds(153, 346, 117, 36);
@@ -169,9 +154,9 @@ public class AthleteScreen {
 		JButton sellAthlete = new JButton("Sell");
 		sellAthlete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.addMoney(athlete.sellPrice);
+				enviroment.addMoney(athlete.getSellPrice());
 				enviroment.club.removePlayer(athlete);
-				JOptionPane.showMessageDialog(frame, athlete.name + " sold for " + String.valueOf(athlete.sellPrice));
+				JOptionPane.showMessageDialog(frame, athlete.getName() + " sold for " + String.valueOf(athlete.getSellPrice()));
 				goHome();
 				
 			}

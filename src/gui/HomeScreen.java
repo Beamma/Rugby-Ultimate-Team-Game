@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,7 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import rugby.Athlete;
@@ -96,7 +94,7 @@ public class HomeScreen {
 			}
 		});
 		
-		JLabel homeLabel = new JLabel(enviroment.teamName + " Rugby Club", SwingConstants.CENTER);
+		JLabel homeLabel = new JLabel(enviroment.getName() + " Rugby Club", SwingConstants.CENTER);
 		homeLabel.setForeground(new Color(255, 255, 255));
 		homeLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		homeLabel.setBounds(10, 128, 564, 129);
@@ -105,7 +103,7 @@ public class HomeScreen {
 		goMatchButton.setBounds(157, 341, 122, 71);
 		frame.getContentPane().add(goMatchButton);
 		
-		JLabel moneyCountLabel = new JLabel("$" + String.valueOf(enviroment.money));
+		JLabel moneyCountLabel = new JLabel("$" + String.valueOf(enviroment.getMoney()));
 		moneyCountLabel.setBounds(528, 27, 46, 14);
 		frame.getContentPane().add(moneyCountLabel);
 		
@@ -114,7 +112,7 @@ public class HomeScreen {
 		byeLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		byeLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() > enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.getMoney()) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to wages");
 				}else {
 					enviroment.updateWeek();
@@ -136,7 +134,7 @@ public class HomeScreen {
 		byeLabel.setBounds(452, 341, 122, 71);
 		frame.getContentPane().add(byeLabel);
 		
-		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.week + " of " + enviroment.seasonLength));
+		JLabel weekCountLabel = new JLabel(String.valueOf(enviroment.getWeek() + " of " + enviroment.getSeasonLength()));
 		weekCountLabel.setBounds(10, 27, 46, 14);
 		frame.getContentPane().add(weekCountLabel);
 		

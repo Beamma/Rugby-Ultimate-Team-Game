@@ -1,8 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -10,50 +7,23 @@ import javax.swing.JOptionPane;
 
 import rugby.Athlete;
 import rugby.GameEnviroment;
-import rugby.Item;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
 
-import java.awt.BorderLayout;
-
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.FlowLayout;
+
 
 public class TrainScreen {
 	
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
 	private JLabel trainingLabel;
-	private Item item;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
-	private JLabel lblNewLabel_9;
-	private JLabel lblNewLabel_10;
-	private JLabel lblNewLabel_11;
-	private JLabel lblNewLabel_12;
-	private JLabel lblNewLabel_13;
 	private JButton trainButton;
-	private JList list;
+
 
 	
 	public TrainScreen(GameEnviroment enviroment){
@@ -107,10 +77,10 @@ public class TrainScreen {
 				if (trainedUser != null) {
 					trainedUser.trainAll();
 					trainedUser.updateRating();
-					JOptionPane.showMessageDialog(frame, trainedUser.name + " trained");
+					JOptionPane.showMessageDialog(frame, trainedUser.getName() + " trained");
 					goHome();
 				}else {
-					JOptionPane.showMessageDialog(frame,"please select a item");
+					JOptionPane.showMessageDialog(frame,"please select a plyaer");
 				}
 			}
 		});

@@ -1,9 +1,8 @@
 package rugby;
 
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  * 
@@ -122,10 +121,10 @@ public class Inventory {
 			return 0;
 		}
 		for (Athlete player : this.team.players) {
-			weeklyWage += player.wage;
+			weeklyWage += player.getWage();
 		}
 		for (Athlete player : this.players) {
-			weeklyWage += player.wage;
+			weeklyWage += player.getWage();
 		}
 		return weeklyWage;
 	}

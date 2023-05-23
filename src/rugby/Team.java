@@ -1,5 +1,5 @@
 package rugby;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Team {
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
-	public String teamName;
+	private String teamName;
 	
 	/**
 	 * 
@@ -23,6 +23,24 @@ public class Team {
 			this.players.add(athlete);
 			return true;
 		}
+	}
+	
+	/**
+	 * get team name 
+	 * @return - team name
+	 */
+	
+	public String getTeamName(){
+		return this.teamName;
+	}
+	
+	/**
+	 * get team name 
+	 * @return - void
+	 */
+	
+	public void setTeamName(String name){
+		this.teamName = name;
 	}
 	
 	/**
@@ -79,7 +97,7 @@ public class Team {
 	 */
 	public boolean checkReady() {
 		for (Athlete athlete: this.players) {
-			if (athlete.injured == true | athlete.stamina == 0) {
+			if (athlete.getInjury() == true | athlete.getStamina() == 0) {
 				return false;
 			}
 		}
@@ -98,7 +116,7 @@ public class Team {
 	public int teamRating(Team team) {
 		int overallRating = 0;
 		for (int i = 0; i < GameEnviroment.teamSize; i++) {
-			int a = team.players.get(i).rarity;
+			int a = team.players.get(i).getRating();
 			overallRating += a;
 		}
 		return overallRating/GameEnviroment.teamSize;

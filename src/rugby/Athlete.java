@@ -9,16 +9,16 @@ import java.util.HashMap;
  */
 public class Athlete {
 	
-	public String name;
-	public String nickName = name;
+	private String name;
+	private String nickName = name;
 	public HashMap<String, Integer> stats;
-	public int wage;
-	public int sellPrice;
-	public int buyPrice;
-	public int stamina = 100;
-	public boolean injured = false;
-	public String position;
-	public int rarity;
+	private int wage;
+	private int sellPrice;
+	private int buyPrice;
+	private int stamina = 100;
+	private boolean injured = false;
+	private String position;
+	private int rarity;
 	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	/**
@@ -139,11 +139,35 @@ public class Athlete {
 	}
 	
 	/**
+	 * Sell Price Getter
+	 * @return Sell Price
+	 */
+	public int getSellPrice() {
+		return this.sellPrice;
+	}
+	
+	/**
+	 * Injury  Getter
+	 * @return Injury
+	 */
+	public boolean getInjury() {
+		return this.injured;
+	}
+	
+	/**
 	 * Rating Getter
 	 * @return new rating of athlete
 	 */
 	public int getRating() {
 		return this.rarity;
+	}
+	
+	/**
+	 * Wage Getter
+	 * @return wage
+	 */
+	public int getWage() {
+		return this.wage;
 	}
 	
 	/**
@@ -154,4 +178,11 @@ public class Athlete {
 		return this.position;
 	}
 
+	/**
+	 * Stamina getter
+	 * @return stamina of athlete
+	 */
+	public int getStamina() {
+		return this.stamina;
+	}
 }

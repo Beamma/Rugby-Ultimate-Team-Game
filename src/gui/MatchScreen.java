@@ -1,8 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -10,10 +7,6 @@ import javax.swing.JOptionPane;
 import rugby.GameEnviroment;
 import rugby.Team;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -50,6 +43,7 @@ public class MatchScreen {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
@@ -73,12 +67,12 @@ public class MatchScreen {
 		gameTitle.setBounds(141, 101, 284, 30);
 		frame.getContentPane().add(gameTitle);
 		
-		JButton team1 = new JButton(enviroment.oposition.get(0).teamName + " rated: " + enviroment.oposition.get(0).teamRating(enviroment.oposition.get(0)));
+		JButton team1 = new JButton(enviroment.oposition.get(0).getTeamName() + " rated: " + enviroment.oposition.get(0).teamRating(enviroment.oposition.get(0)));
 		team1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team1.setBackground(new Color(192, 192, 192));
 		team1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() > enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.getMoney()) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(0));
@@ -89,12 +83,12 @@ public class MatchScreen {
 		team1.setBounds(141, 158, 284, 61);
 		frame.getContentPane().add(team1);
 		
-		JButton team2 = new JButton(enviroment.oposition.get(1).teamName + " rated: " + enviroment.oposition.get(1).teamRating(enviroment.oposition.get(1)));
+		JButton team2 = new JButton(enviroment.oposition.get(1).getTeamName() + " rated: " + enviroment.oposition.get(1).teamRating(enviroment.oposition.get(1)));
 		team2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team2.setBackground(new Color(192, 192, 192));
 		team2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() > enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.getMoney()) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(1));
@@ -105,12 +99,12 @@ public class MatchScreen {
 		team2.setBounds(141, 230, 284, 61);
 		frame.getContentPane().add(team2);
 		
-		JButton team3 = new JButton(enviroment.oposition.get(2).teamName + " rated: " + enviroment.oposition.get(2).teamRating(enviroment.oposition.get(2)));
+		JButton team3 = new JButton(enviroment.oposition.get(2).getTeamName() + " rated: " + enviroment.oposition.get(2).teamRating(enviroment.oposition.get(2)));
 		team3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		team3.setBackground(new Color(192, 192, 192));
 		team3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (enviroment.club.getPlayerWages() > enviroment.money) {
+				if (enviroment.club.getPlayerWages() > enviroment.getMoney()) {
 					JOptionPane.showMessageDialog(frame, "dont have enough money to pay next weeks wages");
 				}else {
 					goGame(enviroment.oposition.get(2));

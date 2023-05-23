@@ -1,8 +1,6 @@
 package rugby;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class ItemTest {
@@ -25,6 +23,24 @@ class ItemTest {
 		for (int p = 0; p < 6; p++) {
 			assertTrue(event1.stats.get(event1.attributes[p]) == constantevent1.stats.get(constantevent1.attributes[p]) + event2.stats.get(event2.attributes[p]));
 		}
+	}
+	
+	@Test
+	void getName() {
+		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getName() == "event");
+	}
+	
+	@Test
+	void getSellPrice() {
+		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getSellPrice() == 400);
+	}
+	
+	@Test
+	void getPrice() {
+		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getPrice() == 500);
 	}
 
 }

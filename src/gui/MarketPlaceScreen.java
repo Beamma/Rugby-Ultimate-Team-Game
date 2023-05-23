@@ -1,14 +1,10 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 
@@ -59,6 +55,7 @@ public class MarketPlaceScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
@@ -245,7 +242,7 @@ public class MarketPlaceScreen {
 //		buyItemButton.setBounds(358, 373, 173, 23);
 //		frame.getContentPane().add(buyItemButton);
 		
-		JLabel moneyLabel = new JLabel(String.valueOf(enviroment.money));
+		JLabel moneyLabel = new JLabel(String.valueOf(enviroment.getMoney()));
 		moneyLabel.setBounds(490, 43, 46, 14);
 		frame.getContentPane().add(moneyLabel);
 		

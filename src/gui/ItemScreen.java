@@ -1,8 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -12,35 +9,20 @@ import rugby.Athlete;
 import rugby.GameEnviroment;
 import rugby.Item;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.JScrollPane;
 
-import java.awt.BorderLayout;
-
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.FlowLayout;
 
 public class ItemScreen {
 	
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
 	private JLabel itemTitle;
 	private Item item;
-	private JLabel lblNewLabel_1;
 	private JLabel paceLabel;
 	private JLabel passingLabel;
 	private JLabel defenceLabel;
@@ -54,7 +36,6 @@ public class ItemScreen {
 	private JLabel offenseAmount;
 	private JLabel fitnessAmount;
 	private JButton useItemButton;
-	private JList list;
 	private JButton sellItem;
 	
 
@@ -174,9 +155,9 @@ public class ItemScreen {
 		frame.getContentPane().add(sellItem);
 		sellItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviroment.addMoney(item.sellPrice);
+				enviroment.addMoney(item.getSellPrice());
 				enviroment.club.removeItem(item);
-				JOptionPane.showMessageDialog(frame, item.item + " sold for " + String.valueOf(item.sellPrice));
+				JOptionPane.showMessageDialog(frame, item.getName() + " sold for " + String.valueOf(item.getSellPrice()));
 				goHome();
 			}
 		});

@@ -1,29 +1,24 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
+
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.DefaultListModel;
-import java.util.ArrayList;
-import javax.swing.BoxLayout;
-import javax.swing.border.TitledBorder;
+
 
 import rugby.Athlete;
 import rugby.GameEnviroment;
 import rugby.Item;
 
-import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
@@ -69,6 +64,7 @@ public class InventoryScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		
 		JButton viewTeam = new JButton("View team:");
@@ -143,9 +139,9 @@ public class InventoryScreen {
 			public void actionPerformed(ActionEvent e) {
 				Athlete athlete1 = athleteStats.getSelectedValue();
 				if (athlete1 != null) {
-					enviroment.addMoney(athlete1.sellPrice);
+					enviroment.addMoney(athlete1.getSellPrice());
 					enviroment.club.removePlayer(athlete1);
-					JOptionPane.showMessageDialog(frame, athlete1.name + " sold for " + String.valueOf(athlete1.sellPrice));
+					JOptionPane.showMessageDialog(frame, athlete1.getName() + " sold for " + String.valueOf(athlete1.getSellPrice()));
 					refreshWindow();
 				}else {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
@@ -160,9 +156,9 @@ public class InventoryScreen {
 			public void actionPerformed(ActionEvent e) {
 				Item item1 = ownedItems.getSelectedValue();
 				if (item1 != null) {
-					enviroment.addMoney(item1.sellPrice);
+					enviroment.addMoney(item1.getSellPrice());
 					enviroment.club.removeItem(item1);
-					JOptionPane.showMessageDialog(frame, item1.item + " sold for " + String.valueOf(item1.sellPrice));
+					JOptionPane.showMessageDialog(frame, item1.getName() + " sold for " + String.valueOf(item1.getSellPrice()));
 					refreshWindow();
 				}else {
 					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
@@ -176,7 +172,11 @@ public class InventoryScreen {
 		selectAthlete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Athlete viewAthlete = athleteStats.getSelectedValue();
-				goAthlete(viewAthlete);
+				if (viewAthlete != null) {
+					goAthlete(viewAthlete);
+				}else{
+					JOptionPane.showMessageDialog(frame,"Please select a athlete from list");
+				}
 			}
 		});
 		selectAthlete.setBounds(65, 418, 111, 23);

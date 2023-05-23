@@ -3,7 +3,6 @@ package rugby;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TeamTest {
@@ -27,7 +26,7 @@ class TeamTest {
 	public void reduceStamina() {
 		club.team.reduceStamina();
 		for (int i = 0; i < 7; i++) {
-			assertTrue(club.team.players.get(i).stamina < 100);
+			assertTrue(club.team.players.get(i).getStamina() < 100);
 		}
 	}
 	
@@ -36,7 +35,7 @@ class TeamTest {
 		club.team.reduceStamina();
 		club.team.maxStamina();
 		for (int i = 0; i < 7; i++) {
-			assertTrue(club.team.players.get(0).stamina == 100);
+			assertTrue(club.team.players.get(0).getStamina() == 100);
 		}
 	}
 	
@@ -49,6 +48,18 @@ class TeamTest {
 	@Test
 	public void teamRating() {
 		assertTrue(club.team.teamRating(club.team) == 10);	
+	}
+	
+	@Test
+	public void getTeamName() {
+		club.team.setTeamName("test");
+		assertTrue(club.team.getTeamName() == "test");
+	}
+	
+	@Test
+	public void setTeamName() {
+		club.team.setTeamName("test");
+		assertTrue(club.team.getTeamName() == "test");	
 	}
 
 }

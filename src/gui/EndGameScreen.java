@@ -1,14 +1,8 @@
 package gui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import rugby.GameEnviroment;
@@ -31,10 +25,11 @@ public class EndGameScreen {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel seasonOverLabel = new JLabel(enviroment.teamName + " seasons over");
+		JLabel seasonOverLabel = new JLabel(enviroment.getName() + " seasons over");
 		seasonOverLabel.setBounds(230, 99, 104, 51);
 		frame.getContentPane().add(seasonOverLabel);
 		
@@ -70,11 +65,11 @@ public class EndGameScreen {
 		byeAmountLabel.setBounds(387, 211, 46, 14);
 		frame.getContentPane().add(byeAmountLabel);
 		
-		JLabel byeLabel = new JLabel(String.valueOf( enviroment.seasonLength - (enviroment.winloss[2] + enviroment.winloss[1] + enviroment.winloss[0])));
+		JLabel byeLabel = new JLabel(String.valueOf( enviroment.getSeasonLength() - (enviroment.winloss[2] + enviroment.winloss[1] + enviroment.winloss[0])));
 		byeLabel.setBounds(387, 236, 46, 14);
 		frame.getContentPane().add(byeLabel);
 		
-		JLabel amountOfGames = new JLabel("out of " + enviroment.seasonLength + " games.", SwingConstants.CENTER);
+		JLabel amountOfGames = new JLabel("out of " + enviroment.getSeasonLength() + " games.", SwingConstants.CENTER);
 		amountOfGames.setBounds(193, 286, 183, 14);
 		frame.getContentPane().add(amountOfGames);
 

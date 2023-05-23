@@ -1,8 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -13,22 +10,18 @@ import rugby.GameEnviroment;
 import rugby.RandomEvent;
 import rugby.Team;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
 
-import java.awt.BorderLayout;
 
-import javax.swing.BoxLayout;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
+
 import java.awt.Color;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
 import javax.swing.border.MatteBorder;
 
@@ -37,9 +30,7 @@ public class GameScreen {
 
 	private JFrame frame;
 	private GameEnviroment enviroment;
-	private JTextField random;
-	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JLabel versusLabel;
 	private Team opposition;
 	private GameScreen gameScreen = this;
 	
@@ -69,6 +60,7 @@ public class GameScreen {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(500, 300, 600, 500);
 		
 		
@@ -84,11 +76,11 @@ public class GameScreen {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(homeButton);
 
-		lblNewLabel = new JLabel("Versus");
-		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(204, 64, 175, 46);
-		frame.getContentPane().add(lblNewLabel);
+		versusLabel = new JLabel("Versus");
+		versusLabel.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		versusLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		versusLabel.setBounds(204, 64, 175, 46);
+		frame.getContentPane().add(versusLabel);
 		
 		
 		
@@ -112,19 +104,19 @@ public class GameScreen {
 				enviroment.club.team.reduceStamina();
 				if (gameResult > 0) {
 					enviroment.updateWeek();
-					enviroment.addMoney(10000 * (4-enviroment.difficulty));
+					enviroment.addMoney(10000 * (4-enviroment.getDifficulty()));
 					enviroment.winloss[0] += 1;
 					JOptionPane.showMessageDialog(frame, "Won by " + gameResult);
 					goTeam();
 				}else if (gameResult < 0) {
 					enviroment.updateWeek();
-					enviroment.addMoney(2500 * (4-enviroment.difficulty));
+					enviroment.addMoney(2500 * (4-enviroment.getDifficulty()));
 					enviroment.winloss[2] += 1;
 					JOptionPane.showMessageDialog(frame, "Lost by " + gameResult);
 					goTeam();
 				}else if (gameResult == 0){
 					enviroment.updateWeek();
-					enviroment.addMoney(5000* (4-enviroment.difficulty));
+					enviroment.addMoney(5000* (4-enviroment.getDifficulty()));
 					enviroment.winloss[1] += 1;
 					JOptionPane.showMessageDialog(frame, "Drew");
 					goTeam();
@@ -161,13 +153,13 @@ public class GameScreen {
 		list2.setModel(opposition);
 		frame.getContentPane().add(list2);
 		
-		JLabel teamLabel = new JLabel(enviroment.teamName);
+		JLabel teamLabel = new JLabel(enviroment.getName());
 		teamLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		teamLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		teamLabel.setBounds(30, 71, 175, 29);
 		frame.getContentPane().add(teamLabel);
 		
-		JLabel oppositionLabel = new JLabel(this.opposition.teamName);
+		JLabel oppositionLabel = new JLabel(this.opposition.getTeamName());
 		oppositionLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		oppositionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		oppositionLabel.setBounds(378, 71, 175, 29);

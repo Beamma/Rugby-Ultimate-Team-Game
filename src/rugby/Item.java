@@ -9,10 +9,10 @@ import java.util.HashMap;
  */
 public class Item {
 	
-	public String item;
+	private String item;
 	public HashMap<String, Integer> stats;
-	public int price;
-	public int sellPrice;
+	private int price;
+	private int sellPrice;
 	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	/**
@@ -50,6 +50,14 @@ public class Item {
 	 */
 	public int getPrice() {
 		return this.price;
+	}
+	
+	/**
+	 * Sell price Getter
+	 * @return - price of item
+	 */
+	public int getSellPrice() {
+		return this.sellPrice;
 	}
 	
 	/**

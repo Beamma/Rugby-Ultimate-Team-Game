@@ -1,8 +1,6 @@
 package rugby;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -63,7 +61,7 @@ class InventoryTest {
 		Athlete event = GameEnviroment.generatePlayer(2);
 		for (int i = 0; i < 12; i++ ) {
 			club.addPlayer(event);
-			wage += event.wage;
+			wage += event.getWage();
 		}
 		
 		assertTrue(wage == club.getPlayerWages());

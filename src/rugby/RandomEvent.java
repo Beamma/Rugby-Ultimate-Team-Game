@@ -2,7 +2,6 @@ package rugby;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;  
 
 public class RandomEvent {
 	public int event = 0;
@@ -25,26 +24,9 @@ public class RandomEvent {
 	}
 	
 	public static int newPlayer(Inventory inventory){
-		Athlete newPlayer = GameEnviroment.generatePlayer(gameEnviroment.difficulty);
+		Athlete newPlayer = GameEnviroment.generatePlayer(gameEnviroment.getDifficulty());
 		inventory.addPlayer(newPlayer);
-		//System.out.println("add");
 		return 1;
-
-//		if (inventory.players.size() < 16) {
-//			inventory.players.add(newPlayer);
-//			System.out.println("add");
-//		}else {
-//			System.out.println("your team is full if u wish swap out a player, enter number of player. if not enter 0");
-//			inventory.displayAthletes();
-//			Scanner input = new Scanner(System.in);
-//			String  userName = input.nextLine();
-//			int holder2 = Integer.parseInt(userName);
-//			if (holder2 != 0) {
-//				Athlete swap = inventory.players.get(holder2-1);
-//				inventory.removePlayer(swap);
-//				inventory.addPlayer(newPlayer);
-//			}
-//		}
 	}
 	
 	public static int playerLeaves(Inventory inventory){
@@ -64,7 +46,7 @@ public class RandomEvent {
 	
 	public static int playerInjured(Inventory inventory){
 		Athlete injur = getRandomPlayer(inventory);
-		injur.injured = true;
+		injur.injury();
 		return 0;
 	}
 	
