@@ -24,7 +24,7 @@ class GameEnviromentTest {
 	@Test
 	public void setdifficulty() {
 		// checking if set difficulty works
-		manager.setdifficulty("1");
+		manager.setDifficulty("1");
 		assertTrue(manager.getDifficulty() == 1);
 	}
 	

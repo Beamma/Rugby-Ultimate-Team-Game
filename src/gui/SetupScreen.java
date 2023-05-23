@@ -63,7 +63,7 @@ public class SetupScreen {
 	                JOptionPane.showMessageDialog(frmSetup, "Please enter a valid team name");
 				}else {
 					enviroment.setName(teamName.getText());
-					enviroment.setdifficulty(difficulty.getSelection().getActionCommand());
+					enviroment.setDifficulty(difficulty.getSelection().getActionCommand());
 					enviroment.setSeasonLength(seasonLength.getValue());
 					enviroment.setStartMoney();
 					finishedWindow();

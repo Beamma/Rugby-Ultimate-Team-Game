@@ -64,7 +64,7 @@ public class GameEnviroment {
 	 * Sets difficulty of game
 	 * @param value - chosen difficulty
 	 */
-	public void setdifficulty(String value) {
+	public void setDifficulty(String value) {
 		this.difficulty = Integer.valueOf(value);
 	}
 	
