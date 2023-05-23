@@ -10,8 +10,13 @@ import java.util.ArrayList;
  * Inventory class that is in charge of athletes and items
  */
 public class Inventory {
-	
+	/**
+	 * players for sale
+	 */
 	public ArrayList<Athlete> players = new ArrayList<Athlete>();
+	/**
+	 * items for sale
+	 */
 	public ArrayList<Item> items = new ArrayList<Item>();
 	public Team team;
 	private GameEnviroment game;

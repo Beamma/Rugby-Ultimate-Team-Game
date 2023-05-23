@@ -11,6 +11,9 @@ public class Athlete {
 	
 	private String name;
 	private String nickName = name;
+	/**
+	 * Stats hashmap, maps the String of Stat to the Integer of value
+	 */
 	public HashMap<String, Integer> stats;
 	private int wage;
 	private int sellPrice;
@@ -19,6 +22,9 @@ public class Athlete {
 	private boolean injured = false;
 	private String position;
 	private int rarity;
+	/**
+	 * Stats of athlete
+	 */
 	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	/**
