@@ -37,7 +37,7 @@ public class Team {
 	
 	/**
 	 * get team name 
-	 * @return - void
+	 * @param name - name to set
 	 */
 	
 	public void setTeamName(String name){
