@@ -38,9 +38,7 @@ class RandomEventTest {
 		// checking it gets a player from the team
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
 		club.team.addPlayer(event);
-		assertTrue(RandomEvent.getRandomPlayer(club) == event);
-		
-				
+		assertTrue(RandomEvent.getRandomPlayer(club) == event);	
 	}
-
+	
 }

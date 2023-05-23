@@ -55,17 +55,14 @@ public class Inventory {
 	public void removePlayer(Athlete athlete) {
 		if (players.contains(athlete)) {
 			players.remove(athlete);
-			System.out.println("Reserve");
 		} 
 		else if (team.getAthletes().contains(athlete) && players.size() > 0){
 			team.removePlayer(athlete);
 			team.addPlayer(players.get(0));
 			players.remove(0);
-			System.out.println("Player, move reserve");
 		}
 		else {
 			team.removePlayer(athlete);
-			System.out.println("Player ");
 		}
 	}
 	

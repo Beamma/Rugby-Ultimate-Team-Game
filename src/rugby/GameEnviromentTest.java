@@ -78,4 +78,21 @@ class GameEnviromentTest {
 		assertFalse(manager.checkString(falseStringMix));
 	}
 	
+	
+	@Test
+	public void updateWeek() {
+		// checking if it updates week
+		Inventory club = new Inventory(manager);
+		Team team = new Team();
+		MarketPlace market = new MarketPlace(manager, club);
+		manager.club = club;
+		club.team = team;
+		manager.market = market;
+		manager.updateWeek();
+		assertTrue(manager.getWeek() == 2);
+
+	}
+
+	
+	
 }

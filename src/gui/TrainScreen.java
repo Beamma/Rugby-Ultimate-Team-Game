@@ -66,7 +66,7 @@ public class TrainScreen {
 		reserveModelList.addAll(enviroment.getTeam());
 		
 		JList<Athlete> reserveList = new JList<Athlete>();
-		reserveList.setBounds(164, 132, 233, 204);
+		reserveList.setBounds(164, 81, 233, 255);
 		frame.getContentPane().add(reserveList);
 		reserveList.setModel(reserveModelList);
 		

@@ -78,7 +78,7 @@ public final class AthleteTest {
 	public void getSellPrice() {
 		// sell price test
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
-		assertTrue(event.getBuyPrice() == 10);
+		assertTrue(event.getSellPrice() == 10);
 	}	
 	@Test
 	public void getInjury() {
@@ -91,14 +91,14 @@ public final class AthleteTest {
 	public void getRating() {
 		// rating test
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
-		assertFalse(event.getRating() == 10);
+		assertTrue(event.getRating() == 10);
 	}	
 	
 	@Test
 	public void getPosition() {
 		// position test
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
-		assertFalse(event.getPosition() == "cb");
+		assertTrue(event.getPosition() == "cb");
 	}	
 	
 	
@@ -106,9 +106,48 @@ public final class AthleteTest {
 	public void getStamina() {
 		// stamina test
 		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
-		assertFalse(event.getStamina() == 100);
+		assertTrue(event.getStamina() == 100);
 	}	
 	
+	@Test
+	public void getWage() {
+		// wage test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getWage() == 10);
+	}	
 	
+	@Test
+	public void getName() {
+		// name test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		assertTrue(event.getName() == "tim");
+	}	
+	
+	@Test
+	public void reduceStamina() {
+		// stamina test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		event.reduceStamina();
+		assertTrue(event.getStamina() == 10);
+	}	
+	
+	@Test
+	public void injury() {
+		// injury test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		event.injury();
+		assertTrue(event.getInjury());
+	}	
+	
+	@Test
+	public void changeValue() {
+		// change value test
+		Athlete event = new Athlete("tim", 10, 10, 10, false, "cb", 10, new int[]{10, 10, 10, 10, 10, 10});
+		event.changeValue(30);
+		assertTrue(event.getSellPrice() == 30);
+	}	
+
+
+
 
 }

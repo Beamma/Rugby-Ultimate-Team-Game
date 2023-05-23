@@ -17,6 +17,7 @@ class MarketPlaceTest {
 		manager = new GameEnviroment();
 		club = new Inventory(manager);
 		market = new MarketPlace(manager, club);
+		manager.market = market;
 	}
 	
 	@Test
@@ -53,5 +54,48 @@ class MarketPlaceTest {
 		
 		assertFalse(market.itemsForSale.contains(event));
 	}
+	
+	@Test
+	void returnPlayer() {
+		// checking return a player
+		Athlete event = GameEnviroment.generatePlayer(2);
+		market.playersForSale.clear();
+		market.playersForSale.add(event);
+		assertTrue(market.returnPlayer(0) == event);
+	}
+	
+	@Test
+	void returnItem() {
+		// checking return a item
+		Item event = GameEnviroment.generateItem();
+		market.itemsForSale.clear();
+		market.itemsForSale.add(event);
+		assertTrue(market.returnItem(0) == event);
+	}
+	@Test
+	void buyItem() {
+		// checking buy a item
+		Item event = GameEnviroment.generateItem();
+		market.itemsForSale.clear();
+		market.itemsForSale.add(event);
+		market.buyItem(0);
+		assertTrue(market.buyItem(0) == "You Dont Have Enough Money");
+	}
+	
+	@Test
+	void buyPlayer() {
+		// checking buy player
+		Athlete event = GameEnviroment.generatePlayer(2);
+		market.playersForSale.clear();
+		market.playersForSale.add(event);
+		market.buyAthlete(0);
+		assertTrue(market.buyAthlete(0) == "You Dont Have Enough Money");
+	}
+	
 
+	
+	
+		
+	
+	
 }

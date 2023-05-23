@@ -27,18 +27,21 @@ class ItemTest {
 	
 	@Test
 	void getName() {
+		//get name test
 		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
 		assertTrue(event.getName() == "event");
 	}
 	
 	@Test
 	void getSellPrice() {
+		//get sell price test
 		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
 		assertTrue(event.getSellPrice() == 400);
 	}
 	
 	@Test
 	void getPrice() {
+		//get price test
 		Item event = new Item("event", 500, new int[]{10, 10, 10, 10, 10, 10});
 		assertTrue(event.getPrice() == 500);
 	}

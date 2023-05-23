@@ -1,6 +1,9 @@
 package rugby;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -67,6 +70,64 @@ class InventoryTest {
 		assertTrue(wage == club.getPlayerWages());
 		
 	}
+	
+	@Test
+	void addItem() {
+		
+		// added item
+		Item event = GameEnviroment.generateItem();
+		club.addItem(event);
+		
+		assertTrue(club.items.contains(event));
+		
+	}
+	
+	@Test
+	void removeItem() {
+		
+		// remove item
+		Item event = GameEnviroment.generateItem();
+		club.addItem(event);
+		club.removeItem(event);
+		
+		assertFalse(club.items.contains(event));
+		
+	}
+	
+	@Test
+	void getPlayers() {
+		
+		// get players
+		Athlete event = GameEnviroment.generatePlayer(2);
+		club.addPlayer(event);
+		ArrayList<Athlete> players = club.getPlayers();
+		assertTrue(players.contains(event));
+		
+	}
+	
+	@Test
+	void getItems() {
+		
+		// get item
+		Item event = GameEnviroment.generateItem();
+		club.addItem(event);
+		ArrayList<Item> players = club.getItems();
+		assertTrue(players.contains(event));
+		
+	}
+	
+	@Test
+	void boostStamina() {
+		
+		// boost stamina
+		Athlete event = GameEnviroment.generatePlayer(2);
+		event.reduceStamina();
+		club.addPlayer(event);
+		club.boostStamina();
+		assertTrue(event.getStamina() == 100);
+		
+	}
+
 
 
 }
