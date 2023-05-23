@@ -54,7 +54,7 @@ public class GameEnviroment {
 	
 	/**
 	 * Sets season length
-	 * @param value - chosen season length
+	 * @param value int chosen season length
 	 */
 	public void setSeasonLength(int value) {
 		this.seasonLength = value;
@@ -62,7 +62,7 @@ public class GameEnviroment {
 	
 	/**
 	 * Sets difficulty of game
-	 * @param value - chosen difficulty
+	 * @param value int chosen difficulty
 	 */
 	public void setDifficulty(String value) {
 		this.difficulty = Integer.valueOf(value);
@@ -74,7 +74,7 @@ public class GameEnviroment {
 	
 	/**
 	 * Team Name setter
-	 * @param name - chosen teamname
+	 * @param name String chosen teamname
 	 */
 	public void setName(String name){
 		this.teamName = name;
@@ -112,20 +112,36 @@ public class GameEnviroment {
 		}
 	}		
 	
+	/**
+	 * Gets all the players in the Team
+	 * @return ArrayList<Athlete>
+	 */
 	public ArrayList<Athlete> getTeam(){
 		return(this.club.team.getAthletes());
 	}
 	
+	/**
+	 * Calls teamRating
+	 * @param team Team
+	 * @return int Team rating
+	 */
 	public int getTeamRating(Team team){
 		return(this.club.team.teamRating(team));
 	}
 	
-	
+	/**
+	 * Adds player to your team
+	 * @param athlete Athlete
+	 */
 	public void addPlayerTeam(Athlete athlete){
 		this.club.team.addPlayer(athlete);
 		}
 	
-	
+	/**
+	 * Transfers money in and out of money variable
+	 * @param amount int
+	 * @return boolean Successful or not
+	 */
 	public boolean moneyTransfer(int amount){
 		if ((this.money += amount) < 0) {
 			this.money -= amount;
@@ -135,34 +151,67 @@ public class GameEnviroment {
 		}
 	}
 	
+	/**
+	 * Takes money out of money variable
+	 * @param amount int amount of money
+	 */
 	public void minusMoney(int amount){
 		this.money -= amount;
 	} 
 	
+	/**
+	 * Adds money to money variable
+	 * @param amount int amount of money
+	 */
 	public void addMoney(int amount){
 		this.money += amount;
 	}
 	
+	/**
+	 * Money getter
+	 * @return int Amount of money
+	 */
 	public int getMoney() {
 		return this.money;
 	}
 	
+	/**
+	 * Money setter
+	 * @param value int amount of money
+	 */
 	public void setMoney(int value) {
 		this.money = value;
 	}
 	
+	/**
+	 * Name getter
+	 * @return String Team name
+	 */
 	public String getName() {
 		return this.teamName;
 	}
 	
+	/**
+	 * Week getter
+	 * @return int current week
+	 */
 	public int getWeek() {
 		return this.week;
 	}
 	
+	/**
+	 * Season length getter
+	 * @return int the length of the season
+	 */
 	public int getSeasonLength() {
 		return this.seasonLength;
 	}
 	
+	/**
+	 * Checks for valid team name input
+	 * @param setupCheck String team input
+	 * @return boolean if valid name or not
+	 */
 	public boolean checkString(String setupCheck) {
 		for (int i = 0; i < setupCheck.length(); i++) {
 			if((Character.isLetter(setupCheck.charAt(i)) == false)){
@@ -172,12 +221,25 @@ public class GameEnviroment {
 		return true;
 	}
 	
+	/**
+	 * Gets the result of a match between two teams
+	 * @param team1 Team
+	 * @param team2 Team
+	 * @param club Inventory
+	 * @param gameScreen GameScreen
+	 * @return int the final score of the match
+	 */
 	public int getMatchResult(Team team1, Team team2, Inventory club, GameScreen gameScreen) {
 		int resultMatch = Match.matchResult(team1, team2, club, gameScreen);
 		
 		return resultMatch;
 	}
 	
+	/**
+	 * Randomly generates player based of difficulty
+	 * @param diffuculty int
+	 * @return Athlete randomly generated player
+	 */
 	public static Athlete generatePlayer(int diffuculty) {
 		int lowValue = 0;
 		int highValue = 0;
@@ -233,7 +295,10 @@ public class GameEnviroment {
 		return(new Athlete(name, wage, sellPrice, buyPrice, false, position, rarity, atributes));
 	}
 
-	
+	/**
+	 * Randomly generates an item
+	 * @return Item randomly generated item
+	 */
 	public static Item generateItem() {
 		
 		Item fitness = new Item("Fitness Train", 500, new int[]{10, 0, 0, 0, 0, 20});
@@ -248,7 +313,12 @@ public class GameEnviroment {
 
 	}
 	
-	
+	/**
+	 * Randomly generates Team
+	 * @param gameEnviroment GameEnviroment
+	 * @param diffuculty int
+	 * @return Team randomly generated team
+	 */
 	public Team generateTeam(GameEnviroment gameEnviroment, int diffuculty){
 		Random r = new Random();
 	    Team opisiton = new Team();

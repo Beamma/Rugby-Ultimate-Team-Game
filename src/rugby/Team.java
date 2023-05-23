@@ -13,10 +13,9 @@ public class Team {
 	
 	/**
 	 * 
-	 * @param athlete - athlete to add to team
-	 * @return - Successful or not
+	 * @param athlete Athlete to add to team
+	 * @return boolean Successful or not
 	 */
-	
 	public boolean addPlayer(Athlete athlete){
 		if (this.players.size() >= GameEnviroment.teamSize) {
 			return false;
@@ -28,27 +27,24 @@ public class Team {
 	
 	/**
 	 * get team name 
-	 * @return - team name
+	 * @return String team name
 	 */
-	
 	public String getTeamName(){
 		return this.teamName;
 	}
 	
 	/**
 	 * get team name 
-	 * @param name - name to set
+	 * @param name String name to set
 	 */
-	
 	public void setTeamName(String name){
 		this.teamName = name;
 	}
 	
 	/**
 	 * 
-	 * @param athlete - athlete to remove from team
+	 * @param athlete Athlete to remove from team
 	 */
-	
 	public void removePlayer(Athlete athlete) {
 		if (this.players.contains(athlete)) {
 			this.players.remove(athlete);
@@ -57,10 +53,9 @@ public class Team {
 	
 	/**
 	 * 
-	 * @param athlete1 - athlete to swap
-	 * @param athlete2 - athlete to swap
+	 * @param athlete1 Athlete to swap
+	 * @param athlete2 Athlete to swap
 	 */
-	
 	public void swapPlayer(Athlete athlete1, Athlete athlete2) {
 		this.removePlayer(athlete2);
 		this.addPlayer(athlete1);
@@ -68,7 +63,7 @@ public class Team {
 	
 	/**
 	 * 
-	 * @return - players in team
+	 * @return ArrayList<Athlete> players in team
 	 */
 	public ArrayList<Athlete> getAthletes(){
 		return this.players;
@@ -94,7 +89,7 @@ public class Team {
 	
 	/**
 	 * Check whether team is ready to play or not
-	 * @return whether team is ready to play or not
+	 * @return boolean whether team is ready to play or not
 	 */
 	public boolean checkReady() {
 		for (Athlete athlete: this.players) {
@@ -111,8 +106,8 @@ public class Team {
 
 	/**
 	 * Recalculate team ratings
-	 * @param team - Object team to calculate rating
-	 * @return new rating of team
+	 * @param team Team Object team to calculate rating
+	 * @return int new rating of team
 	 */
 	public int teamRating(Team team) {
 		int overallRating = 0;

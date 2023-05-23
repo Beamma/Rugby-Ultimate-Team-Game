@@ -22,17 +22,16 @@ public class Athlete {
 	public String[] attributes = new String[]{"Pace", "Passing", "Defence", "Tackling", "Offence", "Fitness"};
 	
 	/**
-	 * 
-	 * @param name
-	 * @param wage
-	 * @param sellPrice
-	 * @param buyPrice
-	 * @param injured
-	 * @param position
-	 * @param rarity
-	 * @param value
+	 * Constructor
+	 * @param name String
+	 * @param wage int
+	 * @param sellPrice int
+	 * @param buyPrice int
+	 * @param injured boolean
+	 * @param position String
+	 * @param rarity int
+	 * @param value int
 	 */
-	
 	public Athlete(String name, int wage, int sellPrice, int buyPrice, boolean injured, String position, int rarity, int[] value) {
 		this.name = name;
 		this.nickName = name;
@@ -60,7 +59,7 @@ public class Athlete {
 	
 	/**
 	 * Sets nickname for selected athlete
-	 * @param changeName - new nickname for athlete
+	 * @param changeName String new nickname for athlete
 	 */
 	public void changeNickName(String changeName){
 		this.nickName = changeName;
@@ -96,7 +95,7 @@ public class Athlete {
 	
 	/**
 	 * update sell price for athlete
-	 * @param changeValue - new value for sell price
+	 * @param changeValue int new value for sell price
 	 */
 	public void changeValue(int changeValue) {
 		this.sellPrice = changeValue;
@@ -124,7 +123,7 @@ public class Athlete {
 	
 	/**
 	 * Name Getter
-	 * @return - name
+	 * @return String name
 	 */
 	public String getName() {
 		return this.name;
@@ -132,7 +131,7 @@ public class Athlete {
 	
 	/**
 	 * Buy Price Getter
-	 * @return Buy Price
+	 * @return int Buy Price
 	 */
 	public int getBuyPrice() {
 		return this.buyPrice;
@@ -140,7 +139,7 @@ public class Athlete {
 	
 	/**
 	 * Sell Price Getter
-	 * @return Sell Price
+	 * @return int Sell Price
 	 */
 	public int getSellPrice() {
 		return this.sellPrice;
@@ -148,7 +147,7 @@ public class Athlete {
 	
 	/**
 	 * Injury  Getter
-	 * @return Injury
+	 * @return boolean Injury
 	 */
 	public boolean getInjury() {
 		return this.injured;
@@ -156,7 +155,7 @@ public class Athlete {
 	
 	/**
 	 * Rating Getter
-	 * @return new rating of athlete
+	 * @return int new rating of athlete
 	 */
 	public int getRating() {
 		return this.rarity;
@@ -164,7 +163,7 @@ public class Athlete {
 	
 	/**
 	 * Wage Getter
-	 * @return wage
+	 * @return int wage
 	 */
 	public int getWage() {
 		return this.wage;
@@ -172,7 +171,7 @@ public class Athlete {
 	
 	/**
 	 * Position getter
-	 * @return position of athlete
+	 * @return String position of athlete
 	 */
 	public String getPosition() {
 		return this.position;
@@ -180,7 +179,7 @@ public class Athlete {
 
 	/**
 	 * Stamina getter
-	 * @return stamina of athlete
+	 * @return int stamina of athlete
 	 */
 	public int getStamina() {
 		return this.stamina;

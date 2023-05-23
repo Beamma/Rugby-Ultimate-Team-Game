@@ -14,8 +14,8 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Constructor
-	 * @param game
-	 * @param club
+	 * @param game GameEnviroment
+	 * @param club Inventory
 	 */
 	public MarketPlace(GameEnviroment game, Inventory club) {
 		this.game = game;
@@ -32,8 +32,8 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Gets athlete from market
-	 * @param index - index of player in playersForSale
-	 * @return - Athlete at given index
+	 * @param index int index of player in playersForSale
+	 * @return Athlete at given index
 	 */
 	public Athlete returnPlayer(int index) {
 		return playersForSale.get(index);
@@ -41,8 +41,8 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Gets item from market
-	 * @param index - index of item in itemsForSale
-	 * @return - Item at given index
+	 * @param index int index of item in itemsForSale
+	 * @return Item at given index
 	 */
 	public Item returnItem(int index) {
 		return itemsForSale.get(index);
@@ -50,7 +50,7 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Removes athlete from market
-	 * @param athlete - athlete to be removed from market
+	 * @param athlete Athlete to be removed from market
 	 */
 	public void removeMarketPlayer(Athlete athlete) {
 		playersForSale.remove(athlete);
@@ -58,7 +58,7 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Removes item from market
-	 * @param item - item to be removed from market
+	 * @param item Item to be removed from market
 	 */
 	public void removeMarketItem(Item item) {
 		itemsForSale.remove(item);
@@ -78,7 +78,7 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Returns a string formatted array of all athlete on the market
-	 * @return - Returns a string formatted array of all athletes on the market
+	 * @return String[] Returns a string formatted array of all athletes on the market
 	 */
 	public String[] returnPlayerArray() { 
 		ArrayList<String> playerArrayList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Returns a string formatted array of all items on the market
-	 * @return Returns a string formatted array of all items on the market
+	 * @return String[] Returns a string formatted array of all items on the market
 	 */
 	public String[] returnItemArray() {
 		ArrayList<String> itemArrayList = new ArrayList<>();
@@ -108,8 +108,8 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Buys athlete from market and adds it to your inventory
-	 * @param index - index of athlete in playersForSale
-	 * @return - athlete at given index
+	 * @param index int index of athlete in playersForSale
+	 * @return String pruchase message
 	 */
 	public String buyAthlete(int index) {
 		String result = "";
@@ -131,8 +131,8 @@ public class MarketPlace extends GameEnviroment{
 	
 	/**
 	 * Buys item from market and adds it to your inventory
-	 * @param index - index of item in itemsForSale
-	 * @return - item at given index
+	 * @param index int index of item in itemsForSale
+	 * @return String pruchase message
 	 */
 	public String buyItem(int index) {
 		String result = "";

@@ -11,25 +11,13 @@ import gui.GameScreen;
  */
 public class Match {
 	
-
-	/**
-	 * Constructor
-	 * @param team1
-	 * @param team2
-	 * @param inventory
-	 * @param gameScreen
-	 * @return
-	 */
-	public static void main(String[] args) {
-	}
-	
 	/**
 	 * Returns match result between two teams
-	 * @param team1
-	 * @param team2
-	 * @param inventory
-	 * @param gameScreen
-	 * @return
+	 * @param team1 Team
+	 * @param team2 Team
+	 * @param inventory Inventory
+	 * @param gameScreen GameEnviroment
+	 * @return int match score
 	 */
 	public static int matchResult(Team team1, Team team2, Inventory inventory, GameScreen gameScreen) {
 		
@@ -69,11 +57,11 @@ public class Match {
 	
 	/**
 	 * Comapares stats of two athletes and returns a winner
-	 * @param athlete1
-	 * @param athlete2
-	 * @param flag
-	 * @param gameScreen
-	 * @return
+	 * @param athlete1 Athlete
+	 * @param athlete2 Athlete
+	 * @param flag boolean wether the team has position boost or not
+	 * @param gameScreen GameScreen
+	 * @return int result of 1v1 face off
 	 */
 	private int compareStats(Athlete athlete1, Athlete athlete2, boolean flag, GameScreen gameScreen) {
 		Collection<Integer> athlete1Stats = athlete1.stats.values();

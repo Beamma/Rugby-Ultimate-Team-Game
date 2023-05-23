@@ -18,7 +18,7 @@ public class Inventory {
 	
 	/**
 	 * Constructor
-	 * @param game
+	 * @param GameEnviroment game
 	 */
 	public Inventory(GameEnviroment game) {
 		this.game = game;
@@ -26,7 +26,7 @@ public class Inventory {
 	
 	/**
 	 * Returns all reserves
-	 * @return - array of reserves
+	 * @return ArrayList<Athletes> array of reserves
 	 */
 	public ArrayList<Athlete> getAllAthletes(){
 		return this.players;
@@ -34,7 +34,7 @@ public class Inventory {
 	
 	/**
 	 * Add athlete to inventory
-	 * @param athlete - athlete to add to inventory
+	 * @param athlete Athlete to add to inventory
 	 */
 	public void addPlayer(Athlete athlete) {
 		if (team.addPlayer(athlete)) {
@@ -45,7 +45,7 @@ public class Inventory {
 	
 	/**
 	 * Remove athlete from inventory
-	 * @param athlete - athlete to remove from inventory
+	 * @param athlete Athlete to remove from inventory
 	 */
 	public void removePlayer(Athlete athlete) {
 		if (players.contains(athlete)) {
@@ -66,7 +66,7 @@ public class Inventory {
 	
 	/**
 	 * Add item to inventory
-	 * @param item - item to add to inventory
+	 * @param item Item to add to inventory
 	 */
 	public void addItem(Item item) {
 		items.add(item);
@@ -74,7 +74,7 @@ public class Inventory {
 	
 	/**
 	 * Remove item from inventory
-	 * @param item - item to remove from inventory
+	 * @param item Item to remove from inventory
 	 */
 	public void removeItem(Item item) {
 		if (this.items.contains(item)) {
@@ -84,8 +84,8 @@ public class Inventory {
 	
 	/**
 	 * Swap a reserve player with a player in your team
-	 * @param athlete1
-	 * @param athlete2
+	 * @param athlete1 Athlete
+	 * @param athlete2 Athlete
 	 */
 	public void swapPlayer(Athlete athlete1, Athlete athlete2) {
 		this.addPlayer(athlete1);
@@ -96,7 +96,7 @@ public class Inventory {
 	
 	/**
 	 * Return arraylist of reserves
-	 * @return - Return arraylist of reserves
+	 * @return ArrayList<Athlete> Return arraylist of reserves
 	 */
 	public ArrayList<Athlete> getPlayers(){
 		return players;
@@ -104,7 +104,7 @@ public class Inventory {
 	
 	/**
 	 * return array list of items
-	 * @return - return array list of items
+	 * @return ArrayList<Item> return array list of items
 	 */
 	public ArrayList<Item> getItems(){
 		return this.items;
@@ -113,7 +113,7 @@ public class Inventory {
 
 	/**
 	 * Get weekly wages of all players in inventory
-	 * @return - Weekly wage
+	 * @return int Weekly wage
 	 */
 	public int getPlayerWages(){
 		int weeklyWage = 0;

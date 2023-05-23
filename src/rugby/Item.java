@@ -17,9 +17,9 @@ public class Item {
 	
 	/**
 	 * Constructor
-	 * @param item
-	 * @param price
-	 * @param value
+	 * @param item String
+	 * @param price int
+	 * @param value int
 	 */
 	public Item(String item, int price, int[] value) {
 		this.item = item;
@@ -34,8 +34,8 @@ public class Item {
 	
 	/**
 	 * Use item on selected athletes
-	 * @param athlete - athlete to use item on
-	 * @param item - to use on athlete
+	 * @param athlete Athlete to use item on
+	 * @param item Item to use on athlete
 	 */
 	public void useItem(Athlete athlete, Item item) {
 		for (int i = 0; i < 6; i++) {
@@ -46,7 +46,7 @@ public class Item {
 	
 	/**
 	 * Price Getter
-	 * @return - price of item
+	 * @return int price of item
 	 */
 	public int getPrice() {
 		return this.price;
@@ -54,7 +54,7 @@ public class Item {
 	
 	/**
 	 * Sell price Getter
-	 * @return - price of item
+	 * @return int price of item
 	 */
 	public int getSellPrice() {
 		return this.sellPrice;
@@ -62,7 +62,7 @@ public class Item {
 	
 	/**
 	 * Name Getter
-	 * @return - name of item
+	 * @return String name of item
 	 */
 	public String getName() {
 		return this.item;

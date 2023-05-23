@@ -14,9 +14,9 @@ public class RandomEvent {
 	
 	/**
 	 * Decides what random even to call, then returns the random event
-	 * @param randnomness
-	 * @param inventory
-	 * @return - returns an int based on the random event chosen
+	 * @param randnomness int
+	 * @param inventory Inventory
+	 * @return int returns an int based on the random event chosen
 	 */
 	public static int randomEvents(int randnomness, Inventory inventory) {
 		int joinChance = (5 - inventory.players.size());
@@ -36,8 +36,8 @@ public class RandomEvent {
 	
 	/**
 	 * Generates a new player
-	 * @param inventory
-	 * @return - Option selected
+	 * @param inventory Inventoru
+	 * @return int Option selected
 	 */
 	public static int newPlayer(Inventory inventory){
 		Athlete newPlayer = GameEnviroment.generatePlayer(gameEnviroment.getDifficulty());
@@ -47,8 +47,8 @@ public class RandomEvent {
 	
 	/**
 	 * Removes random player from your inventory
-	 * @param inventory
-	 * @return - option selected
+	 * @param inventory Inventory
+	 * @return int option selected
 	 */
 	public static int playerLeaves(Inventory inventory){
 		Athlete remove = getRandomPlayer(inventory);
@@ -58,8 +58,8 @@ public class RandomEvent {
 	
 	/**
 	 * Trains a random player
-	 * @param randnomness
-	 * @return - option selected
+	 * @param randnomness int
+	 * @return int option selected
 	 */
 	public static boolean playerTrained(int randnomness){
 		Random rand = new Random();  
@@ -72,8 +72,8 @@ public class RandomEvent {
 	
 	/**
 	 * Injures a random player from inventory
-	 * @param inventory
-	 * @return - option selected
+	 * @param inventory Inventory
+	 * @return int option selected
 	 */
 	public static int playerInjured(Inventory inventory){
 		Athlete injur = getRandomPlayer(inventory);
@@ -83,8 +83,8 @@ public class RandomEvent {
 	
 	/**
 	 * Returns random player from inventory
-	 * @param inventory
-	 * @return - Athlete randomly chosen
+	 * @param inventory Inventory
+	 * @return Athlete Athlete randomly chosen
 	 */
 	public static Athlete getRandomPlayer(Inventory inventory) {
 		ArrayList<Athlete> athletes = inventory.team.players;
